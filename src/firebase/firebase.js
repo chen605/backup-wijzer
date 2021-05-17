@@ -13,7 +13,11 @@ var config = {
   appId: process.env.REACT_APP_FIREBASE_APP_ID,
   measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
 };
-firebase.initializeApp(config);
+
+const firebaseApp = firebase.initializeApp(config);
 firebase.firestore().settings({ timestampsInSnapshots: true });
 
-export default firebase;
+const db = firebaseApp.firestore();
+const auth = firebase.auth();
+
+export { auth, db };
