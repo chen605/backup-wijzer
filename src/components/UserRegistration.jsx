@@ -120,7 +120,12 @@ const UserRegistration = () => {
 
         <label>Geboortedatum</label>
         <div>
-          <input type="date" name="birthDate" placeholder="dd/mm/yyyy" />
+          <input
+            type="date"
+            name="birthDate"
+            placeholder="dd/mm/yyyy"
+            onChange={handleChange}
+          />
         </div>
         <button type="submit">Submit</button>
       </form>
