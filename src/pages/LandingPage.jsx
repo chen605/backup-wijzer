@@ -4,6 +4,8 @@ import { auth } from "../firebase/firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { login, logout, selectUser, selectSignupState, signupstate } from "../features/userSlice";
 
+import backgroundImage from "../img/2329f-int0003.jpg";
+
 const LandingPage = () => {
   const history = useHistory();
   // const [signup, setSignup] = useState(true);
@@ -40,9 +42,17 @@ const LandingPage = () => {
 
   const signup = useSelector(selectSignupState);
   return (
-    <div>
+    <div
+      className="landingPage"
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+      }}
+    >
       {signup ? (
-        <form>
+        <form className="signUpForm">
           <h1>Sign In</h1>
           <input ref={emailRef} type="email" placeholder="Email" />
           <input ref={passwordRef} type="password" placeholder="Password" />
@@ -58,7 +68,7 @@ const LandingPage = () => {
           </h4>
         </form>
       ) : (
-        <form>
+        <form className="signInForm">
           <h1>Sign Up</h1>
           <input ref={emailRef} type="email" placeholder="Email" />
           <input ref={passwordRef} type="password" placeholder="Password" />
