@@ -1,4 +1,5 @@
 import React from 'react';
+import UserRegistration from '../components/UserRegistration';
 import useFetch from '../custom-hooks/useFetch';
 
 const Homepage = () => {
@@ -6,7 +7,7 @@ const Homepage = () => {
   console.log(CRM);
   return (
     <div>
-      <h1>HOME</h1>
+      <UserRegistration />
     </div>
   );
 };
