@@ -1,44 +1,47 @@
-import React, {useState, useEffect} from "react";
-import { Link } from 'react-router-dom'
-// import SignedInLinks from '../layout/SignedInLinks'
-// import SignedOutLinks from '../layout/SignedOutLinks'
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { selectUser } from "../../features/userSlice";
+import SignedInLinks from "./SignedInLinks";
+import SignedOutLinks from "./SignedOutLinks";
 
+import Logo from "../../logos/suofTQmg.png";
 
-const Navbar = (props) => {
-const [status, setStatus] = useState("top")
-
+const Navbar = () => {
+  const user = useSelector(selectUser);
+  const [status, setStatus] = useState("top");
   useEffect(() => {
-  document.addEventListener("scroll", (e) => {
-          const scrolled = document.scrollingElement.scrollTop;
-          if (scrolled > 20) {
-            if (status !== "transparent") {
-              setStatus("transparent");
-            }
-          } 
-          else {
-            if (status !== "top") {
-              setStatus("top");
-            }
+    document.addEventListener("scroll", (e) => {
+      const scrolled = document.scrollingElement.scrollTop;
+      if (scrolled > 20) {
+        if (status !== "transparent") {
+          setStatus("transparent");
         }
-      })
-    })
+      } else {
+        if (status !== "top") {
+          setStatus("top");
+        }
+      }
+    });
+  });
 
+  const links = user ? <SignedInLinks /> : <SignedOutLinks />;
 
-
-  const { auth, profile } = props;
-  const links = auth.uid ? <SignedInLinks profile={profile} auth={auth}/> : <SignedOutLinks />;
   return (
-    <nav className="navbar" style={{
-      backgroundColor:
-        status === "top" ? "transparent" : "black"
-    }}>
+    <nav
+      className="navbar"
+      style={{
+        backgroundColor: status === "top" ? "transparent" : "black",
+      }}
+    >
       <div className="navbar-container">
-        <Link to='/'>
-          </Link>
-          {links}
+        <Link to="/">
+          <img className="navbar-container__logo" src={Logo} alt="cupola logo" />
+        </Link>
+        {links}
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
