@@ -2,8 +2,8 @@ import React from 'react';
 import useFetch from '../custom-hooks/useFetch';
 
 const Homepage = () => {
-  const data = useFetch();
-  console.log(data);
+  const CRM = useFetch('/questions?domain=crm');
+  console.log(CRM);
   return (
     <div>
       <h1>HOME</h1>
