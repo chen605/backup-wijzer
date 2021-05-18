@@ -1,58 +1,44 @@
-import React, { useState, useEffect } from 'react';
-import "../../styles/navigation.css"
-import { MenuItems } from "./MenuItems";
-import { GiHamburgerMenu } from 'react-icons/gi';
-import { AiOutlineClose } from 'react-icons/ai';
-import { IconContext } from "react-icons";
-import Logo from "../../logos/2hDdVfsA.png"
-export default function Navigation() {
+import React, {useState, useEffect} from "react";
+import { Link } from 'react-router-dom'
+// import SignedInLinks from '../layout/SignedInLinks'
+// import SignedOutLinks from '../layout/SignedOutLinks'
 
-  const [clicked, setClicked] = useState(false);
-  const [status, setStatus] = useState("top")
+
+const Navbar = (props) => {
+const [status, setStatus] = useState("top")
 
   useEffect(() => {
-    document.addEventListener("scroll", (e) => {
-      const scrolled = document.scrollingElement.scrollTop;
-      if (scrolled > 20) {
-        if (status !== "transparent") {
-          setStatus("transparent");
+  document.addEventListener("scroll", (e) => {
+          const scrolled = document.scrollingElement.scrollTop;
+          if (scrolled > 20) {
+            if (status !== "transparent") {
+              setStatus("transparent");
+            }
+          } 
+          else {
+            if (status !== "top") {
+              setStatus("top");
+            }
         }
-      }
-      else {
-        if (status !== "top") {
-          setStatus("top");
-        }
-      }
+      })
     })
-  })
 
+
+
+  const { auth, profile } = props;
+  const links = auth.uid ? <SignedInLinks profile={profile} auth={auth}/> : <SignedOutLinks />;
   return (
-    <nav className="NavbarItems" style={{
+    <nav className="navbar" style={{
       backgroundColor:
-        status === "top" ? "transparent" : "#fdf2d0"
+        status === "top" ? "transparent" : "black"
     }}>
-      <div className="navbar-logo"><img src={Logo} alt="logo" width={182} height={64} /></div>
-      <IconContext.Provider
-        value={{ color: 'black', size: '20px' }}
-      >
-        <div className="menu-icon" onClick={() => setClicked((clicked) => !clicked)}>
-          {clicked ? <AiOutlineClose /> : <GiHamburgerMenu style={{
-            color:
-              "black"
-          }} />}
-        </div>
-      </IconContext.Provider>
-      <ul className={clicked ? 'nav-menu active' : 'nav-menu'}  >
-        {MenuItems.map((item, index) => {
-          return (
-            <li key={index} >
-              <a className={item.name} href={item.url}>
-                {item.title}
-              </a>
-            </li>
-          )
-        })}
-      </ul>
+      <div className="navbar-container">
+        <Link to='/'>
+          </Link>
+          Hallo
+      </div>
     </nav>
-  );
+  )
 }
+
+export default Navbar

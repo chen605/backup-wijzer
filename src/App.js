@@ -4,6 +4,7 @@ import LandingPage from './pages/LandingPage';
 import { useDispatch, useSelector } from 'react-redux';
 import { auth } from './firebase/firebase';
 import { login, logout, selectUser } from './features/userSlice';
+import Navbar from './components/Navbar/Navbar';
 
 const App = () => {
   const user = useSelector(selectUser);
@@ -33,7 +34,7 @@ const App = () => {
         <LandingPage />
       ) : (
         <>
-          {/* NAV */}
+          <Navbar/>
           <Switch>
             <Route exact path="/">
               {/* HOMEPAGE */}
