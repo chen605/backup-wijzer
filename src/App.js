@@ -5,6 +5,8 @@ import { auth } from './firebase/firebase';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, logout, selectUser } from './features/userSlice';
 import Navbar from './components/Navbar/Navbar';
+import Homepage from './pages/Homepage';
+
 
 const App = () => {
   const user = useSelector(selectUser);
@@ -38,7 +40,7 @@ const App = () => {
         <>
           <Switch>
             <Route exact path="/">
-              {/* HOMEPAGE */}
+              <Homepage />
             </Route>
           </Switch>
         </>
