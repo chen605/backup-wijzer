@@ -1,14 +1,17 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
-import { useDispatch, useSelector } from 'react-redux';
 import { auth } from './firebase/firebase';
+import { useDispatch, useSelector } from 'react-redux';
 import { login, logout, selectUser } from './features/userSlice';
+import Navbar from './components/Navbar/Navbar';
 import Homepage from './pages/Homepage';
+
 
 const App = () => {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
+  
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((userAuth) => {
@@ -30,20 +33,14 @@ const App = () => {
 
   return (
     <Router>
+      <Navbar/>
       {!user ? (
         <LandingPage />
       ) : (
         <>
-          {/* NAV */}
           <Switch>
             <Route exact path="/">
               <Homepage />
-              <button
-                onClick={() => auth.signOut()}
-                className="profileScreen__signOut"
-              >
-                Sign Out
-              </button>
             </Route>
           </Switch>
         </>
