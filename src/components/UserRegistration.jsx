@@ -6,10 +6,12 @@ const UserRegistration = () => {
     firstName: '',
     lastName: '',
     birthDate: '',
+    signUpDate: '',
     gender: '',
   });
 
-  const { firstName, lastName, birthDate, gender } = userCredentials;
+  const { firstName, lastName, birthDate, gender, signUpDate } =
+    userCredentials;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,18 +29,17 @@ const UserRegistration = () => {
           'Content-Type': 'application/json',
         },
       });
-      alert.success('Registratie succesvol!');
+      alert('Registratie succesvol!');
       setUserCredentials({
         firstName: '',
         lastName: '',
         birthDate: '',
         gender: '',
+        signUpDate: '',
       });
-    } catch (e) {
-      alert.error('Iets ging verkeerd. ' + e.response.data);
-    }
+    } catch (e) {}
   };
-
+  console.log(userCredentials);
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -114,7 +115,7 @@ const UserRegistration = () => {
               onChange={handleChange}
             />
             Other
-            <input type="text" />
+            {/* <input type="text" /> */}
           </label>
         </div>
 
@@ -123,6 +124,18 @@ const UserRegistration = () => {
           <input
             type="date"
             name="birthDate"
+            value={birthDate}
+            placeholder="dd/mm/yyyy"
+            onChange={handleChange}
+          />
+        </div>
+
+        <label>Signup Date</label>
+        <div>
+          <input
+            type="date"
+            name="signUpDate"
+            value={signUpDate}
             placeholder="dd/mm/yyyy"
             onChange={handleChange}
           />
