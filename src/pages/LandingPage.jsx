@@ -1,21 +1,21 @@
-import React, { useRef, useState } from 'react';
-import { useHistory } from 'react-router';
-import { auth } from '../firebase/firebase';
+import React, { useRef, useState } from "react";
+import { useHistory } from "react-router";
+import { auth } from "../firebase/firebase";
+import { useDispatch, useSelector } from "react-redux";
+import { login, logout, selectUser, selectSignupState, signupstate } from "../features/userSlice";
 
 const LandingPage = () => {
   const history = useHistory();
-  const [signup, setSignup] = useState(false);
+  // const [signup, setSignup] = useState(true);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
+  const dispatch = useDispatch();
 
   const register = (e) => {
     e.preventDefault();
 
     auth
-      .createUserWithEmailAndPassword(
-        emailRef.current.value,
-        passwordRef.current.value
-      )
+      .createUserWithEmailAndPassword(emailRef.current.value, passwordRef.current.value)
       .then((authUser) => {
         // console.log(authUser);
       })
@@ -28,21 +28,20 @@ const LandingPage = () => {
     e.preventDefault();
 
     auth
-      .signInWithEmailAndPassword(
-        emailRef.current.value,
-        passwordRef.current.value
-      )
+      .signInWithEmailAndPassword(emailRef.current.value, passwordRef.current.value)
       .then((authUser) => {
         // console.log(authUser);
-        history.push('/');
+        history.push("/");
       })
       .catch((error) => {
         alert(error.message);
       });
   };
+
+  const signup = useSelector(selectSignupState);
   return (
     <div>
-      {!signup ? (
+      {signup ? (
         <form>
           <h1>Sign In</h1>
           <input ref={emailRef} type="email" placeholder="Email" />
@@ -53,10 +52,7 @@ const LandingPage = () => {
 
           <h4>
             <span className="signupScreen__gray">Don't have an account? </span>
-            <span
-              className="signupScreen__link"
-              onClick={() => setSignup(!signup)}
-            >
+            <span className="signupScreen__link" onClick={() => dispatch(signupstate(!signup))}>
               Register now.
             </span>
           </h4>
@@ -71,13 +67,8 @@ const LandingPage = () => {
           </button>
 
           <h4>
-            <span className="signupScreen__gray">
-              Already have an account?{' '}
-            </span>
-            <span
-              className="signupScreen__link"
-              onClick={() => setSignup(!signup)}
-            >
+            <span className="signupScreen__gray">Already have an account? </span>
+            <span className="signupScreen__link" onClick={() => dispatch(signupstate(!signup))}>
               Login to an existing account.
             </span>
           </h4>

@@ -1,0 +1,27 @@
+.navbar {
+  border-bottom: solid $color-add-color-light 3px;
+  width: 100%;
+  .navbar-container {
+    @include flex(space-between, center, row);
+    background-color: $color-background;
+    padding: 1rem 1.5rem;
+    &__logo {
+      width: 15%;
+      min-width: 10rem;
+    }
+  }
+
+  .signedOutLinks, .signedInLinks {
+    font-size: 1.5rem;
+    &__button {
+      @include flex(center, center, row);
+      border: solid $color-add-color-dark 1px;
+      padding: 1rem 0.5rem;
+      width: 8rem;
+      cursor: pointer;
+      &:hover {
+        background-color: $color-add-color-dark;
+      }
+    }
+  }
+}
