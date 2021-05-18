@@ -4,6 +4,7 @@ import LandingPage from './pages/LandingPage';
 import { useDispatch, useSelector } from 'react-redux';
 import { auth } from './firebase/firebase';
 import { login, logout, selectUser } from './features/userSlice';
+import Homepage from './pages/Homepage';
 
 const App = () => {
   const user = useSelector(selectUser);
@@ -36,7 +37,7 @@ const App = () => {
           {/* NAV */}
           <Switch>
             <Route exact path="/">
-              {/* HOMEPAGE */}
+              <Homepage />
               <button
                 onClick={() => auth.signOut()}
                 className="profileScreen__signOut"
