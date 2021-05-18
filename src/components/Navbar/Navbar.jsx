@@ -35,7 +35,7 @@ const [status, setStatus] = useState("top")
       <div className="navbar-container">
         <Link to='/'>
           </Link>
-          Hallo
+          {links}
       </div>
     </nav>
   )
