@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { auth } from './firebase/firebase';
 import { login, logout, selectUser } from './features/userSlice';
 import Homepage from './pages/Homepage';
+import CompanyRegistration from './components/CompanyRegistration'
 
 const App = () => {
   const user = useSelector(selectUser);
@@ -44,8 +45,13 @@ const App = () => {
               >
                 Sign Out
               </button>
+              <CompanyRegistration />
+             
             </Route>
+           
+            
           </Switch>
+         
         </>
       )}
     </Router>
