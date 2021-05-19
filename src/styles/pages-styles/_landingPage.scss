@@ -1,0 +1,12 @@
+.landingPage {
+  width: 100%;
+  height: 90vh;
+  @include flex(center, center, column);
+  .signUpForm,
+  .signInForm {
+    @include flex(center, center, column);
+    background-color: $color-background;
+    border: solid $color-add-color-light 3px;
+    width: fit-content;
+  }
+}
