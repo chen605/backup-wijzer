@@ -1,0 +1,56 @@
+.user-registration {
+  background-color: $color-background;
+  font-family: 'CeraPro-Regular';
+  @include flex(center, center, column);
+
+  form {
+    width: 45%;
+    margin-top: 1%;
+    .user-registration__input {
+      border-radius: 10px;
+      border: 1px solid lightgrey;
+      background-color: $color-white;
+      width: 100%;
+
+      margin-bottom: 2%;
+      padding-bottom: 5%;
+      @include flex(center, flex-start, column);
+
+      input[type='text'] {
+        width: 50%;
+        margin-left: 5%;
+        border: none;
+        border-radius: 0;
+        border-bottom: 1px solid $gray;
+        &:focus {
+          outline: none;
+        }
+      }
+
+      input[type='date'] {
+        width: 20%;
+        margin-left: 5%;
+        border: none;
+        border-radius: 0;
+        border-bottom: 1px solid $gray;
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .user-registration__input__checkbox {
+        margin-left: 5%;
+        display: flex;
+        align-items: center;
+        font-size: $smaller;
+      }
+
+      .user-registration__input__title {
+        font-size: $small;
+        margin-left: 5%;
+        margin-bottom: 6%;
+        margin-top: 5%;
+      }
+    }
+  }
+}
