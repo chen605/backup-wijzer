@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { login, logout, selectUser } from './features/userSlice';
 import Navbar from './components/Navbar/Navbar';
 import Homepage from './pages/Homepage';
+import CompanyRegistration from './components/CompanyRegistration'
 
 
 const App = () => {
@@ -41,8 +42,12 @@ const App = () => {
           <Switch>
             <Route exact path="/">
               <Homepage />
+
+              <CompanyRegistration />
             </Route>
-          </Switch>
+  
+           </Switch>
+         
         </>
       )}
     </Router>
