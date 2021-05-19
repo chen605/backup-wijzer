@@ -1,3 +1,11 @@
+@font-face {
+	font-family: "CeraPro-Bold";
+	src: local("CeraPro-Bold"), url(../fonts/CeraPro-Bold.ttf) format("truetype");
+}
+@font-face {
+	font-family: "CeraPro-Regular";
+	src: local("CeraPro-Regular"), url(../fonts/CeraPro-Regular.ttf) format("truetype");
+}
 * {
   margin: 0;
   padding: 0;
