@@ -61,21 +61,22 @@ const CompanyRegistration = () => {
   };
 
   return (
-    <div>
+    <div className="company-registration">
       <form onSubmit={handleSubmit}>
-        <label>Bedrijfsnaam</label>
-        <div>
-          <input
-            type="text"
-            name="companyName"
-            value={companyName}
-            onChange={handleChange}
-            placeholder="Your answer"
-          />
+  
+        <div className="company-registration__input">
+          <label className="company-registration__input__title">Bedrijfsnaam</label>
+            <input
+              type="text"
+              name="companyName"
+              value={companyName}
+              onChange={handleChange}
+              placeholder="Your answer"
+            />
         </div>
 
-        <label>Kvk-nummer</label>
-        <div>
+        <div className="company-registration__input">
+        <label className="company-registration__input__title">Kvk-nummer</label>
           <input
             type="text"
             name="kvkNumber"
@@ -85,9 +86,9 @@ const CompanyRegistration = () => {
           />
         </div>
 
-        <label>Adres</label>
-        <div>
-          <input
+        <div className="company-registration__input">
+        <label className="company-registration__input__title">Adres</label>
+          <input 
             type="text"
             name="address"
             value={address}
@@ -96,8 +97,8 @@ const CompanyRegistration = () => {
           />
         </div>
 
-        <label>Postcode</label>
-        <div>
+        <div className="company-registration__input">
+        <label className="company-registration__input__title">Postcode</label>
           <input
             type="text"
             name="zipCode"
@@ -107,8 +108,8 @@ const CompanyRegistration = () => {
           />
         </div>
 
-        <label>Plaats</label>
-        <div>
+        <div className="company-registration__input">
+        <label className="company-registration__input__title">Plaats</label>
           <input
             type="text"
             name="city"
@@ -118,9 +119,10 @@ const CompanyRegistration = () => {
           />
         </div>
 
-        <label>In welke bedrijfssector is uw bedrijf voornamelijk actief?</label>
-        <div>
-          <label>
+        {/* multiple radio buttons */}
+        <div className="company-registration__input">
+        <label className="company-registration__input__title">In welke bedrijfssector is uw bedrijf voornamelijk actief?</label>
+          <label className="company-registration__input__checkbox">
             <input
               name="sector"
               type="radio"
@@ -130,10 +132,8 @@ const CompanyRegistration = () => {
             />
             Landbouw, bosbouw en visserij
           </label>
-        </div>
-
-        <div>
-          <label>
+        
+          <label className="company-registration__input__checkbox">
             <input
               name="sector"
               type="radio"
@@ -143,10 +143,8 @@ const CompanyRegistration = () => {
             />
             Winning of productie delfstoffen, water, elektriciteit of aardgas
           </label>
-        </div>
-
-        <div>
-          <label>
+      
+          <label className="company-registration__input__checkbox">
             <input
               name="sector"
               type="radio"
@@ -156,10 +154,8 @@ const CompanyRegistration = () => {
             />
             Industrie (productiebedrijf)
           </label>
-        </div>
 
-        <div>
-          <label>
+          <label className="company-registration__input__checkbox">
             <input
               name="sector"
               type="radio"
@@ -169,10 +165,8 @@ const CompanyRegistration = () => {
             />
             Bouw
           </label>
-        </div>
 
-        <div>
-          <label>
+          <label className="company-registration__input__checkbox">
             <input
               name="sector"
               type="radio"
@@ -182,10 +176,8 @@ const CompanyRegistration = () => {
             />
             Detailhandel, groothandel en reparatie van auto's
           </label>
-        </div>
-
-        <div>
-          <label>
+        
+          <label className="company-registration__input__checkbox">
             <input
               name="sector"
               type="radio"
@@ -195,10 +187,8 @@ const CompanyRegistration = () => {
             />
             Vervoer en opslag
           </label>
-        </div>
-
-        <div>
-          <label>
+        
+          <label className="company-registration__input__checkbox">
             <input
               name="sector"
               type="radio"
@@ -208,10 +198,8 @@ const CompanyRegistration = () => {
             />
             Horeca
           </label>
-        </div>
-
-        <div>
-          <label>
+        
+          <label className="company-registration__input__checkbox">
             <input
               name="sector"
               type="radio"
@@ -221,10 +209,8 @@ const CompanyRegistration = () => {
             />
             Informatie en communicatie
           </label>
-        </div>
-
-        <div>
-          <label>
+        
+          <label className="company-registration__input__checkbox">
             <input
               name="sector"
               type="radio"
@@ -234,10 +220,8 @@ const CompanyRegistration = () => {
             />
             Zakelijke dienstverlening (inclusief verhuur/handel onroerend goed)
           </label>
-        </div>
-
-        <div>
-          <label>
+        
+          <label className="company-registration__input__checkbox">
             <input
               name="sector"
               type="radio"
@@ -247,10 +231,8 @@ const CompanyRegistration = () => {
             />
             Overheid, Onderwijs, Zorg
           </label>
-        </div>
-
-        <div>
-          <label>
+        
+          <label className="company-registration__input__checkbox">
             <input
               name="sector"
               type="radio"
@@ -260,10 +242,8 @@ const CompanyRegistration = () => {
             />
             Cultuur, sport en recreatie
           </label>
-        </div>
-
-        <div>
-          <label>
+       
+          <label className="company-registration__input__checkbox">
             <input
               name="sector"
               type="radio"
@@ -274,90 +254,112 @@ const CompanyRegistration = () => {
             Overige dienstverlening
           </label>
         </div>
+        {/* end of sector question */}
 
 
-        <label>Oprichtingsjaar</label>
-        <div>
-          <input
-            type="text"
-            name="foundingYear"
-            value={foundingYear}
-            placeholder="Your answer"
-            onChange={handleChange}
-          />
+        <div className="company-registration__input">
+          <label className="company-registration__input__title">Oprichtingsjaar</label>
+            <input
+              type="text"
+              name="foundingYear"
+              value={foundingYear}
+              placeholder="Your answer"
+              onChange={handleChange}
+            />
         </div>
 
-        <label>Aantal medewerkers (in fte)</label>
-        <div>
-          <input
-            type="text"
-            name="numberOfEmployees"
-            value={numberOfEmployees}
-            placeholder="Your answer"
-            onChange={handleChange}
-          />
+        <div className="company-registration__input">
+          <label className="company-registration__input__title">Aantal medewerkers (in fte)</label>
+            <input
+              type="text"
+              name="numberOfEmployees"
+              value={numberOfEmployees}
+              placeholder="Your answer"
+              onChange={handleChange}
+            />
         </div>
 
-        <label>Jaarlijkse omzet (gemiddelde afgelopen 3 jaar)</label>
-        <div>
-          <input
-            type="text"
-            name="yearlyRevenue"
-            value={yearlyRevenue}
-            placeholder="Your answer"
-            onChange={handleChange}
-          />
+        <div className="company-registration__input">
+          <label className="company-registration__input__title">Jaarlijkse omzet (gemiddelde afgelopen 3 jaar)</label>
+            <input
+              type="text"
+              name="yearlyRevenue"
+              value={yearlyRevenue}
+              placeholder="Your answer"
+              onChange={handleChange}
+            />
         </div>
 
-        <label>Hoeveel procent van uw omzet komt van wie?</label>
-        <section>1 = 100% B2C, 5 = 100% B2B</section>
-        <div className="score">1 2 3 4 5</div>
-
-        <div className="flex-container">
-            <h4>Consumenten</h4>
-            <div>   
+        {/* next question */}
+        <div className="origin-revenue-container">
+          <div className="move-down">  
+            <label className="company-registration__input__title">Hoeveel procent van uw omzet komt van wie?</label>
+            <h5 className="company-registration__input__title__two">1 = 100% van consumenten, 5 = 100% van bedrijven, inclusief overheid en/of non-profit</h5>
+                
+              <ul className="origin-revenue-answers move-further-down">
+                <li>
                 <input type="radio" value="1" name="originOfRevenue" checked={originOfRevenue === '1'}  onChange={handleChange}/>
+                <label>1</label>
+                </li>
+                <li>
                 <input type="radio" value="2" name="originOfRevenue" checked={originOfRevenue === '2'}  onChange={handleChange}/>
+                <label>2</label>
+                </li>
+                <li>
                 <input type="radio" value="3" name="originOfRevenue" checked={originOfRevenue === '3'}  onChange={handleChange}/>
+                <label>3</label>
+                </li>
+                <li>
                 <input type="radio" value="4" name="originOfRevenue" checked={originOfRevenue === '4'}  onChange={handleChange}/>
+                <label>4</label>
+                </li>
+                <li>
                 <input type="radio" value="5" name="originOfRevenue" checked={originOfRevenue === '5'}  onChange={handleChange}/>
-            </div>
-            <h4>Bedrijven, inclusief overheid of ander en non-profit</h4>
+                <label>5</label>
+                </li>
+              </ul>
+
+          </div>
         </div>
 
-        {/* // this is not correct */}
-        <label>Waar komen de meeste van uw klanten vandaan?</label>
-        <div>
-            <div>   
-                <input type="radio" value="Eigen regio" name="originOfCustomers" checked={originOfCustomers === 'Eigen regio'}  onChange={handleChange}/>Eigen regio 
-            </div>
-            <div>
-                <input type="radio" value="Heel Nederland" name="originOfCustomers" checked={originOfCustomers === 'Heel Nederland'} onChange={handleChange}/>Heel Nederland
-            </div>
-            <div>
-                <input type="radio" value="Europa" name="originOfCustomers" checked={originOfCustomers === 'Europa'}  onChange={handleChange}/>Europa
-            </div>
-            <div>
+        {/* next question */}
+        <div className="company-registration__input">
+          <label className="company-registration__input__title">Waar komen de meeste van uw klanten vandaan?</label>
+        
+            <label className="company-registration__input__checkbox">
+              <input type="radio" value="Eigen regio" name="originOfCustomers" checked={originOfCustomers === 'Eigen regio'}  onChange={handleChange}/>Eigen regio
+            </label>
+
+            <label className="company-registration__input__checkbox">
+              <input type="radio" value="Heel Nederland" name="originOfCustomers" checked={originOfCustomers === 'Heel Nederland'} onChange={handleChange}/>Heel Nederland
+            </label>
+
+
+            <label className="company-registration__input__checkbox">
+              <input type="radio" value="Europa" name="originOfCustomers" checked={originOfCustomers === 'Europa'}  onChange={handleChange}/>Europa
+            </label>
+
+            <label className="company-registration__input__checkbox"> 
                 <input type="radio" value="Wereldwijd" name="originOfCustomers" checked={originOfCustomers === 'Wereldwijd'}  onChange={handleChange}/>Wereldwijd
-            </div>
-        </div> 
+            </label>
+        </div>
 
-        <label>Welk profiel past het best bij uw bedrijf?</label>
-        <div>
-            <div>
+         {/* next question */}
+        <div className="company-registration__input">
+          <label className="company-registration__input__title">Welk profiel past het best bij uw bedrijf?</label>
+            
+            <label className="company-registration__input__checkbox">  
                 <input type="radio" 
-                       value="Mijn bedrijf is koploper (in haar sector) op het gebied van de ontwikkeling en introductie van nieuwe producten, 
-                            diensten en processen." 
+                       value= "Mijn bedrijf is koploper (in haar sector) op het gebied van de ontwikkeling en introductie van nieuwe producten, diensten en processen." 
                        name="companyProfile" 
-                       checked={companyProfile === 'Mijn bedrijf is koploper (in haar sector) op het gebied van de ontwikkeling en introductie van nieuwe producten, diensten en processen.'} 
+                       checked={companyProfile === "Mijn bedrijf is koploper (in haar sector) op het gebied van de ontwikkeling en introductie van nieuwe producten, diensten en processen."}
                        onChange={handleChange}
-                       />
-                      
-                        Mijn bedrijf is koploper (in haar sector) op het gebied van de ontwikkeling en introductie van nieuwe producten, 
+                       /> 
+                       Mijn bedrijf is koploper (in haar sector) op het gebied van de ontwikkeling en introductie van nieuwe producten, 
                             diensten en processen.
-            </div>
+            </label>
 
-            <div>
+            <label className="company-registration__input__checkbox">  
                 <input type="radio" 
                        value="Mijn bedrijf ontwikkelt zelf nieuwe producten en diensten en/of vernieuwt bedrijfsprocessen" 
                        name="companyProfile" 
@@ -365,9 +367,9 @@ const CompanyRegistration = () => {
                        onChange={handleChange}
                        /> 
                        Mijn bedrijf ontwikkelt zelf nieuwe producten en diensten en/of vernieuwt bedrijfsprocessen
-            </div>
+            </label>
 
-            <div>
+            <label className="company-registration__input__checkbox">  
                 <input type="radio" 
                        value="Mijn bedrijf vernieuwt producten, diensten en processen maar ontwikkelt deze niet zelf." 
                        name="companyProfile" 
@@ -375,9 +377,9 @@ const CompanyRegistration = () => {
                        onChange={handleChange}
                        /> 
                        Mijn bedrijf vernieuwt producten, diensten en processen maar ontwikkelt deze niet zelf.
-            </div>
+            </label>
 
-            <div>
+            <label className="company-registration__input__checkbox">  
                 <input type="radio" 
                        value="Geen van bovenstaande maar er vinden wel innovatie-activiteiten plaats in mijn bedrijf" 
                        name="companyProfile" 
@@ -385,9 +387,9 @@ const CompanyRegistration = () => {
                        onChange={handleChange}
                        /> 
                        Geen van bovenstaande maar er vinden wel innovatie-activiteiten plaats in mijn bedrijf
-            </div>
+            </label>
 
-            <div>
+            <label className="company-registration__input__checkbox">  
                 <input type="radio" 
                        value="In mijn bedrijf vinden geen innovatie-activiteiten plaats" 
                        name="companyProfile" 
@@ -395,27 +397,47 @@ const CompanyRegistration = () => {
                        onChange={handleChange}
                        />
                        In mijn bedrijf vinden geen innovatie-activiteiten plaats
-            </div>
+            </label>
+      </div>
 
+      {/* last question */}
+        <div className="readyness-transition-container">  
+          <div className="move-down">  
 
+            <label className="company-registration__input__title">In hoeverre zijn u en uw management klaar om de digitale transitie te leiden?</label>
+            <h5 className="company-registration__input__title__two">1 = 0% klaar, 5 = 100% klaar</h5>
+            
+              <ul className="digital-transition-answers move-further-down">
+                <li>
+                  <input type="radio" value="1" name="readynessDigitalTransition" checked={readynessDigitalTransition === '1'} onChange={handleChange}/>
+                  <label>1</label>
+                </li>
+              
+                <li>
+                  <input type="radio" value="2" name="readynessDigitalTransition" checked={readynessDigitalTransition === '2'} onChange={handleChange}/>
+                  <label>2</label>
+                </li>
+              
+                <li>
+                  <input type="radio" value="3" name="readynessDigitalTransition" checked={readynessDigitalTransition === '3'} onChange={handleChange}/>
+                  <label>3</label>
+                </li>
+              
+                <li>
+                  <input type="radio" value="4" name="readynessDigitalTransition" checked={readynessDigitalTransition === '4'} onChange={handleChange}/>
+                  <label>4</label>
+                </li>
+              
+                <li>
+                  <input type="radio" value="5" name="readynessDigitalTransition" checked={readynessDigitalTransition === '5'} onChange={handleChange}/>
+                  <label>5</label>
+                </li>
+              </ul>
+
+          </div>
         </div>
 
-        <label>In hoeverre zijn u en uw management klaar om de digitale transitie te leiden?</label>
-        
-        <div className="score">1 2 3 4 5</div>
-
-        <div className="flex-container">
-            <h4>Zeer onvoldoende</h4>
-            <div>
-                <input type="radio" value="1" name="readynessDigitalTransition" checked={readynessDigitalTransition === '1'} onChange={handleChange}/>
-                <input type="radio" value="2" name="readynessDigitalTransition" checked={readynessDigitalTransition === '2'} onChange={handleChange}/>
-                <input type="radio" value="3" name="readynessDigitalTransition" checked={readynessDigitalTransition === '3'} onChange={handleChange}/>
-                <input type="radio" value="4" name="readynessDigitalTransition" checked={readynessDigitalTransition === '4'} onChange={handleChange}/>
-                <input type="radio" value="5" name="readynessDigitalTransition" checked={readynessDigitalTransition === '5'} onChange={handleChange}/>
-            </div>
-            <h4>Uitstekend</h4>
-        </div>
-        
+          
 
         <button type="submit">Submit</button>
       </form>
@@ -424,6 +446,19 @@ const CompanyRegistration = () => {
 };
 
 export default CompanyRegistration;
+
+          
+        
+
+        
+
+
+
+        
+                  
+                  
+            
+              
 
 
 
