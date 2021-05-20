@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import banner from '../img/2329f-int0000.jpg';
 import axios from 'axios';
 
 const UserRegistration = () => {
@@ -37,14 +38,19 @@ const UserRegistration = () => {
         gender: '',
         signUpDate: '',
       });
-    } catch (e) {}
+    } catch (error) {
+      alert(error.message);
+    }
   };
-  console.log(userCredentials);
+
   return (
-    <div>
+    <div className="user-registration">
+      <div className="user-registration__banner">
+        <img src={banner} alt="" />
+      </div>
       <form onSubmit={handleSubmit}>
-        <label>Voornaam</label>
-        <div>
+        <div className="user-registration__input">
+          <label className="user-registration__input__title">Voornaam</label>
           <input
             type="text"
             name="firstName"
@@ -54,8 +60,8 @@ const UserRegistration = () => {
           />
         </div>
 
-        <label>Achternaam</label>
-        <div>
+        <div className="user-registration__input">
+          <label className="user-registration__input__title">Achternaam</label>
           <input
             type="text"
             name="lastName"
@@ -65,9 +71,9 @@ const UserRegistration = () => {
           />
         </div>
 
-        <label>Gender</label>
-        <div>
-          <label>
+        <div className="user-registration__input">
+          <label className="user-registration__input__title">Gender</label>
+          <label className="user-registration__input__checkbox">
             <input
               name="gender"
               type="radio"
@@ -75,12 +81,10 @@ const UserRegistration = () => {
               checked={gender === 'Man'}
               onChange={handleChange}
             />
-            Man
+            &nbsp;Man
           </label>
-        </div>
 
-        <div>
-          <label>
+          <label className="user-registration__input__checkbox">
             <input
               name="gender"
               type="radio"
@@ -88,12 +92,10 @@ const UserRegistration = () => {
               checked={gender === 'Vrouw'}
               onChange={handleChange}
             />
-            Vrouw
+            &nbsp;Vrouw
           </label>
-        </div>
 
-        <div>
-          <label>
+          <label className="user-registration__input__checkbox">
             <input
               name="gender"
               type="radio"
@@ -101,12 +103,10 @@ const UserRegistration = () => {
               checked={gender === 'Zeg ik liever niet'}
               onChange={handleChange}
             />
-            Zeg ik liever niet
+            &nbsp;Zeg ik liever niet
           </label>
-        </div>
 
-        <div>
-          <label>
+          <label className="user-registration__input__checkbox">
             <input
               name="gender"
               type="radio"
@@ -114,13 +114,15 @@ const UserRegistration = () => {
               checked={gender === 'Other'}
               onChange={handleChange}
             />
-            Other
+            &nbsp;Other
             {/* <input type="text" /> */}
           </label>
         </div>
 
-        <label>Geboortedatum</label>
-        <div>
+        <div className="user-registration__input">
+          <label className="user-registration__input__title">
+            Geboortedatum
+          </label>
           <input
             type="date"
             name="birthDate"
@@ -130,8 +132,10 @@ const UserRegistration = () => {
           />
         </div>
 
-        <label>Signup Date</label>
-        <div>
+        <div className="user-registration__input">
+          <label className="user-registration__input__title">
+            Inschrijf datum
+          </label>
           <input
             type="date"
             name="signUpDate"

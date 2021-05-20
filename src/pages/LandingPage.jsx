@@ -1,8 +1,8 @@
-import React, { useRef, useState } from "react";
-import { useHistory } from "react-router";
-import { auth } from "../firebase/firebase";
-import { useDispatch, useSelector } from "react-redux";
-import { login, logout, selectUser, selectSignupState, signupstate } from "../features/userSlice";
+import React, { useRef } from 'react';
+import { useHistory } from 'react-router';
+import { auth } from '../firebase/firebase';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectSignupState, signupstate } from '../features/userSlice';
 
 import backgroundImage from "../img/2329f-int0003.jpg";
 import CustomButton from "../components/custom-component/CustomButton";
@@ -18,7 +18,10 @@ const LandingPage = () => {
     e.preventDefault();
 
     auth
-      .createUserWithEmailAndPassword(emailRef.current.value, passwordRef.current.value)
+      .createUserWithEmailAndPassword(
+        emailRef.current.value,
+        passwordRef.current.value
+      )
       .then((authUser) => {
         // console.log(authUser);
       })
@@ -31,10 +34,13 @@ const LandingPage = () => {
     e.preventDefault();
 
     auth
-      .signInWithEmailAndPassword(emailRef.current.value, passwordRef.current.value)
+      .signInWithEmailAndPassword(
+        emailRef.current.value,
+        passwordRef.current.value
+      )
       .then((authUser) => {
         // console.log(authUser);
-        history.push("/");
+        history.push('/');
       })
       .catch((error) => {
         alert(error.message);
@@ -61,7 +67,10 @@ const LandingPage = () => {
 
           <h4>
             <span className="signupScreen__gray">Don't have an account? </span>
-            <span className="signupScreen__link" onClick={() => dispatch(signupstate(!signup))}>
+            <span
+              className="signupScreen__link"
+              onClick={() => dispatch(signupstate(!signup))}
+            >
               Register now.
             </span>
           </h4>
@@ -74,8 +83,13 @@ const LandingPage = () => {
           <CustomButton type="submit" onClick={register} name="Sign Up" />
 
           <h4>
-            <span className="signupScreen__gray">Already have an account? </span>
-            <span className="signupScreen__link" onClick={() => dispatch(signupstate(!signup))}>
+            <span className="signupScreen__gray">
+              Already have an account?{' '}
+            </span>
+            <span
+              className="signupScreen__link"
+              onClick={() => dispatch(signupstate(!signup))}
+            >
               Login to an existing account.
             </span>
           </h4>
