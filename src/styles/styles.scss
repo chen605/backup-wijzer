@@ -1,11 +1,17 @@
 // style imports
 // global
-@import "./variables";
-@import "./global-styles";
-@import "./mixins";
+@import './variables';
+@import './global-styles';
+@import './mixins';
 
 // components
+@import './component-styles/Navbar/navbar';
+@import './component-styles/UserRegistration/UserRegistration';
+
 @import "./component-styles/Navbar/navbar";
 
 // pages
 @import "./pages-styles/landingPage";
+
+// custom
+@import "./custom-styles/customButton"
