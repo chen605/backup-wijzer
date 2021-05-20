@@ -3,7 +3,7 @@
   font-family: 'CeraPro-Regular';
   @include flex(center, center, column);
 
-  .user-registration__banner {
+  &__banner {
     display: flex;
     justify-content: center;
     margin-top: 1%;
@@ -20,8 +20,9 @@
 
   form {
     width: 45%;
-    margin-top: 1%;
+    margin: 1% 0;
     .user-registration__input {
+      padding: 1rem;
       border-radius: 10px;
       border: 1px solid $gray;
       background-color: $color-white;
@@ -33,7 +34,7 @@
 
       input[type='text'] {
         width: 50%;
-        margin-left: 5%;
+        margin-left: 2%;
         border: none;
         border-radius: 0;
         border-bottom: 1px solid $gray;
@@ -44,7 +45,7 @@
 
       input[type='date'] {
         width: 20%;
-        margin-left: 5%;
+        margin-left: 2%;
         border: none;
         border-radius: 0;
         border-bottom: 1px solid $gray;
@@ -54,7 +55,7 @@
       }
 
       .user-registration__input__checkbox {
-        margin-left: 5%;
+        margin-left: 2%;
         display: flex;
         align-items: center;
         font-size: $smaller;
@@ -62,7 +63,7 @@
 
       .user-registration__input__title {
         font-size: $small;
-        margin-left: 5%;
+        margin-left: 2%;
         margin-bottom: 6%;
         margin-top: 5%;
       }
