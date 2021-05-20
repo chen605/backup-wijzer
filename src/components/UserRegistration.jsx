@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import banner from '../img/2329f-int0000.jpg';
 import axios from 'axios';
 
 const UserRegistration = () => {
@@ -44,6 +45,9 @@ const UserRegistration = () => {
 
   return (
     <div className="user-registration">
+      <div className="user-registration__banner">
+        <img src={banner} alt="" />
+      </div>
       <form onSubmit={handleSubmit}>
         <div className="user-registration__input">
           <label className="user-registration__input__title">Voornaam</label>
