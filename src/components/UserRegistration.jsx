@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import banner from '../img/2329f-int0000.jpg';
 import axios from 'axios';
 
 const UserRegistration = () => {
+  const history = useHistory();
   const [userCredentials, setUserCredentials] = useState({
     firstName: '',
     lastName: '',
@@ -38,6 +40,7 @@ const UserRegistration = () => {
         gender: '',
         signUpDate: '',
       });
+      history.push('/company-registration');
     } catch (error) {
       alert(error.message);
     }

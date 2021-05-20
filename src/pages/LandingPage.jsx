@@ -4,12 +4,11 @@ import { auth } from '../firebase/firebase';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectSignupState, signupstate } from '../features/userSlice';
 
-import backgroundImage from "../img/2329f-int0003.jpg";
-import CustomButton from "../components/custom-component/CustomButton";
+import backgroundImage from '../img/2329f-int0003.jpg';
+import CustomButton from '../components/custom-component/CustomButton';
 
 const LandingPage = () => {
   const history = useHistory();
-  // const [signup, setSignup] = useState(true);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const dispatch = useDispatch();
@@ -53,9 +52,9 @@ const LandingPage = () => {
       className="landingPage"
       style={{
         backgroundImage: `url(${backgroundImage})`,
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
       }}
     >
       {signup ? (
