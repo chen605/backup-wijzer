@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { login, logout, selectUser, selectSignupState, signupstate } from "../features/userSlice";
 
 import backgroundImage from "../img/2329f-int0003.jpg";
+import CustomButton from "../components/custom-component/CustomButton";
 
 const LandingPage = () => {
   const history = useHistory();
@@ -53,12 +54,10 @@ const LandingPage = () => {
     >
       {signup ? (
         <form className="signUpForm">
-          <h1>Sign In</h1>
+          <h1>Log In</h1>
           <input ref={emailRef} type="email" placeholder="Email" />
           <input ref={passwordRef} type="password" placeholder="Password" />
-          <button type="submit" onClick={signIn}>
-            Sign In
-          </button>
+          <CustomButton type="submit" onClick={signIn} name="Log In" />
 
           <h4>
             <span className="signupScreen__gray">Don't have an account? </span>
@@ -72,9 +71,7 @@ const LandingPage = () => {
           <h1>Sign Up</h1>
           <input ref={emailRef} type="email" placeholder="Email" />
           <input ref={passwordRef} type="password" placeholder="Password" />
-          <button type="submit" onClick={register}>
-            Sign Up
-          </button>
+          <CustomButton type="submit" onClick={register} name="Sign Up" />
 
           <h4>
             <span className="signupScreen__gray">Already have an account? </span>

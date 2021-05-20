@@ -8,7 +8,7 @@ const SignedInLinks = () => {
         className="signedInLinks__button"
         onClick={() => auth.signOut()}
       >
-        Sign Out
+        Log Out
       </div>
     </div>
   );
