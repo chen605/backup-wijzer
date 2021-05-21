@@ -38,8 +38,10 @@
         border: none;
         border-radius: 0;
         border-bottom: 1px solid $gray;
+        transition: border-bottom ease 0.1s;
         &:focus {
           outline: none;
+          border-bottom: 3px solid $primary;
         }
       }
 

@@ -1,5 +1,5 @@
 .company-registration {
-  background-color: purple;
+  background-color: $color-background;
   font-family: 'CeraPro-Regular';
   @include flex(center, center, column);
 
@@ -11,7 +11,7 @@
     .company-registration__input {
       padding: 1rem;
       border-radius: 10px;
-      border: 1px solid lightgrey;
+      border: 1px solid $gray;
       background-color: $color-white;
       width: 100%;
 
@@ -25,9 +25,10 @@
         border: none;
         border-radius: 0;
         border-bottom: 1px solid $gray;
-
+        transition: border-bottom ease 0.1s;
         &:focus {
           outline: none;
+          border-bottom: 3px solid $primary;
         }
       }
 
@@ -57,7 +58,7 @@
 // where your revenue coming from, sir?
 .origin-revenue-container {
   border-radius: 10px;
-  border: 1px solid lightgrey;
+  border: 1px solid $gray;
   background-color: $color-white;
   width: 100%;
   margin-bottom: 2%;
@@ -111,7 +112,7 @@
 // ready for the transition?
 .readyness-transition-container {
   border-radius: 10px;
-  border: 1px solid lightgrey;
+  border: 1px solid $gray;
   background-color: $color-white;
   width: 100%;
   margin-bottom: 2%;

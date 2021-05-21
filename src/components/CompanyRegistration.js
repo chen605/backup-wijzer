@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import CustomButton from './custom-component/CustomButton';
+import Banner from './Banner/Banner';
 
 const CompanyRegistration = () => {
   const [companyCredentials, setCompanyCredentials] = useState({
@@ -73,6 +75,7 @@ const CompanyRegistration = () => {
 
   return (
     <div className="company-registration">
+      <Banner />
       <form onSubmit={handleSubmit}>
         <div className="company-registration__input">
           <label className="company-registration__input__title">
@@ -589,8 +592,7 @@ const CompanyRegistration = () => {
             </ul>
           </div>
         </div>
-
-        <button type="submit">Submit</button>
+        <CustomButton type="submit" name="Submit" />
       </form>
     </div>
   );
