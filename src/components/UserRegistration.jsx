@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import banner from '../img/2329f-int0000.jpg';
 import axios from 'axios';
+import CustomButton from './custom-component/CustomButton';
+import Banner from './Banner/Banner';
 
 const UserRegistration = () => {
   const history = useHistory();
@@ -48,9 +49,7 @@ const UserRegistration = () => {
 
   return (
     <div className="user-registration">
-      <div className="user-registration__banner">
-        <img src={banner} alt="" />
-      </div>
+      <Banner />
       <form onSubmit={handleSubmit}>
         <div className="user-registration__input">
           <label className="user-registration__input__title">Voornaam</label>
@@ -147,7 +146,7 @@ const UserRegistration = () => {
             onChange={handleChange}
           />
         </div>
-        <button type="submit">Submit</button>
+        <CustomButton type="submit" name="Submit" />
       </form>
     </div>
   );
