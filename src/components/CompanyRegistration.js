@@ -292,9 +292,11 @@ const CompanyRegistration = () => {
 
         {/* next question */}
         <div className="origin-revenue-container">
-          <div className="move-down">  
-            <label className="company-registration__input__title">Hoeveel procent van uw omzet komt van wie?</label>
-            <h5 className="company-registration__input__title__two">1 = 100% van consumenten, 5 = 100% van bedrijven, inclusief overheid en/of non-profit</h5>
+          <div className="move-down">
+            <div className="input-titles-second"> 
+              <label>Hoeveel procent van uw omzet komt van wie?</label>
+              <h5 className="smaller-text">1 = 100% van consumenten, 5 = 100% van bedrijven, inclusief overheid en/of non-profit</h5>
+            </div>
                 
               <ul className="origin-revenue-answers move-further-down">
                 <li>
@@ -402,10 +404,12 @@ const CompanyRegistration = () => {
 
       {/* last question */}
         <div className="readyness-transition-container">  
-          <div className="move-down">  
+          <div className="move-down">
+            <div className="input-titles-second">  
+              <label>In hoeverre zijn u en uw management klaar om de digitale transitie te leiden?</label>
+              <h5>1 = 0% klaar, 5 = 100% klaar</h5>
+            </div>
 
-            <label className="company-registration__input__title">In hoeverre zijn u en uw management klaar om de digitale transitie te leiden?</label>
-            <h5 className="company-registration__input__title__two">1 = 0% klaar, 5 = 100% klaar</h5>
             
               <ul className="digital-transition-answers move-further-down">
                 <li>

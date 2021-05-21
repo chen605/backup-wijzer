@@ -29,13 +29,17 @@
         }
       }
 
-      .company-registration__input__checkbox {
-        margin-left: 5%;
-        display: flex;
-        align-items: center;
-        font-size: $smaller;
+      input[type='radio'] {
+        
+        margin-right: 5px;
       }
-      
+
+    .company-registration__input__checkbox {
+      margin-left: 5%;
+      display: flex;
+      align-items: center;
+      font-size: $smaller;
+
     }
 
     .company-registration__input__title {
@@ -45,12 +49,9 @@
       margin-top: 5%;
     }
 
-    .company-registration__input__title__two {
-      font-size: 10px;
-      margin-left: 5%;
-
-    }
   }
+}
+
 }
 
 
@@ -101,6 +102,19 @@
   }
   .move-down {
     margin-top: 30px;
+
+    .input-titles-second {
+      font-size: $small;
+      margin-left: 5%;
+      margin-bottom: 6%;
+      margin-top: 5%;
+
+      h5 {
+        font-size: 10px;
+
+      }
+
+    }
   }
 
   .move-further-down {
@@ -155,7 +169,19 @@
   }
   .move-down {
     margin-top: 30px;
+
+    .input-titles-second {
+      font-size: $small;
+      margin-left: 5%;
+      margin-bottom: 6%;
+      margin-top: 5%;
+
+      h5 {
+        font-size: 10px;
+
+      }
   }
+}
 
   .move-further-down {
     margin-top: 35px;
