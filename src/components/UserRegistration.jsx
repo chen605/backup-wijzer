@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
+// import firebase from 'firebase';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import CustomButton from './custom-component/CustomButton';
 import Banner from './Banner/Banner';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../features/userSlice';
 
 const UserRegistration = () => {
+  const { uid } = useSelector(selectUser);
+
   const history = useHistory();
   const [userCredentials, setUserCredentials] = useState({
     firstName: '',
@@ -12,6 +17,7 @@ const UserRegistration = () => {
     birthDate: '',
     signUpDate: '',
     gender: '',
+    userFirebaseId: uid,
   });
 
   const { firstName, lastName, birthDate, gender, signUpDate } =
@@ -26,6 +32,16 @@ const UserRegistration = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    // firebase
+    //   .auth()
+    //   .currentUser.getIdToken(/* forceRefresh */ true)
+    //   .then(function (idToken) {
+    //     console.log(typeof idToken);
+    //   })
+    //   .catch(function (error) {
+    //     alert(error.message);
+    //   });
+
     const user = JSON.stringify(userCredentials);
     try {
       await axios.post('http://localhost:8080/user/signup', user, {
@@ -34,13 +50,7 @@ const UserRegistration = () => {
         },
       });
       alert('Registratie succesvol!');
-      setUserCredentials({
-        firstName: '',
-        lastName: '',
-        birthDate: '',
-        gender: '',
-        signUpDate: '',
-      });
+
       history.push('/company-registration');
     } catch (error) {
       alert(error.message);

@@ -2,38 +2,44 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import CustomButton from './custom-component/CustomButton';
 import Banner from './Banner/Banner';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../features/userSlice';
 
 const CompanyRegistration = () => {
+  const { uid } = useSelector(selectUser);
+
   const [companyCredentials, setCompanyCredentials] = useState({
-    companyName: '',
+    name: '',
     kvkNumber: '',
     address: '',
-    zipCode: '',
+    postalCode: '',
+    registryDate: '',
     city: '',
-    sector: '',
+    companyType: '',
     foundingYear: '',
-    numberOfEmployees: '',
-    yearlyRevenue: '',
-    originOfRevenue: '',
-    originOfCustomers: '',
+    numberOfEmployeesInFte: '',
+    annualSales: '',
+    percentageSalesBusiness2Consumer: '',
+    originClient: '',
     companyProfile: '',
-    readynessDigitalTransition: '',
+    percentageReadynessDigitalTransformation: '',
+    userFirebaseId: uid,
   });
 
   const {
-    companyName,
+    name,
     kvkNumber,
     address,
-    zipCode,
+    postalCode,
     city,
-    sector,
+    companyType,
     foundingYear,
-    numberOfEmployees,
-    yearlyRevenue,
-    originOfRevenue,
-    originOfCustomers,
+    numberOfEmployeesInFte,
+    annualSales,
+    percentageSalesBusiness2Consumer,
+    originClient,
     companyProfile,
-    readynessDigitalTransition,
+    percentageReadynessDigitalTransformation,
   } = companyCredentials;
 
   const handleChange = (e) => {
@@ -47,29 +53,14 @@ const CompanyRegistration = () => {
 
     const company = JSON.stringify(companyCredentials);
     try {
-      await axios.post('http://localhost:8080/companies/signup', company, {
+      await axios.post('http://localhost:8080/user/company2/signup', company, {
         headers: {
           'Content-Type': 'application/json',
         },
       });
       alert('Registratie succesvol!');
-      setCompanyCredentials({
-        companyName: '',
-        kvkNumber: '',
-        address: '',
-        zipCode: '',
-        city: '',
-        sector: '',
-        foundingYear: '',
-        numberOfEmployees: '',
-        yearlyRevenue: '',
-        originOfRevenue: '',
-        originOfCustomers: '',
-        companyProfile: '',
-        readynessDigitalTransition: '',
-      });
-    } catch (e) {
-      alert.error('Iets ging verkeerd. ' + e.response.data);
+    } catch (error) {
+      alert(error.message);
     }
   };
 
@@ -83,8 +74,8 @@ const CompanyRegistration = () => {
           </label>
           <input
             type="text"
-            name="companyName"
-            value={companyName}
+            name="name"
+            value={name}
             onChange={handleChange}
             placeholder="Your answer"
           />
@@ -118,8 +109,8 @@ const CompanyRegistration = () => {
           <label className="company-registration__input__title">Postcode</label>
           <input
             type="text"
-            name="zipCode"
-            value={zipCode}
+            name="postalCode"
+            value={postalCode}
             onChange={handleChange}
             placeholder="Your answer"
           />
@@ -143,10 +134,10 @@ const CompanyRegistration = () => {
           </label>
           <label className="company-registration__input__checkbox">
             <input
-              name="sector"
+              name="companyType"
               type="radio"
               value="Landbouw, bosbouw en visserij"
-              checked={sector === 'Landbouw, bosbouw en visserij'}
+              checked={companyType === 'Landbouw, bosbouw en visserij'}
               onChange={handleChange}
             />
             &nbsp;Landbouw, bosbouw en visserij
@@ -154,11 +145,11 @@ const CompanyRegistration = () => {
 
           <label className="company-registration__input__checkbox">
             <input
-              name="sector"
+              name="companyType"
               type="radio"
               value="Winning of productie delfstoffen, water, elektriciteit of aardgas"
               checked={
-                sector ===
+                companyType ===
                 'Winning of productie delfstoffen, water, elektriciteit of aardgas'
               }
               onChange={handleChange}
@@ -169,10 +160,10 @@ const CompanyRegistration = () => {
 
           <label className="company-registration__input__checkbox">
             <input
-              name="sector"
+              name="companyType"
               type="radio"
               value="Industrie (productiebedrijf)"
-              checked={sector === 'Industrie (productiebedrijf)'}
+              checked={companyType === 'Industrie (productiebedrijf)'}
               onChange={handleChange}
             />
             &nbsp;Industrie (productiebedrijf)
@@ -180,10 +171,10 @@ const CompanyRegistration = () => {
 
           <label className="company-registration__input__checkbox">
             <input
-              name="sector"
+              name="companyType"
               type="radio"
               value="Bouw"
-              checked={sector === 'Bouw'}
+              checked={companyType === 'Bouw'}
               onChange={handleChange}
             />
             &nbsp;Bouw
@@ -191,11 +182,12 @@ const CompanyRegistration = () => {
 
           <label className="company-registration__input__checkbox">
             <input
-              name="sector"
+              name="companyType"
               type="radio"
               value="Detailhandel, groothandel en reparatie van auto's"
               checked={
-                sector === 'Detailhandel, groothandel en reparatie van auto'
+                companyType ===
+                'Detailhandel, groothandel en reparatie van auto'
               }
               onChange={handleChange}
             />
@@ -204,10 +196,10 @@ const CompanyRegistration = () => {
 
           <label className="company-registration__input__checkbox">
             <input
-              name="sector"
+              name="companyType"
               type="radio"
               value="Vervoer en opslag"
-              checked={sector === 'Vervoer en opslag'}
+              checked={companyType === 'Vervoer en opslag'}
               onChange={handleChange}
             />
             &nbsp;Vervoer en opslag
@@ -215,10 +207,10 @@ const CompanyRegistration = () => {
 
           <label className="company-registration__input__checkbox">
             <input
-              name="sector"
+              name="companyType"
               type="radio"
               value="Horeca"
-              checked={sector === 'Horeca'}
+              checked={companyType === 'Horeca'}
               onChange={handleChange}
             />
             &nbsp;Horeca
@@ -226,10 +218,10 @@ const CompanyRegistration = () => {
 
           <label className="company-registration__input__checkbox">
             <input
-              name="sector"
+              name="companyType"
               type="radio"
               value="Informatie en communicatie"
-              checked={sector === 'Informatie en communicatie'}
+              checked={companyType === 'Informatie en communicatie'}
               onChange={handleChange}
             />
             &nbsp;Informatie en communicatie
@@ -237,11 +229,11 @@ const CompanyRegistration = () => {
 
           <label className="company-registration__input__checkbox">
             <input
-              name="sector"
+              name="companyType"
               type="radio"
               value="Zakelijke dienstverlening (inclusief verhuur/handel onroerend goed)"
               checked={
-                sector ===
+                companyType ===
                 'Zakelijke dienstverlening (inclusief verhuur/handel onroerend goed)'
               }
               onChange={handleChange}
@@ -252,10 +244,10 @@ const CompanyRegistration = () => {
 
           <label className="company-registration__input__checkbox">
             <input
-              name="sector"
+              name="companyType"
               type="radio"
               value="Overheid, Onderwijs, Zorg"
-              checked={sector === 'Overheid, Onderwijs, Zorg'}
+              checked={companyType === 'Overheid, Onderwijs, Zorg'}
               onChange={handleChange}
             />
             &nbsp;Overheid, Onderwijs, Zorg
@@ -263,10 +255,10 @@ const CompanyRegistration = () => {
 
           <label className="company-registration__input__checkbox">
             <input
-              name="sector"
+              name="companyType"
               type="radio"
               value="Cultuur, sport en recreatie"
-              checked={sector === 'Cultuur, sport en recreatie'}
+              checked={companyType === 'Cultuur, sport en recreatie'}
               onChange={handleChange}
             />
             &nbsp;Cultuur, sport en recreatie
@@ -274,10 +266,10 @@ const CompanyRegistration = () => {
 
           <label className="company-registration__input__checkbox">
             <input
-              name="sector"
+              name="companyType"
               type="radio"
               value="Overige dienstverlening"
-              checked={sector === 'Overige dienstverlening'}
+              checked={companyType === 'Overige dienstverlening'}
               onChange={handleChange}
             />
             &nbsp;Overige dienstverlening
@@ -304,8 +296,8 @@ const CompanyRegistration = () => {
           </label>
           <input
             type="text"
-            name="numberOfEmployees"
-            value={numberOfEmployees}
+            name="numberOfEmployeesInFte"
+            value={numberOfEmployeesInFte}
             placeholder="Your answer"
             onChange={handleChange}
           />
@@ -317,8 +309,8 @@ const CompanyRegistration = () => {
           </label>
           <input
             type="text"
-            name="yearlyRevenue"
-            value={yearlyRevenue}
+            name="annualSales"
+            value={annualSales}
             placeholder="Your answer"
             onChange={handleChange}
           />
@@ -340,8 +332,8 @@ const CompanyRegistration = () => {
                 <input
                   type="radio"
                   value="1"
-                  name="originOfRevenue"
-                  checked={originOfRevenue === '1'}
+                  name="percentageSalesBusiness2Consumer"
+                  checked={percentageSalesBusiness2Consumer === '1'}
                   onChange={handleChange}
                 />
                 <label>1</label>
@@ -350,8 +342,8 @@ const CompanyRegistration = () => {
                 <input
                   type="radio"
                   value="2"
-                  name="originOfRevenue"
-                  checked={originOfRevenue === '2'}
+                  name="percentageSalesBusiness2Consumer"
+                  checked={percentageSalesBusiness2Consumer === '2'}
                   onChange={handleChange}
                 />
                 <label>2</label>
@@ -360,8 +352,8 @@ const CompanyRegistration = () => {
                 <input
                   type="radio"
                   value="3"
-                  name="originOfRevenue"
-                  checked={originOfRevenue === '3'}
+                  name="percentageSalesBusiness2Consumer"
+                  checked={percentageSalesBusiness2Consumer === '3'}
                   onChange={handleChange}
                 />
                 <label>3</label>
@@ -370,8 +362,8 @@ const CompanyRegistration = () => {
                 <input
                   type="radio"
                   value="4"
-                  name="originOfRevenue"
-                  checked={originOfRevenue === '4'}
+                  name="percentageSalesBusiness2Consumer"
+                  checked={percentageSalesBusiness2Consumer === '4'}
                   onChange={handleChange}
                 />
                 <label>4</label>
@@ -380,8 +372,8 @@ const CompanyRegistration = () => {
                 <input
                   type="radio"
                   value="5"
-                  name="originOfRevenue"
-                  checked={originOfRevenue === '5'}
+                  name="percentageSalesBusiness2Consumer"
+                  checked={percentageSalesBusiness2Consumer === '5'}
                   onChange={handleChange}
                 />
                 <label>5</label>
@@ -400,8 +392,8 @@ const CompanyRegistration = () => {
             <input
               type="radio"
               value="Eigen regio"
-              name="originOfCustomers"
-              checked={originOfCustomers === 'Eigen regio'}
+              name="originClient"
+              checked={originClient === 'Eigen regio'}
               onChange={handleChange}
             />
             &nbsp;Eigen regio
@@ -411,8 +403,8 @@ const CompanyRegistration = () => {
             <input
               type="radio"
               value="Heel Nederland"
-              name="originOfCustomers"
-              checked={originOfCustomers === 'Heel Nederland'}
+              name="originClient"
+              checked={originClient === 'Heel Nederland'}
               onChange={handleChange}
             />
             &nbsp;Heel Nederland
@@ -422,8 +414,8 @@ const CompanyRegistration = () => {
             <input
               type="radio"
               value="Europa"
-              name="originOfCustomers"
-              checked={originOfCustomers === 'Europa'}
+              name="originClient"
+              checked={originClient === 'Europa'}
               onChange={handleChange}
             />
             &nbsp;Europa
@@ -433,8 +425,8 @@ const CompanyRegistration = () => {
             <input
               type="radio"
               value="Wereldwijd"
-              name="originOfCustomers"
-              checked={originOfCustomers === 'Wereldwijd'}
+              name="originClient"
+              checked={originClient === 'Wereldwijd'}
               onChange={handleChange}
             />
             &nbsp;Wereldwijd
@@ -539,8 +531,8 @@ const CompanyRegistration = () => {
                 <input
                   type="radio"
                   value="1"
-                  name="readynessDigitalTransition"
-                  checked={readynessDigitalTransition === '1'}
+                  name="percentageReadynessDigitalTransformation"
+                  checked={percentageReadynessDigitalTransformation === '1'}
                   onChange={handleChange}
                 />
                 <label>1</label>
@@ -550,8 +542,8 @@ const CompanyRegistration = () => {
                 <input
                   type="radio"
                   value="2"
-                  name="readynessDigitalTransition"
-                  checked={readynessDigitalTransition === '2'}
+                  name="percentageReadynessDigitalTransformation"
+                  checked={percentageReadynessDigitalTransformation === '2'}
                   onChange={handleChange}
                 />
                 <label>2</label>
@@ -561,8 +553,8 @@ const CompanyRegistration = () => {
                 <input
                   type="radio"
                   value="3"
-                  name="readynessDigitalTransition"
-                  checked={readynessDigitalTransition === '3'}
+                  name="percentageReadynessDigitalTransformation"
+                  checked={percentageReadynessDigitalTransformation === '3'}
                   onChange={handleChange}
                 />
                 <label>3</label>
@@ -572,8 +564,8 @@ const CompanyRegistration = () => {
                 <input
                   type="radio"
                   value="4"
-                  name="readynessDigitalTransition"
-                  checked={readynessDigitalTransition === '4'}
+                  name="percentageReadynessDigitalTransformation"
+                  checked={percentageReadynessDigitalTransformation === '4'}
                   onChange={handleChange}
                 />
                 <label>4</label>
@@ -583,8 +575,8 @@ const CompanyRegistration = () => {
                 <input
                   type="radio"
                   value="5"
-                  name="readynessDigitalTransition"
-                  checked={readynessDigitalTransition === '5'}
+                  name="percentageReadynessDigitalTransformation"
+                  checked={percentageReadynessDigitalTransformation === '5'}
                   onChange={handleChange}
                 />
                 <label>5</label>
