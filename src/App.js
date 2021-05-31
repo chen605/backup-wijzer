@@ -7,6 +7,11 @@ import { login, logout, selectUser } from './features/userSlice';
 import Navbar from './components/Navbar/Navbar';
 import Homepage from './pages/Homepage';
 import CompanyRegistration from './components/CompanyRegistration';
+import DomainOne from './pages/DomainOne';
+import DomainTwo from './pages/DomainTwo';
+import DomainThree from './pages/DomainThree';
+import DomainFour from './pages/DomainFour';
+import DomainFive from './pages/DomainFive';
 
 const App = () => {
   const user = useSelector(selectUser);
@@ -40,7 +45,16 @@ const App = () => {
           <Switch>
             <Route exact path="/" component={Homepage} />
 
-            <Route to="/company-registration" component={CompanyRegistration} />
+            <Route
+              path="/company-registration"
+              component={CompanyRegistration}
+            />
+            {/* Domains */}
+            <Route path="/domain-one" component={DomainOne} />
+            <Route path="/domain-two" component={DomainTwo} />
+            <Route path="/domain-three" component={DomainThree} />
+            <Route path="/domain-four" component={DomainFour} />
+            <Route path="/domain-five" component={DomainFive} />
           </Switch>
         </>
       )}

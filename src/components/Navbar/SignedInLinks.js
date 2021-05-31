@@ -1,13 +1,17 @@
-import React from "react";
-import { auth } from "../../firebase/firebase";
+import React from 'react';
+import { useHistory } from 'react-router';
+import { auth } from '../../firebase/firebase';
 
 const SignedInLinks = () => {
+  const history = useHistory();
+  const signOut = () => {
+    auth.signOut();
+    history.push('/');
+  };
+
   return (
     <div className="signedInLinks">
-      <div
-        className="signedInLinks__button"
-        onClick={() => auth.signOut()}
-      >
+      <div className="signedInLinks__button" onClick={signOut}>
         Log Out
       </div>
     </div>

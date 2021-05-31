@@ -9,10 +9,9 @@
 @import './component-styles/UserRegistration/UserRegistration';
 @import './component-styles/CompanyRegistration/company_registration';
 
-@import "./component-styles/Navbar/navbar";
+@import './component-styles/Navbar/navbar';
 
 // pages
-@import "./pages-styles/landingPage";
-
-// custom
-@import "./custom-styles/customButton"
+@import './pages-styles/landingPage';
+@import './pages-styles/DomainOne'; // custom
+@import './custom-styles/customButton';
