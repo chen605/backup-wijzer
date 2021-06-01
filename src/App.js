@@ -43,12 +43,13 @@ const App = () => {
       ) : (
         <>
           <Switch>
+            {/* user & company registration */}
             <Route exact path="/" component={Homepage} />
-
             <Route
               path="/company-registration"
               component={CompanyRegistration}
             />
+
             {/* Domains */}
             <Route path="/domain-one" component={DomainOne} />
             <Route path="/domain-two" component={DomainTwo} />
