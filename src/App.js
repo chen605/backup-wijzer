@@ -6,13 +6,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { login, logout, selectUser } from './features/userSlice';
 import Navbar from './components/Navbar/Navbar';
 import Homepage from './pages/Homepage';
-import CompanyRegistration from './components/CompanyRegistration'
-
+import CompanyRegistration from './components/CompanyRegistration';
+import DomainOne from './pages/DomainOne';
+import DomainTwo from './pages/DomainTwo';
+import DomainThree from './pages/DomainThree';
+import DomainFour from './pages/DomainFour';
+import DomainFive from './pages/DomainFive';
 
 const App = () => {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
-  
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((userAuth) => {
@@ -34,20 +37,26 @@ const App = () => {
 
   return (
     <Router>
-      <Navbar/>
+      <Navbar />
       {!user ? (
         <LandingPage />
       ) : (
         <>
           <Switch>
-            <Route exact path="/">
-              <Homepage />
+            {/* user & company registration */}
+            <Route exact path="/" component={Homepage} />
+            <Route
+              path="/company-registration"
+              component={CompanyRegistration}
+            />
 
-              <CompanyRegistration />
-            </Route>
-  
-           </Switch>
-         
+            {/* Domains */}
+            <Route path="/domain-one" component={DomainOne} />
+            <Route path="/domain-two" component={DomainTwo} />
+            <Route path="/domain-three" component={DomainThree} />
+            <Route path="/domain-four" component={DomainFour} />
+            <Route path="/domain-five" component={DomainFive} />
+          </Switch>
         </>
       )}
     </Router>

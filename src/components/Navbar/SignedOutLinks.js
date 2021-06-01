@@ -9,7 +9,7 @@ const SignedOutLinks = () => {
     <div className="signedOutLinks">
       {!signup ? (
         <div className="signedOutLinks__button" onClick={() => dispatch(signupstate(!signup))}>
-          Sign In
+          Log In
         </div>
       ) : (
         <div className="signedOutLinks__button" onClick={() => dispatch(signupstate(!signup))}>
