@@ -11,32 +11,32 @@ const Domains = ({ domain }) => {
         <div key={question.id}>
           <h2 className={`question__${question.type}`}>{question.question}</h2>
           {/* mapping object of the data domain */}
-          {question.type == 'matrix' ? (
+          {question.type === 'matrix' ? (
             <div className={`answers__${question.type}`}>
               {/* mapping the answerslist with a ternary */}
               {question.answersList.map((answer) => (
                 <>
-                  {answer == ' ' ? '' : <input type="radio" />}
+                  {answer === ' ' ? '' : <input type="radio" />}
                   <label>{answer && answer}</label>
                 </>
               ))}
             </div>
-          ) : question.type == 'checkbox' ? (
+          ) : question.type === 'checkbox' ? (
             <div className={`answers__${question.type}`}>
               {/* mapping the answerslist with a ternary */}
               {question.answersList.map((answer) => (
                 <>
-                  {answer == ' ' ? '' : <input type="checkbox" />}
+                  {answer === ' ' ? '' : <input type="checkbox" />}
                   <label>{answer && answer}</label>
                 </>
               ))}
             </div>
-          ) : question.type == 'rating' ? (
+          ) : question.type === 'rating' ? (
             <div className={`answers__${question.type}`}>
               {/* mapping the answerslist with a ternary */}
               {question.answersList.map((answer) => (
                 <>
-                  {answer == ' ' ? '' : <input type="radio" />}
+                  {answer === ' ' ? '' : <input type="radio" />}
                   <label>{answer && answer}</label>
                 </>
               ))}
