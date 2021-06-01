@@ -485,6 +485,7 @@ const CompanyRegistration = () => {
             ontwikkelt deze niet zelf.
           </label>
 
+
           <label className="company-registration__input__checkbox">
             <input
               type="radio"
