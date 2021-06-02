@@ -12,6 +12,7 @@ import DomainTwo from './pages/DomainTwo';
 import DomainThree from './pages/DomainThree';
 import DomainFour from './pages/DomainFour';
 import DomainFive from './pages/DomainFive';
+import LoginAndRegister from './pages/LoginAndRegister';
 
 const App = () => {
   const user = useSelector(selectUser);
@@ -39,7 +40,13 @@ const App = () => {
     <Router>
       <Navbar />
       {!user ? (
-        <LandingPage />
+        <>
+          {/* If there is no user logged in */}
+          <Switch>
+            <Route exact path="/" component={LandingPage} />
+            <Route path="/login" component={LoginAndRegister} />
+          </Switch>
+        </>
       ) : (
         <>
           <Switch>
