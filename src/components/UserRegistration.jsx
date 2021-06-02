@@ -17,7 +17,6 @@ const UserRegistration = () => {
     birthDate: '',
     signUpDate: '',
     gender: '',
-    userFirebaseId: uid,
   });
 
   const { firstName, lastName, birthDate, gender, signUpDate } =
@@ -47,6 +46,7 @@ const UserRegistration = () => {
       await axios.post('http://localhost:8080/user/signup', user, {
         headers: {
           'Content-Type': 'application/json',
+          userFirebaseId: uid,
         },
       });
       alert('Registratie succesvol!');

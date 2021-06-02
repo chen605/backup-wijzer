@@ -15,14 +15,20 @@
     }
   }
 
-  .signedOutLinks, .signedInLinks {
+  .signedOutLinks,
+  .signedInLinks {
     font-size: 1.5rem;
+    display: flex;
+    width: 180px;
+    justify-content: space-between;
+
     &__button {
       @include flex(center, center, row);
       border: solid $color-add-color-dark 1px;
       padding: 1rem 0.5rem;
       width: 8rem;
       cursor: pointer;
+
       &:hover {
         background-color: $color-add-color-dark;
       }
