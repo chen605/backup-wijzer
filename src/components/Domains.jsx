@@ -14,48 +14,48 @@ const Domains = ({ domain }) => {
           {
             {
               'matrix': (
-                <div className={`answers__${question.type}`}>
+                <div className={`answer answer__${question.type}`}>
                   {/* mapping the answerslist with a ternary */}
                   {question.answersList.map((answer) => (
                     <>
                       {
                         answer === ' ' ? '' :
-                          <>
-                            <input type="radio" name={"Vraag " + question.id} />
+                          <div>
                             <label>{answer}</label>
-                          </>
+                            <input type="radio" name={"Vraag " + question.id} />
+                          </div>
                       }
                     </>
                   ))}
                 </div>
               ),
               'checkbox':
-                <div className={`answers__${question.type}`}>
+                <div className={`answer answer__${question.type}`}>
                   {/* mapping the answerslist with a ternary */}
                   {question.answersList.map((answer) => (
                     <>
                       {
                         answer === ' ' ? '' :
-                          <>
+                          <div>
                             <input type="checkbox" />
                             <label>{answer}</label>
-                          </>
+                          </div>
                       }
                     </>
                   ))}
                 </div>
               ,
               'rating':
-                <div className={`answers__${question.type}`}>
+                <div className={`answer answer__${question.type}`}>
                   {/* mapping the answerslist with a ternary */}
                   {question.answersList.map((answer) => (
                     <>
                       {
                         answer === ' ' ? '' :
-                          <>
-                            <input type="radio" name={"Vraag " + question.id} />
+                          <div>
                             <label>{answer}</label>
-                          </>
+                            <input type="radio" name={"Vraag " + question.id} />
+                          </div>
                       }
                     </>
                   ))}
