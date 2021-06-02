@@ -3,9 +3,9 @@ import Domains from '../components/Domains';
 
 const DomainOne = () => {
   return (
-    <div>
+    <main>
       <Domains domain="data" />
-    </div>
+    </main>
   );
 };
 

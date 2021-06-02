@@ -11,39 +11,59 @@ const Domains = ({ domain }) => {
         <div key={question.id}>
           <h2 className={`question__${question.type}`}>{question.question}</h2>
           {/* mapping object of the data domain */}
-          {question.type === 'matrix' ? (
-            <div className={`answers__${question.type}`}>
-              {/* mapping the answerslist with a ternary */}
-              {question.answersList.map((answer) => (
-                <>
-                  {answer === ' ' ? '' : <input type="radio" />}
-                  <label>{answer && answer}</label>
-                </>
-              ))}
-            </div>
-          ) : question.type === 'checkbox' ? (
-            <div className={`answers__${question.type}`}>
-              {/* mapping the answerslist with a ternary */}
-              {question.answersList.map((answer) => (
-                <>
-                  {answer === ' ' ? '' : <input type="checkbox" />}
-                  <label>{answer && answer}</label>
-                </>
-              ))}
-            </div>
-          ) : question.type === 'rating' ? (
-            <div className={`answers__${question.type}`}>
-              {/* mapping the answerslist with a ternary */}
-              {question.answersList.map((answer) => (
-                <>
-                  {answer === ' ' ? '' : <input type="radio" />}
-                  <label>{answer && answer}</label>
-                </>
-              ))}
-            </div>
-          ) : (
-            ''
-          )}
+          {
+            {
+              'matrix': (
+                <div className={`answers__${question.type}`}>
+                  {/* mapping the answerslist with a ternary */}
+                  {question.answersList.map((answer) => (
+                    <>
+                      {
+                        answer === ' ' ? '' :
+                          <>
+                            <input type="radio" name={"Vraag " + question.id} />
+                            <label>{answer}</label>
+                          </>
+                      }
+                    </>
+                  ))}
+                </div>
+              ),
+              'checkbox':
+                <div className={`answers__${question.type}`}>
+                  {/* mapping the answerslist with a ternary */}
+                  {question.answersList.map((answer) => (
+                    <>
+                      {
+                        answer === ' ' ? '' :
+                          <>
+                            <input type="checkbox" />
+                            <label>{answer}</label>
+                          </>
+                      }
+                    </>
+                  ))}
+                </div>
+              ,
+              'rating':
+                <div className={`answers__${question.type}`}>
+                  {/* mapping the answerslist with a ternary */}
+                  {question.answersList.map((answer) => (
+                    <>
+                      {
+                        answer === ' ' ? '' :
+                          <>
+                            <input type="radio" name={"Vraag " + question.id} />
+                            <label>{answer}</label>
+                          </>
+                      }
+                    </>
+                  ))}
+                </div>
+              ,
+              ' ': ''
+            }[question.type]
+          }
         </div>
       ))}
     </div>
