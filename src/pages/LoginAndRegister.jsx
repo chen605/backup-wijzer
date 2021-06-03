@@ -29,7 +29,18 @@ const LoginAndRegister = () => {
         passwordRef.current.value
       )
       .then((authUser) => {
-        // console.log(authUser);
+        const company = JSON.stringify(companyCredentials);
+        try {
+          axios.post('http://localhost:8080/user/company/signup', company, {
+            headers: {
+              'Content-Type': 'application/json',
+              userFirebaseId: authUser.uid,
+            },
+          });
+          alert('Registratie succesvol!');
+        } catch (error) {
+          alert(error.message);
+        }
       })
       .catch((error) => {
         alert(error.message);
@@ -50,20 +61,7 @@ const LoginAndRegister = () => {
         emailRef.current.value,
         passwordRef.current.value
       )
-      .then(() => {
-        const company = JSON.stringify(companyCredentials);
-        try {
-          axios.post('http://localhost:8080/user/signup', company, {
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          });
-          alert('Registratie succesvol!');
-        } catch (error) {
-          alert(error.message);
-        }
-      })
-      .then(() => {
+      .then((authUser) => {
         history.push('/');
       })
       .catch((error) => {
