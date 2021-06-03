@@ -1,72 +1,41 @@
 import React from 'react';
 import useFetch from '../custom-hooks/useFetch';
+import DomainItem from './DomainItem';
 
 const Domains = ({ domain }) => {
   const data = useFetch(`/questions?domain=${domain}`);
-  console.log(data);
+
+  let count
+  let subfield = 1
+  data.forEach(item => {
+    if (item.answersList[0] === ' ') {
+      item.header = true;
+      item.subfield = subfield;
+      count = 5;
+    }
+    if (!item.header && count > 0) {
+      item.subfield = subfield;
+      count--;
+    }
+    if (count === 0) {
+      item.subfield = subfield++;
+    }
+  })
+
+  let newData = [];
+  for (let i = 1; i < subfield; i++) {
+    newData[i - 1] = data.filter(item => item.subfield === i);
+  }
+  console.log(newData);
 
   return (
-    <div>
-      {data.map((question) => (
-        <div key={question.id}>
-          <h2 className={`question__${question.type}`}>{question.question}</h2>
-          {/* mapping object of the data domain */}
-          {
-            {
-              'matrix': (
-                <div className={`answer answer__${question.type}`}>
-                  {/* mapping the answerslist with a ternary */}
-                  {question.answersList.map((answer) => (
-                    <>
-                      {
-                        answer === ' ' ? '' :
-                          <div>
-                            <label>{answer}</label>
-                            <input type="radio" name={"Vraag " + question.id} />
-                          </div>
-                      }
-                    </>
-                  ))}
-                </div>
-              ),
-              'checkbox':
-                <div className={`answer answer__${question.type}`}>
-                  {/* mapping the answerslist with a ternary */}
-                  {question.answersList.map((answer) => (
-                    <>
-                      {
-                        answer === ' ' ? '' :
-                          <div>
-                            <input type="checkbox" />
-                            <label>{answer}</label>
-                          </div>
-                      }
-                    </>
-                  ))}
-                </div>
-              ,
-              'rating':
-                <div className={`answer answer__${question.type}`}>
-                  {/* mapping the answerslist with a ternary */}
-                  {question.answersList.map((answer) => (
-                    <>
-                      {
-                        answer === ' ' ? '' :
-                          <div>
-                            <label>{answer}</label>
-                            <input type="radio" name={"Vraag " + question.id} />
-                          </div>
-                      }
-                    </>
-                  ))}
-                </div>
-              ,
-              ' ': ''
-            }[question.type]
-          }
-        </div>
-      ))}
-    </div>
+    <section>
+      <form>
+        {newData.map((items) => (
+          <DomainItem items={items}/>
+        ))}
+      </form>
+    </section>
   );
 };
 
