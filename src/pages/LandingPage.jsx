@@ -1,6 +1,5 @@
 import React from 'react';
 import backgroundImage from '../img/2329f-int0003.jpg';
-import ReactPlayer from 'react-player';
 
 const LandingPage = () => {
   return (
@@ -15,12 +14,16 @@ const LandingPage = () => {
     >
       {/* video player */}
       <div className="landingPage__player-wrapper">
-        <ReactPlayer
-          muted={true}
-          playing={true}
-          url="https://player.vimeo.com/video/558054633?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+        <iframe
+          src="https://player.vimeo.com/video/558045780?autoplay=1&amp;muted=1&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
           width="45%"
+          allow="autoplay"
           height="100%"
+          title="intro"
+          frameborder="0"
+          webkitallowfullscreen
+          mozallowfullscreen
+          allowfullscreen
         />
 
         <div className="landingPage__player-wrapper__introText">
