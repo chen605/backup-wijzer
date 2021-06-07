@@ -3,10 +3,13 @@ import axios from 'axios';
 
 const useFetch = (url) => {
   const [testData, setTestData] = useState([]);
-
+  const domainName = process.env.REACT_APP_DOMAIN_NAME;
+  
   useEffect(() => {
+    
     async function fetchData() {
-      const response = await axios.get(`http://localhost:8080${url}`);
+      
+      const response = await axios.get(`${domainName}${url}`);
       setTestData(response.data);
       return response;
     }
@@ -16,3 +19,4 @@ const useFetch = (url) => {
 };
 
 export default useFetch;
+      
