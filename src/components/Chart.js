@@ -1,52 +1,52 @@
-import React from 'react';
-import { Bar } from 'react-chartjs-2';
+import React from "react";
+import { PolarArea } from "react-chartjs-2";
 
 const data = {
-    labels: ['AI', 'CRM', 'DATA', 'DIGITAL PRODUCTS', 'SECURITY', 'OTHER'],
-    datasets: [
-      {
-        label: 'Average per domain',
-        data: [2, 3, 3, 5, 1, 4],
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)',
-        ],
-        borderColor: [
-          'rgba(255, 99, 132, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)',
-        ],
-        borderWidth: 1,
-      },
-    ],
-  };
-  
-  const options = {
-    scales: {
-      yAxes: [
-        {
-          ticks: {
-            beginAtZero: true,
-          },
-        },
+  labels: [
+    "Data, dashboards & business intelligence",
+    "CRM en klantreis",
+    "Digitale producten, service & marketing",
+    "Cloud, kantoorautomatisering & veiligheid",
+    "Artificial intelligence & andere opkomende technologieën",
+  ],
+  datasets: [
+    {
+      label: "My First Dataset",
+      data: [1, 5, 4, 2, 4],
+      backgroundColor: [
+        "rgb(255, 99, 132)",
+        "rgb(75, 192, 192)",
+        "rgb(255, 205, 86)",
+        "rgb(201, 203, 207)",
+        "rgb(54, 162, 235)",
       ],
     },
-  };
-  
-  const Chart = () => (
-    <>
-      <div className='header'>
-        <h1 className='title'>Results</h1>
-      </div>
-      <Bar data={data} options={options} />
-    </>
-  );
+  ],
+};
 
-  export default Chart;
+const options = {
+  type: "polar",
+  data: data,
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "top",
+      },
+      title: {
+        display: true,
+        text: "Chart.js Polar Area Chart",
+      },
+    },
+  },
+};
+
+const Chart = () => (
+  <>
+    <div className="chart">
+      <PolarArea data={data} options={options} />
+    </div>
+  </>
+);
+
+export default Chart;
