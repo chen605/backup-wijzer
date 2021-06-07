@@ -17,7 +17,6 @@ const UserRegistration = () => {
     birthDate: '',
     signUpDate: '',
     gender: '',
-    userFirebaseId: uid,
   });
 
   const { firstName, lastName, birthDate, gender, signUpDate } =
@@ -43,10 +42,12 @@ const UserRegistration = () => {
     //   });
 
     const user = JSON.stringify(userCredentials);
+    const domainName = process.env.REACT_APP_DOMAIN_NAME;
     try {
-      await axios.post('http://localhost:8080/user/signup', user, {
+      await axios.post(`${domainName}/user/signup`, user, {
         headers: {
           'Content-Type': 'application/json',
+          userFirebaseId: uid,
         },
       });
       alert('Registratie succesvol!');

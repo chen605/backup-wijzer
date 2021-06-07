@@ -1,52 +1,7 @@
-import React, { useRef } from 'react';
-import { useHistory } from 'react-router';
-import { auth } from '../firebase/firebase';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectSignupState, signupstate } from '../features/userSlice';
-
+import React from 'react';
 import backgroundImage from '../img/2329f-int0003.jpg';
-import CustomButton from '../components/custom-component/CustomButton';
 
 const LandingPage = () => {
-  const history = useHistory();
-  const emailRef = useRef(null);
-  const passwordRef = useRef(null);
-  const dispatch = useDispatch();
-
-  const register = (e) => {
-    e.preventDefault();
-
-    auth
-      .createUserWithEmailAndPassword(
-        emailRef.current.value,
-        passwordRef.current.value
-      )
-      .then((authUser) => {
-        // console.log(authUser);
-      })
-      .catch((error) => {
-        alert(error.message);
-      });
-  };
-
-  const signIn = (e) => {
-    e.preventDefault();
-
-    auth
-      .signInWithEmailAndPassword(
-        emailRef.current.value,
-        passwordRef.current.value
-      )
-      .then((authUser) => {
-        // console.log(authUser);
-        history.push('/');
-      })
-      .catch((error) => {
-        alert(error.message);
-      });
-  };
-
-  const signup = useSelector(selectSignupState);
   return (
     <div
       className="landingPage"
@@ -57,43 +12,34 @@ const LandingPage = () => {
         backgroundSize: 'cover',
       }}
     >
-      {signup ? (
-        <form className="signUpForm">
-          <h1>Log In</h1>
-          <input ref={emailRef} type="email" placeholder="Email" />
-          <input ref={passwordRef} type="password" placeholder="Password" />
-          <CustomButton type="submit" onClick={signIn} name="Log In" />
+      {/* video player */}
+      <div className="landingPage__player-wrapper">
+        <iframe
+          src="https://player.vimeo.com/video/558045780?autoplay=1&amp;muted=1&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+          width="45%"
+          allow="autoplay"
+          height="100%"
+          title="intro"
+          frameborder="0"
+          webkitallowfullscreen
+          mozallowfullscreen
+          allowfullscreen
+        />
 
-          <h4>
-            <span className="signupScreen__gray">Don't have an account? </span>
-            <span
-              className="signupScreen__link"
-              onClick={() => dispatch(signupstate(!signup))}
-            >
-              Register now.
-            </span>
-          </h4>
-        </form>
-      ) : (
-        <form className="signInForm">
-          <h1>Sign Up</h1>
-          <input ref={emailRef} type="email" placeholder="Email" />
-          <input ref={passwordRef} type="password" placeholder="Password" />
-          <CustomButton type="submit" onClick={register} name="Sign Up" />
-
-          <h4>
-            <span className="signupScreen__gray">
-              Already have an account?{' '}
-            </span>
-            <span
-              className="signupScreen__link"
-              onClick={() => dispatch(signupstate(!signup))}
-            >
-              Login to an existing account.
-            </span>
-          </h4>
-        </form>
-      )}
+        <div className="landingPage__player-wrapper__introText">
+          <h2>MKB Digitaliseringswijzer</h2>
+          <p>
+            Cupola XS voert samen met TechConnect van de Amsterdam Economic
+            Board, Winc Academy en CA-ICT de mkb DigitaliseringsWijzer uit. Dit
+            is een self-assessment voor ondernemers, directeuren en managers van
+            kleine en middelgrote bedrijven (10-250 medewerkers). De Wijzer
+            geeft aan in welke mate zijn in staat zijn om leiding te geven aan
+            de digitale transitie van hun bedrijf en op welke fundamentele
+            onderdelen van digitalisering zijn toegang nodig hebben tot kennis
+            en toepassingen.
+          </p>
+        </div>
+      </div>
     </div>
   );
 };

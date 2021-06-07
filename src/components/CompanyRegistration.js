@@ -52,8 +52,10 @@ const CompanyRegistration = () => {
     event.preventDefault();
 
     const company = JSON.stringify(companyCredentials);
+    const domainName = process.env.REACT_APP_DOMAIN_NAME;
+  
     try {
-      await axios.post('http://localhost:8080/user/company2/signup', company, {
+      await axios.post(`${domainName}/user/company/signup`, company, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -484,7 +486,6 @@ const CompanyRegistration = () => {
             Mijn bedrijf vernieuwt producten, diensten en processen maar
             ontwikkelt deze niet zelf.
           </label>
-
 
           <label className="company-registration__input__checkbox">
             <input
