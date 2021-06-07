@@ -1,4 +1,12 @@
-.chart {
-  width: 500px;
-  height: 500px;
+.results-page {
+  display: flex;
+
+  &__chart {
+    width: 500px;
+    height: 500px;
+  }
+
+  &__progress-bar {
+    height: 100px;
+  }
 }

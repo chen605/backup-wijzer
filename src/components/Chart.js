@@ -11,14 +11,14 @@ const data = {
   ],
   datasets: [
     {
-      label: "My First Dataset",
+      label: "Results",
       data: [1, 5, 4, 2, 4],
       backgroundColor: [
         "rgb(255, 99, 132)",
         "rgb(75, 192, 192)",
         "rgb(255, 205, 86)",
-        "rgb(201, 203, 207)",
-        "rgb(54, 162, 235)",
+        "#736559",
+        "#000636",
       ],
     },
   ],
@@ -43,7 +43,7 @@ const options = {
 
 const Chart = () => (
   <>
-    <div className="chart">
+    <div className="results-page__chart">
       <PolarArea data={data} options={options} />
     </div>
   </>
