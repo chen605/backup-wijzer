@@ -38,6 +38,7 @@ const LoginAndRegister = () => {
             },
           });
           alert('Registratie succesvol!');
+          history.push('/');
         } catch (error) {
           alert(error.message);
         }
