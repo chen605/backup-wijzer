@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { login, logout, selectUser } from './features/userSlice';
 import Navbar from './components/Navbar/Navbar';
 import Homepage from './pages/Homepage';
+import ResultsPage from './pages/ResultsPage';
 import CompanyRegistration from './components/CompanyRegistration';
 import DomainOne from './pages/DomainOne';
 import DomainTwo from './pages/DomainTwo';
@@ -52,10 +53,10 @@ const App = () => {
           <Switch>
             {/* user & company registration */}
             <Route exact path="/" component={Homepage} />
-            <Route
-              path="/company-registration"
-              component={CompanyRegistration}
-            />
+            <Route path="/company-registration" component={CompanyRegistration} />
+            {/* results page */}
+            <Route path="/results-page" component={ResultsPage} />
+
 
             {/* Domains */}
             <Route path="/domain-one" component={DomainOne} />
