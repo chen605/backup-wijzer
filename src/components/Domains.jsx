@@ -5,9 +5,9 @@ import DomainItem from './DomainItem';
 const Domains = ({ domain }) => {
   const data = useFetch(`/questions?domain=${domain}`);
 
-  let count
-  let subfield = 1
-  data.forEach(item => {
+  let count;
+  let subfield = 1;
+  data.forEach((item) => {
     if (item.answersList[0] === ' ') {
       item.header = true;
       item.subfield = subfield;
@@ -20,19 +20,19 @@ const Domains = ({ domain }) => {
     if (count === 0) {
       item.subfield = subfield++;
     }
-  })
+  });
 
   let newData = [];
   for (let i = 1; i < subfield; i++) {
-    newData[i - 1] = data.filter(item => item.subfield === i);
+    newData[i - 1] = data.filter((item) => item.subfield === i);
   }
   console.log(newData);
 
   return (
     <section>
       <form>
-        {newData.map((items) => (
-          <DomainItem items={items}/>
+        {newData.map((items, index) => (
+          <DomainItem items={items} key={index} />
         ))}
       </form>
     </section>

@@ -20,10 +20,10 @@ const LandingPage = () => {
           allow="autoplay"
           height="100%"
           title="intro"
-          frameborder="0"
-          webkitallowfullscreen
-          mozallowfullscreen
-          allowfullscreen
+          frameBorder="0"
+          allowFullScreen={true}
+          webkitallowfullscreen="true"
+          mozallowfullscreen="true"
         />
 
         <div className="landingPage__player-wrapper__introText">
