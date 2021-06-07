@@ -17,7 +17,7 @@ main {
         font-size: 28px;
       }
       & > div {
-        background-color: rgba(255,255,255,0.95);
+        background-color: rgba(255, 255, 255, 0.95);
         width: 65%;
         border: 2px solid black;
         margin-bottom: 8px;
@@ -27,7 +27,8 @@ main {
         & > .answer {
           font-family: 'CeraPro-Regular';
           font-size: 20px;
-          &__matrix, &__rating {
+          &__matrix,
+          &__rating {
             margin: 5px 0;
             display: flex;
             justify-content: space-evenly;
@@ -42,10 +43,9 @@ main {
     }
   }
 }
-}
+
 //Vimeo player voor de 5 domeinen
 .player {
   display: flex;
   justify-content: center;
 }
-
