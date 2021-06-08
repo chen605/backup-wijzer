@@ -52,10 +52,28 @@ const Chart = () => {
         const coin = res.data;
         let labels = [];
         let data = [];
+        let reducedData = [];
         coin.forEach((element) => {
-          // labels.push(element.labels);
-          // data.push(element.data);
+          labels.push(element.labels);
+          data.push(element.data);
         });
+
+        function reduceDataPlease() {
+          for (let i = 0; i < data[0].length; i++) {
+            let reducer = data[0][i];
+            let makeSmall = reducer / 1000;
+            if (makeSmall > 100) {
+              makeSmall = 34;
+            } else if (makeSmall < 6) {
+              makeSmall = 20;
+            }
+
+            reducedData.push(makeSmall);
+          }
+          return reducedData;
+        }
+        reduceDataPlease();
+        console.log("New array is: " + reducedData);
 
         setConfig({
           labels: [
@@ -69,7 +87,7 @@ const Chart = () => {
           datasets: [
             {
               label: "Population",
-              data: [1, 5, 4, 2, 4], //hardcoded it should be replaced with the data variable
+              data: reducedData, //hardcoded it should be replaced with the data variable
               backgroundColor: [
                 "#040FD9",
                 "#020873",

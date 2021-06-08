@@ -33,6 +33,7 @@ export default function ResultsPage() {
             primaryColor={["#040FD9", "#040FD9"]}
             secondaryColor="#f0f0f0"
           />
+
           <StyledButton
             variant="contained"
             onClick={() => history.push("/domain-one")}
