@@ -4,6 +4,10 @@
   &__chart {
     width: 500px;
     height: 500px;
+
+    canvas {
+      margin-bottom: 5%;
+    }
   }
 
   &__progress-bar {
