@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.11.4",
     "@reduxjs/toolkit": "^1.5.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
@@ -10,8 +11,8 @@
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "chart.js": "^3.3.2",
-    "firebase": "^8.6.1",
     "create-react-app": "^4.0.3",
+    "firebase": "^8.6.1",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.0",
     "react-chartjs-2": "^3.0.3",

@@ -1,16 +1,18 @@
 .results-page {
   display: flex;
+  justify-content: space-evenly;
+  max-width: 80%;
 
-  &__chart {
-    width: 500px;
-    height: 500px;
-
-    canvas {
-      margin-bottom: 5%;
-    }
+  &__circle {
+    max-height: 100px;
   }
+}
 
-  &__progress-bar {
-    height: 100px;
-  }
+.chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px transparent black;
+  padding: 2rem;
+  margin-top: 20rem;
 }

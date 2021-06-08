@@ -1,19 +1,19 @@
-import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import LandingPage from './pages/LandingPage';
-import { auth } from './firebase/firebase';
-import { useDispatch, useSelector } from 'react-redux';
-import { login, logout, selectUser } from './features/userSlice';
-import Navbar from './components/Navbar/Navbar';
-import Homepage from './pages/Homepage';
-import ResultsPage from './pages/ResultsPage';
-import CompanyRegistration from './components/CompanyRegistration';
-import DomainOne from './pages/DomainOne';
-import DomainTwo from './pages/DomainTwo';
-import DomainThree from './pages/DomainThree';
-import DomainFour from './pages/DomainFour';
-import DomainFive from './pages/DomainFive';
-import LoginAndRegister from './pages/LoginAndRegister';
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import LandingPage from "./pages/LandingPage";
+import { auth } from "./firebase/firebase";
+import { useDispatch, useSelector } from "react-redux";
+import { login, logout, selectUser } from "./features/userSlice";
+import Navbar from "./components/Navbar/Navbar";
+import Homepage from "./pages/Homepage";
+import ResultsPage from "./pages/ResultsPage";
+import CompanyRegistration from "./components/CompanyRegistration";
+import DomainOne from "./pages/DomainOne";
+import DomainTwo from "./pages/DomainTwo";
+import DomainThree from "./pages/DomainThree";
+import DomainFour from "./pages/DomainFour";
+import DomainFive from "./pages/DomainFive";
+import LoginAndRegister from "./pages/LoginAndRegister";
 
 const App = () => {
   const user = useSelector(selectUser);
@@ -53,10 +53,12 @@ const App = () => {
           <Switch>
             {/* user & company registration */}
             <Route exact path="/" component={Homepage} />
-            <Route path="/company-registration" component={CompanyRegistration} />
+            <Route
+              path="/company-registration"
+              component={CompanyRegistration}
+            />
             {/* results page */}
-            <Route path="/results-page" component={ResultsPage} />
-
+            <Route path="/dashboard" component={ResultsPage} />
 
             {/* Domains */}
             <Route path="/domain-one" component={DomainOne} />
