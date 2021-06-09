@@ -1,11 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Chart from "../components/Chart";
 import { CircleProgress } from "react-gradient-progress";
 import { Button } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
+import axios from "axios";
 
 export default function ResultsPage() {
+  const [progress, setprogress] = useState([]);
+  const getProgressData = () =>
+    axios
+      .get("http://localhost:8080/userprogress", {
+        headers: {
+          "Content-Type": "application/json",
+          userFirebaseId: "5",
+        },
+      })
+      .then((res) => {
+        setprogress(res.data);
+      });
+
+  useEffect(() => {
+    getProgressData();
+  }, []);
+
+  console.log(progress);
+
   const StyledButton = withStyles({
     root: {
       background: "linear-gradient(45deg, #ffd542 30%, #fff992 90%)",
