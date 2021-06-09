@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactPlayer from 'react-player';
 import Domains from '../components/Domains';
 
 const DomainOne = () => {
