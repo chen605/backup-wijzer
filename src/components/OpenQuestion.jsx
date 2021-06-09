@@ -21,8 +21,10 @@ const OpenQuestion = ({ items }) => {
                 state.visible.splice(state.visible.indexOf(target), 1)
                 state.invisible.push(target)
             }
-            state.visible = state.visible.slice()
-            state.invisible = state.invisible.slice()
+            state = {
+                invisible: state.invisible,
+                visible: state.visible
+            }
             return state
         })
         console.log(questions)
@@ -56,5 +58,5 @@ const OpenQuestion = ({ items }) => {
         </>
     )
 }
-{}
+
 export default OpenQuestion;
