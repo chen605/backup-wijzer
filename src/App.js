@@ -1,17 +1,19 @@
-import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import LandingPage from './pages/LandingPage';
-import { auth } from './firebase/firebase';
-import { useDispatch, useSelector } from 'react-redux';
-import { login, logout, selectUser } from './features/userSlice';
-import Navbar from './components/Navbar/Navbar';
-import Homepage from './pages/Homepage';
-import CompanyRegistration from './components/CompanyRegistration';
-import DomainOne from './pages/DomainOne';
-import DomainTwo from './pages/DomainTwo';
-import DomainThree from './pages/DomainThree';
-import DomainFour from './pages/DomainFour';
-import DomainFive from './pages/DomainFive';
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import LandingPage from "./pages/LandingPage";
+import { auth } from "./firebase/firebase";
+import { useDispatch, useSelector } from "react-redux";
+import { login, logout, selectUser } from "./features/userSlice";
+import Navbar from "./components/Navbar/Navbar";
+import Homepage from "./pages/Homepage";
+import ResultsPage from "./pages/ResultsPage";
+import CompanyRegistration from "./components/CompanyRegistration";
+import DomainOne from "./pages/DomainOne";
+import DomainTwo from "./pages/DomainTwo";
+import DomainThree from "./pages/DomainThree";
+import DomainFour from "./pages/DomainFour";
+import DomainFive from "./pages/DomainFive";
+import LoginAndRegister from "./pages/LoginAndRegister";
 
 const App = () => {
   const user = useSelector(selectUser);
@@ -39,7 +41,13 @@ const App = () => {
     <Router>
       <Navbar />
       {!user ? (
-        <LandingPage />
+        <>
+          {/* If there is no user logged in */}
+          <Switch>
+            <Route exact path="/" component={LandingPage} />
+            <Route path="/login" component={LoginAndRegister} />
+          </Switch>
+        </>
       ) : (
         <>
           <Switch>
@@ -49,6 +57,8 @@ const App = () => {
               path="/company-registration"
               component={CompanyRegistration}
             />
+            {/* results page */}
+            <Route path="/dashboard" component={ResultsPage} />
 
             {/* Domains */}
             <Route path="/domain-one" component={DomainOne} />

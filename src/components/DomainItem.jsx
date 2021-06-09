@@ -1,8 +1,7 @@
 import React from 'react';
-import FormQuestion from './FormQuestion'
+import FormQuestion from './FormQuestion';
 
 const DomainItem = ({ items }) => {
-
     return (
         <div className="subfield">
             {items.map(item => (

@@ -76,4 +76,4 @@ const FormQuestion = ({ question }) => {
     )
 }
 
-export default FormQuestion
+export default FormQuestion;

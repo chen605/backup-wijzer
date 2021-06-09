@@ -21,11 +21,11 @@ const Domains = ({ domain }) => {
     if (count === 0) {
       item.subfield = subfield++;
     }
-  })
+  });
 
   let newData = [];
   for (let i = 1; i < subfield; i++) {
-    newData[i - 1] = data.filter(item => item.subfield === i);
+    newData[i - 1] = data.filter((item) => item.subfield === i);
   }
 
   return (
