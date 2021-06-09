@@ -25,6 +25,8 @@ export default function ResultsPage() {
   }, []);
 
   console.log(progress);
+  const { data, crm, ai, company, digitalProducts, security } = progress;
+  console.log(data);
 
   const StyledButton = withStyles({
     root: {
@@ -48,7 +50,7 @@ export default function ResultsPage() {
         <div className="results-page__circle">
           <CircleProgress
             width={150}
-            percentage={40}
+            percentage={data ? 100 : 0}
             strokeWidth={8}
             primaryColor={["#040FD9", "#040FD9"]}
             secondaryColor="#f0f0f0"
@@ -65,7 +67,7 @@ export default function ResultsPage() {
         <div className="results-page__circle">
           <CircleProgress
             width={150}
-            percentage={80}
+            percentage={crm ? 100 : 0}
             strokeWidth={8}
             primaryColor={["#020873", "#020873"]}
             secondaryColor="#f0f0f0"
@@ -82,7 +84,7 @@ export default function ResultsPage() {
         <div className="results-page__circle">
           <CircleProgress
             width={150}
-            percentage={90}
+            percentage={digitalProducts ? 100 : 0}
             strokeWidth={8}
             primaryColor={["#0554F2", "#0554F2"]}
             secondaryColor="#f0f0f0"
@@ -99,7 +101,7 @@ export default function ResultsPage() {
         <div className="results-page__circle">
           <CircleProgress
             width={150}
-            percentage={20}
+            percentage={security ? 100 : 0}
             strokeWidth={8}
             primaryColor={["#0597F2", "#0597F2"]}
             secondaryColor="#f0f0f0"
@@ -118,7 +120,7 @@ export default function ResultsPage() {
         <div className="results-page__circle">
           <CircleProgress
             width={150}
-            percentage={75}
+            percentage={ai ? 100 : 0}
             strokeWidth={8}
             primaryColor={["#05AFF2", "#05AFF2"]}
             secondaryColor="#f0f0f0"
