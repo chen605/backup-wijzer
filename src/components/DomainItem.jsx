@@ -3,11 +3,10 @@ import FormQuestion from './FormQuestion'
 
 const DomainItem = ({ items }) => {
 
-    console.log(items)
     return (
-        <div>
+        <div className="subfield">
             {items.map(item => (
-                <FormQuestion question={item} />
+                <FormQuestion question={item} key={item.id} />
             ))}
         </div>
     )

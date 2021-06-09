@@ -4,14 +4,15 @@ import DomainItem from './DomainItem';
 
 const Domains = ({ domain }) => {
   const data = useFetch(`/questions?domain=${domain}`);
+  console.log(data)
 
   let count
   let subfield = 1
   data.forEach(item => {
-    if (item.answersList[0] === ' ') {
+    if (item.type === 'header') {
       item.header = true;
       item.subfield = subfield;
-      count = 5;
+      count = Number(item.answersList[0]);
     }
     if (!item.header && count > 0) {
       item.subfield = subfield;
@@ -26,13 +27,12 @@ const Domains = ({ domain }) => {
   for (let i = 1; i < subfield; i++) {
     newData[i - 1] = data.filter(item => item.subfield === i);
   }
-  console.log(newData);
 
   return (
     <section>
       <form>
         {newData.map((items) => (
-          <DomainItem items={items}/>
+          <DomainItem items={items} key={items[0].subfield}/>
         ))}
       </form>
     </section>
