@@ -8,11 +8,20 @@ const Domains = ({ domain }) => {
 
   let count
   let subfield = 1
-  data.forEach(item => {
+  for (let index = 0; index < data.length; index++) {
+    const item = data[index];
+    if (index === 0 && item.type === 'checkbox') {
+      item.header = true;
+      item.subfield = subfield;
+      count = item.answersList.length;
+      item.open = true;
+    }
     if (item.type === 'header') {
       item.header = true;
       item.subfield = subfield;
-      count = Number(item.answersList[0]);
+      if (!(count > 0)) {
+        count = Number(item.answersList[0]);
+      }
     }
     if (!item.header && count > 0) {
       item.subfield = subfield;
@@ -21,7 +30,7 @@ const Domains = ({ domain }) => {
     if (count === 0) {
       item.subfield = subfield++;
     }
-  });
+  }
 
   let newData = [];
   for (let i = 1; i < subfield; i++) {

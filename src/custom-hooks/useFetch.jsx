@@ -9,7 +9,7 @@ const useFetch = (url) => {
     
     async function fetchData() {
       
-      const response = await axios.get(`${domainName}${url}`);
+      const response = await axios.get(`http://localhost:8080${url}`);
       setTestData(response.data);
       return response;
     }

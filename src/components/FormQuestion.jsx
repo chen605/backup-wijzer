@@ -11,15 +11,10 @@ const FormQuestion = ({ question }) => {
                         <div className={`answer answer__${question.type}`}>
                             {/* mapping the answerslist with a ternary */}
                             {question.answersList.map((answer) => (
-                                <>
-                                    {
-                                        answer === ' ' ? '' :
-                                            <div>
-                                                <label>{answer}</label>
-                                                <input type="radio" name={"Vraag " + question.id} />
-                                            </div>
-                                    }
-                                </>
+                                <div>
+                                    <label>{answer}</label>
+                                    <input type="radio" name={"Vraag " + question.id} />
+                                </div>
                             ))}
                         </div>
                     ,
@@ -27,15 +22,10 @@ const FormQuestion = ({ question }) => {
                         <div className={`answer answer__${question.type}`}>
                             {/* mapping the answerslist with a ternary */}
                             {question.answersList.map((answer) => (
-                                <>
-                                    {
-                                        answer === ' ' ? '' :
-                                            <div>
-                                                <input type="checkbox" />
-                                                <label>{answer}</label>
-                                            </div>
-                                    }
-                                </>
+                                <div>
+                                    <input type="checkbox" />
+                                    <label>{answer}</label>
+                                </div>
                             ))}
                         </div>
                     ,
@@ -43,15 +33,10 @@ const FormQuestion = ({ question }) => {
                         <div className={`answer answer__${question.type}`}>
                             {/* mapping the answerslist with a ternary */}
                             {question.answersList.map((answer) => (
-                                <>
-                                    {
-                                        answer === ' ' ? '' :
-                                            <div>
-                                                <label>{answer}</label>
-                                                <input type="radio" name={"Vraag " + question.id} />
-                                            </div>
-                                    }
-                                </>
+                                <div>
+                                    <label>{answer}</label>
+                                    <input type="radio" name={"Vraag " + question.id} />
+                                </div>
                             ))}
                         </div>
                     ,
@@ -59,15 +44,10 @@ const FormQuestion = ({ question }) => {
                         <div className={`answer answer__${question.type}`}>
                             {/* mapping the answerslist with a ternary */}
                             {question.answersList.map((answer) => (
-                                <>
-                                    {
-                                        answer === ' ' ? '' :
-                                            <div>
-                                                <label>{answer}</label>
-                                                <input type="radio" name={"Vraag " + question.id} />
-                                            </div>
-                                    }
-                                </>
+                                <div>
+                                    <label>{answer}</label>
+                                    <input type="radio" name={"Vraag " + question.id} />
+                                </div>
                             ))}
                         </div>
                 }[question.type]
