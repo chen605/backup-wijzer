@@ -12,6 +12,7 @@ const LoginAndRegister = () => {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const dispatch = useDispatch();
+  const domainName = process.env.REACT_APP_DOMAIN_NAME;
 
   const [companyCredentials, setCompanyCredentials] = useState({
     companyName: '',
@@ -33,7 +34,7 @@ const LoginAndRegister = () => {
         console.log(userAuth.user);
 
         try {
-          axios.post('http://localhost:8080/user/company/signup', company, {
+          axios.post(`${domainName}/user/company/signup`, company, {
             headers: {
               'Content-Type': 'application/json',
               userFirebaseId: userAuth.user.uid,

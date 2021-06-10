@@ -47,10 +47,11 @@ const options = {
 const Chart = () => {
   const { uid } = useSelector(selectUser);
   const [config, setConfig] = useState({});
+  const domainName = process.env.REACT_APP_DOMAIN_NAME;
 
   function getChartData() {
     axios
-      .get('http://localhost:8080/userprogress', {
+      .get(`${domainName}/userprogress`, {
         headers: {
           'Content-Type': 'application/json',
           userFirebaseId: 'uid',
