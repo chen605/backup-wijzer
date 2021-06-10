@@ -8,9 +8,10 @@ import axios from "axios";
 
 export default function ResultsPage() {
   const [progress, setprogress] = useState([]);
+  const domainName = process.env.REACT_APP_DOMAIN_NAME;
   const getProgressData = () =>
     axios
-      .get("http://localhost:8080/userprogress", {
+      .get(`${domainName}/userprogress`, {
         headers: {
           "Content-Type": "application/json",
           userFirebaseId: "5",
