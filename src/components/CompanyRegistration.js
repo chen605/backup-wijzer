@@ -1,36 +1,34 @@
-import React, { useState } from "react";
-import axios from "axios";
-import CustomButton from "./custom-component/CustomButton";
-import Banner from "./Banner/Banner";
-import { useSelector } from "react-redux";
-import { selectUser } from "../features/userSlice";
-import { useHistory } from "react-router-dom";
+import React, { useState } from 'react';
+import axios from 'axios';
+import CustomButton from './custom-component/CustomButton';
+import Banner from './Banner/Banner';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../features/userSlice';
+import { useHistory } from 'react-router-dom';
 
 const CompanyRegistration = () => {
   const { uid } = useSelector(selectUser);
+  console.log(uid + ' we zitten in de company registratie page nu');
+
   const history = useHistory();
 
   const [companyCredentials, setCompanyCredentials] = useState({
-    name: "",
-    kvkNumber: "",
-    address: "",
-    postalCode: "",
-    registryDate: "",
-    city: "",
-    companyType: "",
-    foundingYear: "",
-    numberOfEmployeesInFte: "",
-    annualSales: "",
-    percentageSalesBusiness2Consumer: "",
-    originClient: "",
-    companyProfile: "",
-    percentageReadynessDigitalTransformation: "",
-    userFirebaseId: uid,
+    address: '',
+    postalCode: '',
+    registryDate: '2021-01-20',
+    city: '',
+    companyType: '',
+    foundingYear: '',
+    numberOfEmployeesInFte: '',
+    annualSales: '',
+    percentageSalesBusiness2Consumer: '',
+    originClient: '',
+    companyProfile: '',
+    percentageReadynessDigitalTransformation: '',
   });
+  console.log(companyCredentials);
 
   const {
-    name,
-    kvkNumber,
     address,
     postalCode,
     city,
@@ -57,13 +55,14 @@ const CompanyRegistration = () => {
     const domainName = process.env.REACT_APP_DOMAIN_NAME;
 
     try {
-      await axios.post(`${domainName}/user/company/signup`, company, {
+      await axios.post(`${domainName}/user/company/details`, company, {
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
+          userFirebaseId: uid,
         },
       });
-      alert("Registratie succesvol!");
-      history.push("/dashboard");
+      alert('Registratie succesvol!');
+      history.push('/dashboard');
     } catch (error) {
       alert(error.message);
     }
@@ -73,32 +72,6 @@ const CompanyRegistration = () => {
     <div className="company-registration">
       <Banner />
       <form onSubmit={handleSubmit}>
-        <div className="company-registration__input">
-          <label className="company-registration__input__title">
-            Bedrijfsnaam
-          </label>
-          <input
-            type="text"
-            name="name"
-            value={name}
-            onChange={handleChange}
-            placeholder="Your answer"
-          />
-        </div>
-
-        <div className="company-registration__input">
-          <label className="company-registration__input__title">
-            Kvk-nummer
-          </label>
-          <input
-            type="text"
-            name="kvkNumber"
-            value={kvkNumber}
-            onChange={handleChange}
-            placeholder="Your answer"
-          />
-        </div>
-
         <div className="company-registration__input">
           <label className="company-registration__input__title">Adres</label>
           <input
@@ -142,7 +115,7 @@ const CompanyRegistration = () => {
               name="companyType"
               type="radio"
               value="Landbouw, bosbouw en visserij"
-              checked={companyType === "Landbouw, bosbouw en visserij"}
+              checked={companyType === 'Landbouw, bosbouw en visserij'}
               onChange={handleChange}
             />
             &nbsp;Landbouw, bosbouw en visserij
@@ -155,7 +128,7 @@ const CompanyRegistration = () => {
               value="Winning of productie delfstoffen, water, elektriciteit of aardgas"
               checked={
                 companyType ===
-                "Winning of productie delfstoffen, water, elektriciteit of aardgas"
+                'Winning of productie delfstoffen, water, elektriciteit of aardgas'
               }
               onChange={handleChange}
             />
@@ -168,7 +141,7 @@ const CompanyRegistration = () => {
               name="companyType"
               type="radio"
               value="Industrie (productiebedrijf)"
-              checked={companyType === "Industrie (productiebedrijf)"}
+              checked={companyType === 'Industrie (productiebedrijf)'}
               onChange={handleChange}
             />
             &nbsp;Industrie (productiebedrijf)
@@ -179,7 +152,7 @@ const CompanyRegistration = () => {
               name="companyType"
               type="radio"
               value="Bouw"
-              checked={companyType === "Bouw"}
+              checked={companyType === 'Bouw'}
               onChange={handleChange}
             />
             &nbsp;Bouw
@@ -192,7 +165,7 @@ const CompanyRegistration = () => {
               value="Detailhandel, groothandel en reparatie van auto's"
               checked={
                 companyType ===
-                "Detailhandel, groothandel en reparatie van auto"
+                'Detailhandel, groothandel en reparatie van auto'
               }
               onChange={handleChange}
             />
@@ -204,7 +177,7 @@ const CompanyRegistration = () => {
               name="companyType"
               type="radio"
               value="Vervoer en opslag"
-              checked={companyType === "Vervoer en opslag"}
+              checked={companyType === 'Vervoer en opslag'}
               onChange={handleChange}
             />
             &nbsp;Vervoer en opslag
@@ -215,7 +188,7 @@ const CompanyRegistration = () => {
               name="companyType"
               type="radio"
               value="Horeca"
-              checked={companyType === "Horeca"}
+              checked={companyType === 'Horeca'}
               onChange={handleChange}
             />
             &nbsp;Horeca
@@ -226,7 +199,7 @@ const CompanyRegistration = () => {
               name="companyType"
               type="radio"
               value="Informatie en communicatie"
-              checked={companyType === "Informatie en communicatie"}
+              checked={companyType === 'Informatie en communicatie'}
               onChange={handleChange}
             />
             &nbsp;Informatie en communicatie
@@ -239,7 +212,7 @@ const CompanyRegistration = () => {
               value="Zakelijke dienstverlening (inclusief verhuur/handel onroerend goed)"
               checked={
                 companyType ===
-                "Zakelijke dienstverlening (inclusief verhuur/handel onroerend goed)"
+                'Zakelijke dienstverlening (inclusief verhuur/handel onroerend goed)'
               }
               onChange={handleChange}
             />
@@ -252,7 +225,7 @@ const CompanyRegistration = () => {
               name="companyType"
               type="radio"
               value="Overheid, Onderwijs, Zorg"
-              checked={companyType === "Overheid, Onderwijs, Zorg"}
+              checked={companyType === 'Overheid, Onderwijs, Zorg'}
               onChange={handleChange}
             />
             &nbsp;Overheid, Onderwijs, Zorg
@@ -263,7 +236,7 @@ const CompanyRegistration = () => {
               name="companyType"
               type="radio"
               value="Cultuur, sport en recreatie"
-              checked={companyType === "Cultuur, sport en recreatie"}
+              checked={companyType === 'Cultuur, sport en recreatie'}
               onChange={handleChange}
             />
             &nbsp;Cultuur, sport en recreatie
@@ -274,7 +247,7 @@ const CompanyRegistration = () => {
               name="companyType"
               type="radio"
               value="Overige dienstverlening"
-              checked={companyType === "Overige dienstverlening"}
+              checked={companyType === 'Overige dienstverlening'}
               onChange={handleChange}
             />
             &nbsp;Overige dienstverlening
@@ -338,7 +311,7 @@ const CompanyRegistration = () => {
                   type="radio"
                   value="1"
                   name="percentageSalesBusiness2Consumer"
-                  checked={percentageSalesBusiness2Consumer === "1"}
+                  checked={percentageSalesBusiness2Consumer === '1'}
                   onChange={handleChange}
                 />
                 <label>1</label>
@@ -348,7 +321,7 @@ const CompanyRegistration = () => {
                   type="radio"
                   value="2"
                   name="percentageSalesBusiness2Consumer"
-                  checked={percentageSalesBusiness2Consumer === "2"}
+                  checked={percentageSalesBusiness2Consumer === '2'}
                   onChange={handleChange}
                 />
                 <label>2</label>
@@ -358,7 +331,7 @@ const CompanyRegistration = () => {
                   type="radio"
                   value="3"
                   name="percentageSalesBusiness2Consumer"
-                  checked={percentageSalesBusiness2Consumer === "3"}
+                  checked={percentageSalesBusiness2Consumer === '3'}
                   onChange={handleChange}
                 />
                 <label>3</label>
@@ -368,7 +341,7 @@ const CompanyRegistration = () => {
                   type="radio"
                   value="4"
                   name="percentageSalesBusiness2Consumer"
-                  checked={percentageSalesBusiness2Consumer === "4"}
+                  checked={percentageSalesBusiness2Consumer === '4'}
                   onChange={handleChange}
                 />
                 <label>4</label>
@@ -378,7 +351,7 @@ const CompanyRegistration = () => {
                   type="radio"
                   value="5"
                   name="percentageSalesBusiness2Consumer"
-                  checked={percentageSalesBusiness2Consumer === "5"}
+                  checked={percentageSalesBusiness2Consumer === '5'}
                   onChange={handleChange}
                 />
                 <label>5</label>
@@ -398,7 +371,7 @@ const CompanyRegistration = () => {
               type="radio"
               value="Eigen regio"
               name="originClient"
-              checked={originClient === "Eigen regio"}
+              checked={originClient === 'Eigen regio'}
               onChange={handleChange}
             />
             &nbsp;Eigen regio
@@ -409,7 +382,7 @@ const CompanyRegistration = () => {
               type="radio"
               value="Heel Nederland"
               name="originClient"
-              checked={originClient === "Heel Nederland"}
+              checked={originClient === 'Heel Nederland'}
               onChange={handleChange}
             />
             &nbsp;Heel Nederland
@@ -420,7 +393,7 @@ const CompanyRegistration = () => {
               type="radio"
               value="Europa"
               name="originClient"
-              checked={originClient === "Europa"}
+              checked={originClient === 'Europa'}
               onChange={handleChange}
             />
             &nbsp;Europa
@@ -431,7 +404,7 @@ const CompanyRegistration = () => {
               type="radio"
               value="Wereldwijd"
               name="originClient"
-              checked={originClient === "Wereldwijd"}
+              checked={originClient === 'Wereldwijd'}
               onChange={handleChange}
             />
             &nbsp;Wereldwijd
@@ -451,7 +424,7 @@ const CompanyRegistration = () => {
               name="companyProfile"
               checked={
                 companyProfile ===
-                "Mijn bedrijf is koploper (in haar sector) op het gebied van de ontwikkeling en introductie van nieuwe producten, diensten en processen."
+                'Mijn bedrijf is koploper (in haar sector) op het gebied van de ontwikkeling en introductie van nieuwe producten, diensten en processen.'
               }
               onChange={handleChange}
             />
@@ -467,7 +440,7 @@ const CompanyRegistration = () => {
               name="companyProfile"
               checked={
                 companyProfile ===
-                "Mijn bedrijf ontwikkelt zelf nieuwe producten en diensten en/of vernieuwt bedrijfsprocessen"
+                'Mijn bedrijf ontwikkelt zelf nieuwe producten en diensten en/of vernieuwt bedrijfsprocessen'
               }
               onChange={handleChange}
             />
@@ -482,7 +455,7 @@ const CompanyRegistration = () => {
               name="companyProfile"
               checked={
                 companyProfile ===
-                "Mijn bedrijf vernieuwt producten, diensten en processen maar ontwikkelt deze niet zelf."
+                'Mijn bedrijf vernieuwt producten, diensten en processen maar ontwikkelt deze niet zelf.'
               }
               onChange={handleChange}
             />
@@ -497,7 +470,7 @@ const CompanyRegistration = () => {
               name="companyProfile"
               checked={
                 companyProfile ===
-                "Geen van bovenstaande maar er vinden wel innovatie-activiteiten plaats in mijn bedrijf"
+                'Geen van bovenstaande maar er vinden wel innovatie-activiteiten plaats in mijn bedrijf'
               }
               onChange={handleChange}
             />
@@ -512,7 +485,7 @@ const CompanyRegistration = () => {
               name="companyProfile"
               checked={
                 companyProfile ===
-                "In mijn bedrijf vinden geen innovatie-activiteiten plaats"
+                'In mijn bedrijf vinden geen innovatie-activiteiten plaats'
               }
               onChange={handleChange}
             />
@@ -537,7 +510,7 @@ const CompanyRegistration = () => {
                   type="radio"
                   value="1"
                   name="percentageReadynessDigitalTransformation"
-                  checked={percentageReadynessDigitalTransformation === "1"}
+                  checked={percentageReadynessDigitalTransformation === '1'}
                   onChange={handleChange}
                 />
                 <label>1</label>
@@ -548,7 +521,7 @@ const CompanyRegistration = () => {
                   type="radio"
                   value="2"
                   name="percentageReadynessDigitalTransformation"
-                  checked={percentageReadynessDigitalTransformation === "2"}
+                  checked={percentageReadynessDigitalTransformation === '2'}
                   onChange={handleChange}
                 />
                 <label>2</label>
@@ -559,7 +532,7 @@ const CompanyRegistration = () => {
                   type="radio"
                   value="3"
                   name="percentageReadynessDigitalTransformation"
-                  checked={percentageReadynessDigitalTransformation === "3"}
+                  checked={percentageReadynessDigitalTransformation === '3'}
                   onChange={handleChange}
                 />
                 <label>3</label>
@@ -570,7 +543,7 @@ const CompanyRegistration = () => {
                   type="radio"
                   value="4"
                   name="percentageReadynessDigitalTransformation"
-                  checked={percentageReadynessDigitalTransformation === "4"}
+                  checked={percentageReadynessDigitalTransformation === '4'}
                   onChange={handleChange}
                 />
                 <label>4</label>
@@ -581,7 +554,7 @@ const CompanyRegistration = () => {
                   type="radio"
                   value="5"
                   name="percentageReadynessDigitalTransformation"
-                  checked={percentageReadynessDigitalTransformation === "5"}
+                  checked={percentageReadynessDigitalTransformation === '5'}
                   onChange={handleChange}
                 />
                 <label>5</label>

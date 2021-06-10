@@ -1,19 +1,23 @@
-import React, { useState, useEffect } from "react";
-import Chart from "../components/Chart";
-import { CircleProgress } from "react-gradient-progress";
-import { Button } from "@material-ui/core";
-import { useHistory } from "react-router-dom";
-import { withStyles } from "@material-ui/core/styles";
-import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import Chart from '../components/Chart';
+import { CircleProgress } from 'react-gradient-progress';
+import { Button } from '@material-ui/core';
+import { useHistory } from 'react-router-dom';
+import { withStyles } from '@material-ui/core/styles';
+import axios from 'axios';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../features/userSlice';
 
 export default function ResultsPage() {
+  const { uid } = useSelector(selectUser);
+
   const [progress, setprogress] = useState([]);
   const getProgressData = () =>
     axios
-      .get("http://localhost:8080/userprogress", {
+      .get('http://localhost:8080/userprogress', {
         headers: {
-          "Content-Type": "application/json",
-          userFirebaseId: "5",
+          'Content-Type': 'application/json',
+          userFirebaseId: uid,
         },
       })
       .then((res) => {
@@ -30,16 +34,16 @@ export default function ResultsPage() {
 
   const StyledButton = withStyles({
     root: {
-      background: "linear-gradient(45deg, #ffd542 30%, #fff992 90%)",
+      background: 'linear-gradient(45deg, #ffd542 30%, #fff992 90%)',
       borderRadius: 3,
       border: 0,
-      color: "black",
-      height: "30px",
-      padding: "0 30px",
-      boxShadow: "0 1px 1px 1px rgba(59, 79, 228, .1)",
+      color: 'black',
+      height: '30px',
+      padding: '0 30px',
+      boxShadow: '0 1px 1px 1px rgba(59, 79, 228, .1)',
     },
     label: {
-      textTransform: "capitalize",
+      textTransform: 'capitalize',
     },
   })(Button);
 
@@ -52,13 +56,13 @@ export default function ResultsPage() {
             width={150}
             percentage={data ? 100 : 0}
             strokeWidth={8}
-            primaryColor={["#040FD9", "#040FD9"]}
+            primaryColor={['#040FD9', '#040FD9']}
             secondaryColor="#f0f0f0"
           />
 
           <StyledButton
             variant="contained"
-            onClick={() => history.push("/domain-one")}
+            onClick={() => history.push('/domain-one')}
           >
             Ga naar eerste domein
           </StyledButton>
@@ -69,13 +73,13 @@ export default function ResultsPage() {
             width={150}
             percentage={crm ? 100 : 0}
             strokeWidth={8}
-            primaryColor={["#020873", "#020873"]}
+            primaryColor={['#020873', '#020873']}
             secondaryColor="#f0f0f0"
           />
           <StyledButton
             variant="contained"
             color="secondary"
-            onClick={() => history.push("/domain-two")}
+            onClick={() => history.push('/domain-two')}
           >
             Ga naar tweede domein
           </StyledButton>
@@ -86,13 +90,13 @@ export default function ResultsPage() {
             width={150}
             percentage={digitalProducts ? 100 : 0}
             strokeWidth={8}
-            primaryColor={["#0554F2", "#0554F2"]}
+            primaryColor={['#0554F2', '#0554F2']}
             secondaryColor="#f0f0f0"
           />
           <StyledButton
             variant="contained"
             color="primary"
-            onClick={() => history.push("/domain-three")}
+            onClick={() => history.push('/domain-three')}
           >
             Ga naar derde domein
           </StyledButton>
@@ -103,7 +107,7 @@ export default function ResultsPage() {
             width={150}
             percentage={security ? 100 : 0}
             strokeWidth={8}
-            primaryColor={["#0597F2", "#0597F2"]}
+            primaryColor={['#0597F2', '#0597F2']}
             secondaryColor="#f0f0f0"
           />
 
@@ -111,7 +115,7 @@ export default function ResultsPage() {
             color="#ffd542"
             className="domain-button"
             variant="contained"
-            onClick={() => history.push("/domain-four")}
+            onClick={() => history.push('/domain-four')}
           >
             Ga naar vierde domein
           </StyledButton>
@@ -122,13 +126,13 @@ export default function ResultsPage() {
             width={150}
             percentage={ai ? 100 : 0}
             strokeWidth={8}
-            primaryColor={["#05AFF2", "#05AFF2"]}
+            primaryColor={['#05AFF2', '#05AFF2']}
             secondaryColor="#f0f0f0"
           />
           <StyledButton
             variant="contained"
             color="primary"
-            onClick={() => history.push("/domain-five")}
+            onClick={() => history.push('/domain-five')}
           >
             Ga naar vijfde domein
           </StyledButton>

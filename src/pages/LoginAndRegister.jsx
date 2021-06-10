@@ -14,11 +14,11 @@ const LoginAndRegister = () => {
   const dispatch = useDispatch();
 
   const [companyCredentials, setCompanyCredentials] = useState({
-    name: '',
+    companyName: '',
     kvkNumber: '',
   });
 
-  const { name, kvkNumber } = companyCredentials;
+  const { companyName, kvkNumber } = companyCredentials;
 
   const register = (e) => {
     e.preventDefault();
@@ -28,13 +28,15 @@ const LoginAndRegister = () => {
         emailRef.current.value,
         passwordRef.current.value
       )
-      .then((authUser) => {
+      .then((userAuth) => {
         const company = JSON.stringify(companyCredentials);
+        console.log(userAuth.user);
+
         try {
           axios.post('http://localhost:8080/user/company/signup', company, {
             headers: {
               'Content-Type': 'application/json',
-              userFirebaseId: authUser.uid,
+              userFirebaseId: userAuth.user.uid,
             },
           });
           alert('Registratie succesvol!');
@@ -104,8 +106,8 @@ const LoginAndRegister = () => {
           <input ref={passwordRef} type="password" placeholder="Password" />
           <input
             type="text"
-            name="name"
-            value={name}
+            name="companyName"
+            value={companyName}
             onChange={handleChange}
             placeholder="Bedrijfsnaam"
           />
