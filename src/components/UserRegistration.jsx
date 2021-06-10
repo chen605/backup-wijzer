@@ -9,6 +9,7 @@ import { selectUser } from '../features/userSlice';
 
 const UserRegistration = () => {
   const { uid } = useSelector(selectUser);
+  console.log(uid + ' we zitten in de user registratie page nu');
 
   const history = useHistory();
   const [userCredentials, setUserCredentials] = useState({

@@ -1,44 +1,44 @@
-import React, { useState, useEffect } from "react";
-import { PolarArea } from "react-chartjs-2";
-import axios from "axios";
-import { useSelector } from "react-redux";
-import { selectUser } from "../features/userSlice";
+import React, { useState, useEffect } from 'react';
+import { PolarArea } from 'react-chartjs-2';
+import axios from 'axios';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../features/userSlice';
 
 const data = {
   labels: [
-    "Data, dashboards & business intelligence",
-    "CRM en klantreis",
-    "Digitale producten, service & marketing",
-    "Cloud, kantoorautomatisering & veiligheid",
-    "Artificial intelligence & andere opkomende technologieën",
+    'Data, dashboards & business intelligence',
+    'CRM en klantreis',
+    'Digitale producten, service & marketing',
+    'Cloud, kantoorautomatisering & veiligheid',
+    'Artificial intelligence & andere opkomende technologieën',
   ],
   datasets: [
     {
-      label: "Results",
+      label: 'Results',
       data: [1, 5, 4, 2, 4],
       backgroundColor: [
-        "rgb(255, 99, 132)",
-        "rgb(75, 192, 192)",
-        "rgb(255, 205, 86)",
-        "#736559",
-        "#000636",
+        'rgb(255, 99, 132)',
+        'rgb(75, 192, 192)',
+        'rgb(255, 205, 86)',
+        '#736559',
+        '#000636',
       ],
     },
   ],
 };
 
 const options = {
-  type: "polar",
+  type: 'polar',
   data: data,
   options: {
     responsive: true,
     plugins: {
       legend: {
-        position: "top",
+        position: 'top',
       },
       title: {
         display: true,
-        text: "Chart.js Polar Area Chart",
+        text: 'Chart.js Polar Area Chart',
       },
     },
   },
@@ -53,8 +53,8 @@ const Chart = () => {
     axios
       .get(`${domainName}/userprogress`, {
         headers: {
-          "Content-Type": "application/json",
-          userFirebaseId: "5",
+          'Content-Type': 'application/json',
+          userFirebaseId: 'uid',
         },
       })
       .then((res) => {
@@ -78,23 +78,23 @@ const Chart = () => {
 
         setConfig({
           labels: [
-            "Data, dashboards & business intelligence",
-            "CRM en klantreis",
-            "Digitale producten, service & marketing",
-            "Cloud, kantoorautomatisering & veiligheid",
-            "Artificial intelligence & andere opkomende technologieën",
+            'Data, dashboards & business intelligence',
+            'CRM en klantreis',
+            'Digitale producten, service & marketing',
+            'Cloud, kantoorautomatisering & veiligheid',
+            'Artificial intelligence & andere opkomende technologieën',
           ], //hardcoded it should be replaced with the labels variable
 
           datasets: [
             {
-              label: "Population",
+              label: 'Population',
               data: resultsArray, //hardcoded it should be replaced with the data variable
               backgroundColor: [
-                "#040FD9",
-                "#020873",
-                "#0554F2",
-                "#0597F2",
-                "#05AFF2",
+                '#040FD9',
+                '#020873',
+                '#0554F2',
+                '#0597F2',
+                '#05AFF2',
               ],
             },
           ],
