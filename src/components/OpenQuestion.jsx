@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import FormQuestion from './FormQuestion';
 
-const OpenQuestion = ({ items }) => {
+const OpenQuestion = ({ items, handleChange }) => {
+
     const conditionals = items.filter(item => !item.header)
     const [questions, setQuestions] = useState({
         invisible: conditionals,
         visible: []
     })
 
-    function checkboxHandler(event) {
-        console.log(event)
+    const checkboxHandler = event => {
+        handleChange(event)
         const targetText = event.target.labels[0].innerText
         setQuestions((state) => {
             const target = state.invisible.find(item => item.question === targetText)
@@ -27,7 +28,6 @@ const OpenQuestion = ({ items }) => {
             }
             return state
         })
-        console.log(questions)
     }
 
     return (
@@ -39,7 +39,7 @@ const OpenQuestion = ({ items }) => {
                     {items[0].answersList.map((answer) => (
                         <div>
                             <label>
-                                <input type="checkbox" onChange={e => checkboxHandler(e)} />
+                                <input type="checkbox" name={"answer" + items[0].id} value={`${answer}`} onChange={checkboxHandler} />
                                 {answer}
                             </label>
                         </div>
@@ -52,7 +52,7 @@ const OpenQuestion = ({ items }) => {
                 </div>}
             {questions.visible.length === 0 ? '' :
                 questions.visible.map(item => (
-                    <FormQuestion question={item} key={item.id} />
+                    <FormQuestion question={item} key={item.id} handleChange={handleChange} />
                 ))
             }
         </>

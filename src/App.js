@@ -61,11 +61,11 @@ const App = () => {
             <Route path="/dashboard" component={ResultsPage} />
 
             {/* Domains */}
-            <Route path="/domain-one" component={DomainOne} />
-            <Route path="/domain-two" component={DomainTwo} />
-            <Route path="/domain-three" component={DomainThree} />
-            <Route path="/domain-four" component={DomainFour} />
-            <Route path="/domain-five" component={DomainFive} />
+            <Route path="/data" component={DomainOne} />
+            <Route path="/crm" component={DomainTwo} />
+            <Route path="/digitalproducts" component={DomainThree} />
+            <Route path="/security" component={DomainFour} />
+            <Route path="/ai" component={DomainFive} />
           </Switch>
         </>
       )}
