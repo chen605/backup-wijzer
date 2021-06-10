@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 const FormQuestion = ({ question, handleChange }) => {
 
+
     return (
         <div className="subitem">
             <h2 className={`question__${question.type}`}>{question.question}</h2>
@@ -56,5 +57,4 @@ const FormQuestion = ({ question, handleChange }) => {
         </div>
     )
 }
-
 export default FormQuestion;

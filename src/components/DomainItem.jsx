@@ -2,6 +2,7 @@ import React from 'react';
 import FormQuestion from './FormQuestion';
 import OpenQuestion from './OpenQuestion';
 
+
 const DomainItem = ({ items, handleChange }) => {
     if (items[0].open) {
         return (
