@@ -1,10 +1,65 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 import useFetch from '../custom-hooks/useFetch';
 import DomainItem from './DomainItem';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../features/userSlice';
+import { useHistory } from 'react-router-dom';
 
 const Domains = ({ domain }) => {
+  const { uid } = useSelector(selectUser);
+  const history = useHistory()
+
   const data = useFetch(`/questions?domain=${domain}`);
-  console.log(data)
+
+  const [answers, setAnswers] = useState({})
+
+  const handleChange = (event) => {
+    let { name, value, type } = event.target;
+    value = value.trim()
+    if (type === 'checkbox') {
+      setAnswers(state => {
+        let stateString;
+        if (state[name] === '' || state[name] === undefined) {
+          stateString = value
+        } else {
+          stateString = state[name]
+          if (!stateString.includes(value) && event.target.checked) {
+            stateString += ",," + value.trim();
+          }
+          if (stateString.includes(value) && !(event.target.checked)) {
+            stateString = stateString.replace(value + ",,", '')
+            stateString = stateString.replace(",," + value, '')
+          }
+        }
+        return { ...answers, [name]: stateString }
+      })
+    } else {
+      setAnswers({ ...answers, [name]: value })
+    }
+  }
+
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    console.log(answers)
+
+    const formInput = JSON.stringify(answers);
+    const domainName = process.env.REACT_APP_DOMAIN_NAME;
+    try {
+      await axios.post(`${domainName}/answers?domain=${domain}`, formInput, {
+        headers: {
+          'Content-Type': 'application/json',
+          userFirebaseId: uid,
+        },
+      });
+      alert('Registratie succesvol!');
+
+      history.push(`/dashboard`);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
 
   let count
   let subfield = 1
@@ -39,10 +94,11 @@ const Domains = ({ domain }) => {
 
   return (
     <section>
-      <form>
+      <form onSubmit={e => handleSubmit(e)}>
         {newData.map((items) => (
-          <DomainItem items={items} key={items[0].subfield}/>
+          <DomainItem items={items} key={items[0].subfield} handleChange={handleChange} />
         ))}
+        <button type="submit" value="Submit">Submit</button>
       </form>
     </section>
   );

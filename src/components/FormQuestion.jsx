@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const FormQuestion = ({ question }) => {
+const FormQuestion = ({ question, handleChange }) => {
+
     return (
         <div className="subitem">
             <h2 className={`question__${question.type}`}>{question.question}</h2>
@@ -13,7 +14,7 @@ const FormQuestion = ({ question }) => {
                             {question.answersList.map((answer) => (
                                 <div>
                                     <label>{answer}</label>
-                                    <input type="radio" name={"Vraag " + question.id} />
+                                    <input type="radio" name={"answer" + question.id} value={`${answer}`} onChange={handleChange} />
                                 </div>
                             ))}
                         </div>
@@ -23,7 +24,7 @@ const FormQuestion = ({ question }) => {
                             {/* mapping the answerslist with a ternary */}
                             {question.answersList.map((answer) => (
                                 <div>
-                                    <input type="checkbox" />
+                                    <input type="checkbox" name={"answer" + question.id} value={`${answer}`} onChange={handleChange} />
                                     <label>{answer}</label>
                                 </div>
                             ))}
@@ -35,7 +36,7 @@ const FormQuestion = ({ question }) => {
                             {question.answersList.map((answer) => (
                                 <div>
                                     <label>{answer}</label>
-                                    <input type="radio" name={"Vraag " + question.id} />
+                                    <input type="radio" name={"answer" + question.id} value={`${answer}`} onChange={handleChange} />
                                 </div>
                             ))}
                         </div>
@@ -46,7 +47,7 @@ const FormQuestion = ({ question }) => {
                             {question.answersList.map((answer) => (
                                 <div>
                                     <label>{answer}</label>
-                                    <input type="radio" name={"Vraag " + question.id} />
+                                    <input type="radio" name={"answer" + question.id} value={`${answer}`} onChange={handleChange} />
                                 </div>
                             ))}
                         </div>
