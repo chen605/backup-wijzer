@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Chart from "../components/Chart";
+import ScoresInterpretation from "../components/ScoresInterpretation";
 import { CircleProgress } from "react-gradient-progress";
 import { Button } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
@@ -138,6 +139,9 @@ export default function ResultsPage() {
 
       <div className="chart-container">
         <Chart />
+      </div>
+      <div className="interpretation-results-container">
+        <ScoresInterpretation />
       </div>
     </div>
   );
