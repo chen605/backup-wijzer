@@ -54,7 +54,7 @@ const Chart = () => {
       .get(`${domainName}/userprogress`, {
         headers: {
           'Content-Type': 'application/json',
-          userFirebaseId: 'uid',
+          userFirebaseId: uid,
         },
       })
       .then((res) => {
