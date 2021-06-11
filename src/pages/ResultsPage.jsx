@@ -8,6 +8,7 @@ import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../features/userSlice';
 import ScoresInterpretation from '../components/ScoresInterpretation';
+import dashboard from '../img/dashboard-icon.png';
 
 export default function ResultsPage() {
   const { uid } = useSelector(selectUser);
@@ -30,9 +31,9 @@ export default function ResultsPage() {
     getProgressData();
   }, []);
 
-  console.log(progress);
+  
   const { data, crm, ai, company, digitalProducts, security } = progress;
-  console.log(data);
+  
 
   const StyledButton = withStyles({
     root: {
@@ -52,21 +53,24 @@ export default function ResultsPage() {
   const history = useHistory();
   return (
     <div className="results-container">
+      <div className="dashboard-container">
+        <h1 className="dashboard-title">Dashboard</h1>
+      </div>
       <div className="results-page">
         <div className="results-page__circle">
           <CircleProgress
             width={150}
             percentage={data ? 100 : 0}
             strokeWidth={8}
-            primaryColor={['#040FD9', '#040FD9']}
+            primaryColor={["#040FD9", "#040FD9"]}
             secondaryColor="#f0f0f0"
           />
 
           <StyledButton
             variant="contained"
-            onClick={() => history.push('/data')}
+            onClick={() => history.push("/data")}
           >
-            Ga naar eerste domein
+            Start eerste domein
           </StyledButton>
         </div>
 
@@ -75,15 +79,15 @@ export default function ResultsPage() {
             width={150}
             percentage={crm ? 100 : 0}
             strokeWidth={8}
-            primaryColor={['#020873', '#020873']}
+            primaryColor={["#020873", "#020873"]}
             secondaryColor="#f0f0f0"
           />
           <StyledButton
             variant="contained"
             color="secondary"
-            onClick={() => history.push('/crm')}
+            onClick={() => history.push("/crm")}
           >
-            Ga naar tweede domein
+            Start tweede domein
           </StyledButton>
         </div>
 
@@ -92,15 +96,15 @@ export default function ResultsPage() {
             width={150}
             percentage={digitalProducts ? 100 : 0}
             strokeWidth={8}
-            primaryColor={['#0554F2', '#0554F2']}
+            primaryColor={["#0554F2", "#0554F2"]}
             secondaryColor="#f0f0f0"
           />
           <StyledButton
             variant="contained"
             color="primary"
-            onClick={() => history.push('/digitalproducts')}
+            onClick={() => history.push("/digitalproducts")}
           >
-            Ga naar derde domein
+            Start derde domein
           </StyledButton>
         </div>
 
@@ -109,7 +113,7 @@ export default function ResultsPage() {
             width={150}
             percentage={security ? 100 : 0}
             strokeWidth={8}
-            primaryColor={['#0597F2', '#0597F2']}
+            primaryColor={["#0597F2", "#0597F2"]}
             secondaryColor="#f0f0f0"
           />
 
@@ -117,9 +121,9 @@ export default function ResultsPage() {
             color="#ffd542"
             className="domain-button"
             variant="contained"
-            onClick={() => history.push('/security')}
+            onClick={() => history.push("/security")}
           >
-            Ga naar vierde domein
+            Start vierde domein
           </StyledButton>
         </div>
 
@@ -128,24 +132,26 @@ export default function ResultsPage() {
             width={150}
             percentage={ai ? 100 : 0}
             strokeWidth={8}
-            primaryColor={['#05AFF2', '#05AFF2']}
+            primaryColor={["#05AFF2", "#05AFF2"]}
             secondaryColor="#f0f0f0"
           />
           <StyledButton
             variant="contained"
             color="primary"
-            onClick={() => history.push('/ai')}
+            onClick={() => history.push("/ai")}
           >
-            Ga naar vijfde domein
+            Start vijfde domein
           </StyledButton>
         </div>
       </div>
 
       <div className="chart-container">
         <Chart />
+        <ScoresInterpretation />
       </div>
-      
-      < ScoresInterpretation />
+      <div className="image-dashboard-container">
+        <img src={dashboard} alt="" />
+      </div>
     </div>
   );
 }

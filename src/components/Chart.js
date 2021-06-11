@@ -4,41 +4,18 @@ import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../features/userSlice';
 
-const data = {
-  labels: [
-    'Data, dashboards & business intelligence',
-    'CRM en klantreis',
-    'Digitale producten, service & marketing',
-    'Cloud, kantoorautomatisering & veiligheid',
-    'Artificial intelligence & andere opkomende technologieën',
-  ],
-  datasets: [
-    {
-      label: 'Results',
-      data: [1, 5, 4, 2, 4],
-      backgroundColor: [
-        'rgb(255, 99, 132)',
-        'rgb(75, 192, 192)',
-        'rgb(255, 205, 86)',
-        '#736559',
-        '#000636',
-      ],
-    },
-  ],
-};
 
 const options = {
-  type: 'polar',
-  data: data,
-  options: {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'top',
-      },
-      title: {
-        display: true,
-        text: 'Chart.js Polar Area Chart',
+  animation: {
+    animateRotate: true,
+    animateScale: true,
+  },
+  scales: {
+    r: {
+      max: 5,
+      min: 0,
+      ticks: {
+        stepSize: 1,
       },
     },
   },
@@ -59,7 +36,7 @@ const Chart = () => {
       })
       .then((res) => {
         const data = res.data;
-        console.log(res);
+        
         const resultsArray = [];
 
         let dataRating = data.dataRating;
@@ -75,28 +52,30 @@ const Chart = () => {
           securityRating,
           aiRating
         );
-        console.log(resultsArray);
+        
 
         setConfig({
+          type: "polararea",
           labels: [
-            'Data, dashboards & business intelligence',
-            'CRM en klantreis',
-            'Digitale producten, service & marketing',
-            'Cloud, kantoorautomatisering & veiligheid',
-            'Artificial intelligence & andere opkomende technologieën',
+            "Data, dashboards & business intelligence",
+            "CRM & klantreis",
+            "Digitale producten, service & marketing",
+            "Cloud, kantoorautomatisering & veiligheid",
+            "AI & andere opkomende technologieën",
           ], //hardcoded it should be replaced with the labels variable
 
           datasets: [
             {
-              label: 'Population',
+              label: "results",
               data: resultsArray, //hardcoded it should be replaced with the data variable
               backgroundColor: [
-                '#040FD9',
-                '#020873',
-                '#0554F2',
-                '#0597F2',
-                '#05AFF2',
+                "#040FD9",
+                "#020873",
+                "#0554F2",
+                "#0597F2",
+                "#05AFF2",
               ],
+              
             },
           ],
         });
@@ -107,7 +86,7 @@ const Chart = () => {
     getChartData();
   }, []);
 
-  // console.log(config);
+  
 
   return (
     <>
