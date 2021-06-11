@@ -7,6 +7,7 @@ import { withStyles } from '@material-ui/core/styles';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../features/userSlice';
+import ScoresInterpretation from '../components/ScoresInterpretation';
 
 export default function ResultsPage() {
   const { uid } = useSelector(selectUser);
@@ -143,6 +144,8 @@ export default function ResultsPage() {
       <div className="chart-container">
         <Chart />
       </div>
+      
+      < ScoresInterpretation />
     </div>
   );
 }
