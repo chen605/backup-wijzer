@@ -13,6 +13,7 @@ const LoginAndRegister = () => {
   const passwordRef = useRef(null);
   const dispatch = useDispatch();
   const domainName = process.env.REACT_APP_DOMAIN_NAME;
+  const signup = useSelector(selectSignupState);
 
   const [companyCredentials, setCompanyCredentials] = useState({
     companyName: '',
@@ -31,7 +32,6 @@ const LoginAndRegister = () => {
       )
       .then((userAuth) => {
         const company = JSON.stringify(companyCredentials);
-        console.log(userAuth.user);
 
         try {
           axios.post(`${domainName}/user/company/signup`, company, {
@@ -53,7 +53,6 @@ const LoginAndRegister = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
     setCompanyCredentials({ ...companyCredentials, [name]: value });
   };
 
@@ -72,7 +71,6 @@ const LoginAndRegister = () => {
         alert(error.message);
       });
   };
-  const signup = useSelector(selectSignupState);
   return (
     <div
       className="landingPage"
@@ -90,14 +88,9 @@ const LoginAndRegister = () => {
           <input ref={passwordRef} type="password" placeholder="Password" />
           <CustomButton type="submit" onClick={signIn} name="Log In" />
 
-          <h4>
+          <h4 onClick={() => dispatch(signupstate(!signup))}>
             <span className="signupScreen__gray">Don't have an account? </span>
-            <span
-              className="signupScreen__link"
-              onClick={() => dispatch(signupstate(!signup))}
-            >
-              Register now.
-            </span>
+            <span className="signupScreen__link">Register now</span>
           </h4>
         </form>
       ) : (
@@ -121,15 +114,12 @@ const LoginAndRegister = () => {
           />
           <CustomButton type="submit" onClick={register} name="Registreer" />
 
-          <h4>
+          <h4 onClick={() => dispatch(signupstate(!signup))}>
             <span className="signupScreen__gray">
               Already have an account?{' '}
             </span>
-            <span
-              className="signupScreen__link"
-              onClick={() => dispatch(signupstate(!signup))}
-            >
-              Login to an existing account.
+            <span className="signupScreen__link">
+              Login to an existing account
             </span>
           </h4>
         </form>

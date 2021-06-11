@@ -11,8 +11,8 @@
     @include flex(space-around, center, column);
     background-color: $color-background;
     border: solid $color-add-color-light 3px;
-    width: 32rem;
-    height: 26rem;
+    width: 33rem;
+    height: 27rem;
     padding: 3rem;
 
     input {
@@ -22,6 +22,11 @@
       margin-top: 1%;
       margin-bottom: 2%;
     }
+
+    button {
+      margin: 2% 0%;
+    }
+
     h1 {
       font-family: 'CeraPro-bold';
       font-size: $large;
@@ -30,6 +35,9 @@
       @include flex(center, center, column);
       font-size: $smaller;
       cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
   &__player-wrapper {
@@ -44,8 +52,21 @@
       line-height: 1.5;
       background-color: rgba(17, 17, 17, 0.6);
       width: 40%;
-      padding: 4%;
+      padding: 3%;
       color: white;
+
+      button {
+        background-color: $color-white;
+        margin-top: 5%;
+        padding: 1rem 2rem;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        font-size: $smaller;
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.7);
+        }
+      }
 
       h2 {
         font-family: 'CeraPro-bold';

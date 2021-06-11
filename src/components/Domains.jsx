@@ -44,7 +44,6 @@ const Domains = ({ domain }) => {
     event.preventDefault();
 
     const formInput = JSON.stringify(answers);
-    console.log(formInput);
     const domainName = process.env.REACT_APP_DOMAIN_NAME;
     try {
       await axios.post(`${domainName}/answers?domain=${domain}`, formInput, {
