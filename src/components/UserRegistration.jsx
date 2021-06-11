@@ -9,9 +9,8 @@ import { selectUser } from '../features/userSlice';
 
 const UserRegistration = () => {
   const { uid } = useSelector(selectUser);
-  console.log(uid + ' we zitten in de user registratie page nu');
-
   const history = useHistory();
+
   const [userCredentials, setUserCredentials] = useState({
     firstName: '',
     lastName: '',
@@ -25,7 +24,6 @@ const UserRegistration = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
     setUserCredentials({ ...userCredentials, [name]: value });
   };
 
@@ -52,7 +50,6 @@ const UserRegistration = () => {
         },
       });
       alert('Registratie succesvol!');
-
       history.push('/company-registration');
     } catch (error) {
       alert(error.message);

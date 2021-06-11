@@ -8,8 +8,6 @@ import { useHistory } from 'react-router-dom';
 
 const CompanyRegistration = () => {
   const { uid } = useSelector(selectUser);
-  console.log(uid + ' we zitten in de company registratie page nu');
-
   const history = useHistory();
 
   const [companyCredentials, setCompanyCredentials] = useState({
@@ -26,7 +24,6 @@ const CompanyRegistration = () => {
     companyProfile: '',
     percentageReadynessDigitalTransformation: '',
   });
-  console.log(companyCredentials);
 
   const {
     address,
@@ -44,7 +41,6 @@ const CompanyRegistration = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
     setCompanyCredentials({ ...companyCredentials, [name]: value });
   };
 
