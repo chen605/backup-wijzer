@@ -1,7 +1,9 @@
 import React from 'react';
 import backgroundImage from '../img/2329f-int0003.jpg';
+import { useHistory } from 'react-router-dom';
 
 const LandingPage = () => {
+  const history = useHistory();
   return (
     <div
       className="landingPage"
@@ -38,6 +40,7 @@ const LandingPage = () => {
             onderdelen van digitalisering zijn toegang nodig hebben tot kennis
             en toepassingen.
           </p>
+          <button onClick={() => history.push('/login')}>GET STARTED</button>
         </div>
       </div>
     </div>

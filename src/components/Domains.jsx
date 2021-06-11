@@ -5,6 +5,7 @@ import DomainItem from './DomainItem';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../features/userSlice';
 import { useHistory } from 'react-router-dom';
+import CustomButton from './custom-component/CustomButton';
 
 const Domains = ({ domain }) => {
   const { uid } = useSelector(selectUser);
@@ -101,9 +102,7 @@ const Domains = ({ domain }) => {
             handleChange={handleChange}
           />
         ))}
-        <button type="submit" value="Submit">
-          Submit
-        </button>
+        <CustomButton type="submit" value="Submit" name="Submit" />
       </form>
     </section>
   );
