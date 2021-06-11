@@ -54,11 +54,12 @@ const Chart = () => {
       .get(`${domainName}/userprogress`, {
         headers: {
           'Content-Type': 'application/json',
-          userFirebaseId: 'uid',
+          userFirebaseId: uid,
         },
       })
       .then((res) => {
         const data = res.data;
+        console.log(res);
         const resultsArray = [];
 
         let dataRating = data.dataRating;
