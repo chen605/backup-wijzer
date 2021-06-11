@@ -1,0 +1,197 @@
+.company-registration {
+  background-color: $color-background;
+  font-family: 'CeraPro-Regular';
+  @include flex(center, center, column);
+
+  form {
+    width: 45%;
+    margin-top: 5%;
+    margin: 1% 0%;
+
+    .company-registration__input {
+      padding: 1rem;
+      border-radius: 10px;
+      border: 1px solid $gray;
+      background-color: $color-white;
+      width: 100%;
+
+      margin-bottom: 2%;
+      padding-bottom: 5%;
+      @include flex(center, flex-start, column);
+
+      input[type='text'] {
+        width: 50%;
+        margin-left: 2%;
+        border: none;
+        border-radius: 0;
+        border-bottom: 1px solid $gray;
+        transition: border-bottom ease 0.1s;
+        &:focus {
+          outline: none;
+          border-bottom: 3px solid $primary;
+        }
+      }
+
+      input[type='radio'] {
+        
+        margin-right: 5px;
+      }
+
+
+      .company-registration__input__checkbox {
+        margin-left: 2%;
+        margin-bottom: 2%;
+        display: flex;
+        align-items: center;
+        font-size: $smaller;
+      }
+
+    }
+
+    .company-registration__input__title {
+      font-size: $small;
+      margin-left: 2%;
+      margin-bottom: 6%;
+      margin-top: 5%;
+    }
+
+
+    .company-registration__input__title__two {
+      font-size: 10px;
+      margin-left: 2%;
+    }
+  }
+}
+
+
+// where your revenue coming from, sir?
+.origin-revenue-container {
+  border-radius: 10px;
+  border: 1px solid $gray;
+  background-color: $color-white;
+  width: 100%;
+  margin-bottom: 2%;
+  padding-bottom: 5%;
+
+  .origin-revenue-answers {
+    list-style: none;
+    width: 100%;
+    margin: 0;
+    padding: 0 0 35px;
+    display: block;
+    border-bottom: 2px solid #efefef;
+  }
+  .origin-revenue-answers:last-of-type {
+    border-bottom: 0;
+  }
+
+  .origin-revenue-answers:before {
+    content: '';
+    position: relative;
+    top: 8px;
+    left: 9.5%;
+    display: block;
+    background-color: $secondary;
+    height: 4px;
+    width: 78%;
+  }
+
+  .origin-revenue-answers li {
+    display: inline-block;
+    width: 19%;
+    text-align: center;
+    vertical-align: top;
+  }
+  .origin-revenue-answers li input[type='radio'] {
+    display: block;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    margin-left: -6px;
+  }
+  .move-down {
+    margin-top: 30px;
+
+    .input-titles-second {
+      font-size: $small;
+      margin-left: 5%;
+      margin-bottom: 6%;
+      margin-top: 5%;
+
+      h5 {
+        font-size: 10px;
+
+      }
+
+    }
+  }
+
+  .move-further-down {
+    margin-top: 35px;
+  }
+}
+
+// ready for the transition?
+.readyness-transition-container {
+  border-radius: 10px;
+  border: 1px solid $gray;
+  background-color: $color-white;
+  width: 100%;
+  margin-bottom: 2%;
+  padding-bottom: 5%;
+
+  .digital-transition-answers {
+    list-style: none;
+    width: 100%;
+    margin: 0;
+    padding: 0 0 35px;
+    display: block;
+    border-bottom: 2px solid #efefef;
+  }
+  .digital-transition-answers:last-of-type {
+    border-bottom: 0;
+  }
+
+  .digital-transition-answers:before {
+    content: '';
+    position: relative;
+    top: 8px;
+    left: 9.5%;
+    display: block;
+    background-color: $secondary;
+    height: 4px;
+    width: 78%;
+  }
+  .digital-transition-answers li {
+    display: inline-block;
+    width: 19%;
+    text-align: center;
+    vertical-align: top;
+  }
+  .digital-transition-answers li input[type='radio'] {
+    display: block;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    margin-left: -6px;
+  }
+  .move-down {
+    margin-top: 30px;
+
+    .input-titles-second {
+      font-size: $small;
+      margin-left: 5%;
+      margin-bottom: 6%;
+      margin-top: 5%;
+
+      h5 {
+        font-size: 10px;
+
+      }
+  }
+}
+
+  .move-further-down {
+    margin-top: 35px;
+  }
+}

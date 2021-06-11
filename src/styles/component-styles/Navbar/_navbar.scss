@@ -1,0 +1,37 @@
+.navbar {
+  border-bottom: solid $color-add-color-light 3px;
+  width: 100%;
+  height: 6rem;
+  min-height: 5rem;
+  @include flex(center, center, row);
+  .navbar-container {
+    @include flex(space-between, center, row);
+    background-color: $color-background;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    &__logo {
+      width: 10rem;
+      // min-width: 10rem;
+    }
+  }
+
+  .signedOutLinks,
+  .signedInLinks {
+    font-size: 1.5rem;
+    display: flex;
+    width: 180px;
+    justify-content: space-between;
+
+    &__button {
+      @include flex(center, center, row);
+      border: solid $color-add-color-dark 1px;
+      padding: 1rem 0.5rem;
+      width: 8rem;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $color-add-color-dark;
+      }
+    }
+  }
+}

@@ -1,6 +1,19 @@
 // style imports
 // global
-@import "./variables";
-@import "./global-styles";
+@import './variables';
+@import './global-styles';
+@import './mixins';
 
 // components
+@import './component-styles/Navbar/navbar';
+@import './component-styles/UserRegistration/UserRegistration';
+@import './component-styles/CompanyRegistration/company_registration';
+@import './component-styles/ScoresInterpretation/scores-interpretation';
+
+@import './component-styles/Navbar/navbar';
+
+// pages
+@import './pages-styles/landingPage';
+@import './pages-styles/domain'; // custom
+@import './custom-styles/customButton';
+@import './pages-styles/resultsPage';

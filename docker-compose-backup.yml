@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+    react-app:
+        # stdin_open: true
+        # tty: true
+        build: 
+            context: .
+            dockerfile: Dockerfile.dev
+        ports:
+            - "3000:3000"
+        volumes:
+            - ./src:/app/src:ro
+        env_file: 
+            - ./.env
+
+
