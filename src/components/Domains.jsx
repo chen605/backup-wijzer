@@ -8,43 +8,42 @@ import { useHistory } from 'react-router-dom';
 
 const Domains = ({ domain }) => {
   const { uid } = useSelector(selectUser);
-  const history = useHistory()
+  const history = useHistory();
 
   const data = useFetch(`/questions?domain=${domain}`);
 
-  const [answers, setAnswers] = useState({})
+  const [answers, setAnswers] = useState({});
 
   const handleChange = (event) => {
     let { name, value, type } = event.target;
-    value = value.trim()
+    value = value.trim();
     if (type === 'checkbox') {
-      setAnswers(state => {
+      setAnswers((state) => {
         let stateString;
         if (state[name] === '' || state[name] === undefined) {
-          stateString = value
+          stateString = value;
         } else {
-          stateString = state[name]
+          stateString = state[name];
           if (!stateString.includes(value) && event.target.checked) {
-            stateString += ",," + value.trim();
+            stateString += ',,' + value.trim();
           }
-          if (stateString.includes(value) && !(event.target.checked)) {
-            stateString = stateString.replace(value + ",,", '')
-            stateString = stateString.replace(",," + value, '')
+          if (stateString.includes(value) && !event.target.checked) {
+            stateString = stateString.replace(value + ',,', '');
+            stateString = stateString.replace(',,' + value, '');
           }
         }
-        return { ...answers, [name]: stateString }
-      })
+        return { ...answers, [name]: stateString };
+      });
     } else {
-      setAnswers({ ...answers, [name]: value })
+      setAnswers({ ...answers, [name]: value });
     }
-  }
-
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(answers)
 
     const formInput = JSON.stringify(answers);
+    console.log(formInput);
     const domainName = process.env.REACT_APP_DOMAIN_NAME;
     try {
       await axios.post(`${domainName}/answers?domain=${domain}`, formInput, {
@@ -61,8 +60,8 @@ const Domains = ({ domain }) => {
     }
   };
 
-  let count
-  let subfield = 1
+  let count;
+  let subfield = 1;
   for (let index = 0; index < data.length; index++) {
     const item = data[index];
     if (index === 0 && item.type === 'checkbox') {
@@ -94,11 +93,17 @@ const Domains = ({ domain }) => {
 
   return (
     <section>
-      <form onSubmit={e => handleSubmit(e)}>
+      <form onSubmit={(e) => handleSubmit(e)}>
         {newData.map((items) => (
-          <DomainItem items={items} key={items[0].subfield} handleChange={handleChange} />
+          <DomainItem
+            items={items}
+            key={items[0].subfield}
+            handleChange={handleChange}
+          />
         ))}
-        <button type="submit" value="Submit">Submit</button>
+        <button type="submit" value="Submit">
+          Submit
+        </button>
       </form>
     </section>
   );

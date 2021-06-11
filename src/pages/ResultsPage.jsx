@@ -63,7 +63,7 @@ export default function ResultsPage() {
 
           <StyledButton
             variant="contained"
-            onClick={() => history.push('/domain-one')}
+            onClick={() => history.push('/data')}
           >
             Ga naar eerste domein
           </StyledButton>
@@ -80,7 +80,7 @@ export default function ResultsPage() {
           <StyledButton
             variant="contained"
             color="secondary"
-            onClick={() => history.push('/domain-two')}
+            onClick={() => history.push('/crm')}
           >
             Ga naar tweede domein
           </StyledButton>
@@ -97,7 +97,7 @@ export default function ResultsPage() {
           <StyledButton
             variant="contained"
             color="primary"
-            onClick={() => history.push('/domain-three')}
+            onClick={() => history.push('/digitalproducts')}
           >
             Ga naar derde domein
           </StyledButton>
@@ -116,7 +116,7 @@ export default function ResultsPage() {
             color="#ffd542"
             className="domain-button"
             variant="contained"
-            onClick={() => history.push('/domain-four')}
+            onClick={() => history.push('/security')}
           >
             Ga naar vierde domein
           </StyledButton>
@@ -133,7 +133,7 @@ export default function ResultsPage() {
           <StyledButton
             variant="contained"
             color="primary"
-            onClick={() => history.push('/domain-five')}
+            onClick={() => history.push('/ai')}
           >
             Ga naar vijfde domein
           </StyledButton>
