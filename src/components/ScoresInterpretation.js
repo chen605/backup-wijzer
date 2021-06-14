@@ -32,7 +32,7 @@ const interpretationCloudScoresArray = [
   "2.	Verzamelen en beschrijven: Heeft inzicht in de mogelijkheden en verschillende aanbieders van infrastructuur, office, cloud en veiligheid, maar welke keuze past het beste bij het bedrijf? Er is vooral behoefte aan ondersteuning bij het bepalen van selectiecriteria en maken van keuzes.",
   "3.	Analyseren: Is in staat om aanbieders te beoordelen aan de hand van voor het bedrijf relevante selectiecriteria en kan ook de bestendigheid en veiligheid van de huidige situatie beoordelen. Er is behoefte aan inzicht in de toekomstige behoefte van het bedrijf.",
   "4.	Voorspellen: Heeft al grip op toekomstige behoefte en risico’s van het netwerk met infrastructuur, office, cloud en veiligheid-oplossingen die met het bedrijf mee ontwikkelen. Personaliseert de (security)instellingen van standaardsoftware vergaand en heeft de ontwikkeling van infrastructuur, cloud en office toepassingen opgenomen in hun business planning/ investeringsagenda.",
-  "5.	Groeien: kent de ontwikkelingen en mogelijkheden op het gebied van infrastructuur, office, cloud en veiligheid en heeft met name behoefte aan toegang tot kapitaal, talent en de laatste ontwikkelingen."
+  "5.	Groeien: kent de ontwikkelingen en mogelijkheden op het gebied van infrastructuur, office, cloud en veiligheid en heeft met name behoefte aan toegang tot kapitaal, talent en de laatste ontwikkelingen.",
 ];
 
 const interpretationAiScoresArray = [
@@ -43,15 +43,11 @@ const interpretationAiScoresArray = [
   "5.	Groeien: kent de ontwikkelingen en mogelijkheden van AI en andere nieuwe technologieën en heeft met name behoefte aan toegang tot kapitaal, talent en de laatste ontwikkelingen.",
 ];
 
-
-
-
 const ScoresInterpretation = () => {
   const { uid } = useSelector(selectUser);
   const [dataScore, setDataScore] = useState([]);
   const [crmScore, setCrmScore] = useState([]);
   const [digitalProductsScore, setDigitalProductsScore] = useState([]);
-
 
   const [cloudScore, setCloudScore] = useState([]);
   const [aiScore, setAiScore] = useState([]);
@@ -93,8 +89,6 @@ const ScoresInterpretation = () => {
           let cloudScore = Math.round(resultsArray[3]);
           let aiScore = Math.round(resultsArray[4]);
 
-          
-
           setDataScore(interpretationDataScoresArray[dataScore - 1]);
           setCrmScore(interpretationCrmScoresArray[crmScore - 1]);
           setDigitalProductsScore(
@@ -102,9 +96,7 @@ const ScoresInterpretation = () => {
           );
           setCloudScore(interpretationCloudScoresArray[cloudScore - 1]);
           setAiScore(interpretationAiScoresArray[aiScore - 1]);
-          
         };
-
 
         meaningScores();
       });
@@ -116,7 +108,7 @@ const ScoresInterpretation = () => {
 
   return (
     <div className="scores-container">
-      <h2>Betekenis van uw score</h2>
+      <h2 className="scores-interpretation-title">Betekenis van uw score</h2>
       <div className="data-container">
         <h3>Data, dashboards &amp; business intelligence</h3>
         <section>{dataScore}</section>

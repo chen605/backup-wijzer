@@ -15,12 +15,13 @@
   margin-bottom: 15px;
   margin-top: 15px;
   
-.dashboard-title {
+  .dashboard-title {
   padding: 2px;
-  
   margin-left: 10px;
+  }
 }
-}
+
+
 
 .image-dashboard-container {
   display: flex;
@@ -28,8 +29,6 @@
   align-items: center;
   margin: 30px;
   border-top: 2px solid lightgray;
-  
-  
 
 
   img {
@@ -41,7 +40,7 @@
 
 .chart-container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   padding: 5px;
   margin-top: 5%;
   

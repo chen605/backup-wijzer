@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import Chart from '../components/Chart';
-import { CircleProgress } from 'react-gradient-progress';
-import { Button } from '@material-ui/core';
-import { useHistory } from 'react-router-dom';
-import { withStyles } from '@material-ui/core/styles';
-import axios from 'axios';
-import { useSelector } from 'react-redux';
-import { selectUser } from '../features/userSlice';
-import ScoresInterpretation from '../components/ScoresInterpretation';
-import dashboard from '../img/dashboard-icon.png';
+import React, { useState, useEffect } from "react";
+import Chart from "../components/Chart";
+import { CircleProgress } from "react-gradient-progress";
+import { Button } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
+import { withStyles } from "@material-ui/core/styles";
+import axios from "axios";
+import { useSelector } from "react-redux";
+import { selectUser } from "../features/userSlice";
+import ScoresInterpretation from "../components/ScoresInterpretation";
+import dashboard from "../img/dashboard-icon.png";
 
 export default function ResultsPage() {
   const { uid } = useSelector(selectUser);
@@ -19,7 +19,7 @@ export default function ResultsPage() {
     axios
       .get(`${domainName}/userprogress`, {
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
           userFirebaseId: uid,
         },
       })
@@ -31,22 +31,20 @@ export default function ResultsPage() {
     getProgressData();
   }, []);
 
-  
   const { data, crm, ai, company, digitalProducts, security } = progress;
-  
 
   const StyledButton = withStyles({
     root: {
-      background: 'linear-gradient(45deg, #ffd542 30%, #fff992 90%)',
+      background: "linear-gradient(45deg, #ffd542 30%, #fff992 90%)",
       borderRadius: 3,
       border: 0,
-      color: 'black',
-      height: '30px',
-      padding: '0 30px',
-      boxShadow: '0 1px 1px 1px rgba(59, 79, 228, .1)',
+      color: "black",
+      height: "30px",
+      padding: "0 30px",
+      boxShadow: "0 1px 1px 1px rgba(59, 79, 228, .1)",
     },
     label: {
-      textTransform: 'capitalize',
+      textTransform: "capitalize",
     },
   })(Button);
 
@@ -70,7 +68,7 @@ export default function ResultsPage() {
             variant="contained"
             onClick={() => history.push("/data")}
           >
-            Start eerste domein
+            {data ? "Bekijk uw antwoorden" : "Start eerste domein"}
           </StyledButton>
         </div>
 
@@ -87,7 +85,7 @@ export default function ResultsPage() {
             color="secondary"
             onClick={() => history.push("/crm")}
           >
-            Start tweede domein
+            {crm ? "Bekijk uw antwoorden" : "Start tweede domein"}
           </StyledButton>
         </div>
 
@@ -104,7 +102,7 @@ export default function ResultsPage() {
             color="primary"
             onClick={() => history.push("/digitalproducts")}
           >
-            Start derde domein
+            {digitalProducts ? "Bekijk uw antwoorden" : "Start derde domein"}
           </StyledButton>
         </div>
 
@@ -123,7 +121,7 @@ export default function ResultsPage() {
             variant="contained"
             onClick={() => history.push("/security")}
           >
-            Start vierde domein
+            {security ? "Bekijk uw antwoorden" : "Start vierde domein"}
           </StyledButton>
         </div>
 
@@ -140,7 +138,7 @@ export default function ResultsPage() {
             color="primary"
             onClick={() => history.push("/ai")}
           >
-            Start vijfde domein
+            {ai ? "Bekijk uw antwoorden" : "Start vijfde domein"}
           </StyledButton>
         </div>
       </div>
