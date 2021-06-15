@@ -10,7 +10,7 @@ const OpenQuestion = ({ items, handleChange }) => {
 
   const checkboxHandler = (event) => {
     handleChange(event);
-    const targetText = event.target.labels[0].innerText;
+    const targetText = event.target.labels[0].innerText.trim();
     setQuestions((state) => {
       const target =
         state.invisible.find((item) => item.question === targetText) ||
@@ -29,6 +29,7 @@ const OpenQuestion = ({ items, handleChange }) => {
         invisible: state.invisible,
         visible: state.visible,
       };
+      
       return state;
     });
   };
