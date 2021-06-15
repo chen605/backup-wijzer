@@ -65,7 +65,7 @@ const LoginAndRegister = () => {
         passwordRef.current.value
       )
       .then((authUser) => {
-        history.push('/');
+        history.push('/dashboard');
       })
       .catch((error) => {
         alert(error.message);

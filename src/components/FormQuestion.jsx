@@ -13,7 +13,7 @@ const FormQuestion = ({ question, handleChange }) => {
               {question.answersList.map((answer) => (
                 <div>
                   <label>
-                    {answer}&nbsp;&nbsp;
+                    <span>{answer}</span>
                     <input
                       type="radio"
                       name={'answer' + question.id}
@@ -38,7 +38,7 @@ const FormQuestion = ({ question, handleChange }) => {
                       value={`${answer}`}
                       onChange={handleChange}
                     />
-                    &nbsp;&nbsp;{answer}
+                    <span>{answer}</span>
                   </label>
                 </div>
               ))}
@@ -50,7 +50,7 @@ const FormQuestion = ({ question, handleChange }) => {
               {question.answersList.map((answer) => (
                 <div>
                   <label>
-                    {answer}&nbsp;&nbsp;
+                    <span>{answer}</span>
                     <input
                       type="radio"
                       name={'answer' + question.id}
@@ -69,7 +69,6 @@ const FormQuestion = ({ question, handleChange }) => {
               {question.answersList.map((answer) => (
                 <div>
                   <label>
-                    {answer}&nbsp;&nbsp;
                     <input
                       type="radio"
                       name={'answer' + question.id}
@@ -77,6 +76,7 @@ const FormQuestion = ({ question, handleChange }) => {
                       onChange={handleChange}
                       required
                     />
+                    <span>{answer}</span>
                   </label>
                 </div>
               ))}
