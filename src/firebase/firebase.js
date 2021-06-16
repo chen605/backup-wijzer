@@ -14,8 +14,6 @@ var config = {
   measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
 };
 
-console.log(process.env.REACT_APP_FIREBASE_KEY)
-
 const firebaseApp = firebase.initializeApp(config);
 firebase.firestore().settings({ timestampsInSnapshots: true });
 
