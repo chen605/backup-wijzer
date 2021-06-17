@@ -6,21 +6,22 @@ import CustomButton from './custom-component/CustomButton';
 import Banner from './Banner/Banner';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../features/userSlice';
+import moment from 'moment';
 
 const UserRegistration = () => {
   const { uid } = useSelector(selectUser);
+  const date = moment().format('YYYY-MM-DD');
   const history = useHistory();
 
   const [userCredentials, setUserCredentials] = useState({
     firstName: '',
     lastName: '',
     birthDate: '',
-    signUpDate: '',
+    signUpDate: date,
     gender: '',
   });
 
-  const { firstName, lastName, birthDate, gender, signUpDate } =
-    userCredentials;
+  const { firstName, lastName, birthDate, gender } = userCredentials;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -143,18 +144,6 @@ const UserRegistration = () => {
           />
         </div>
 
-        <div className="user-registration__input">
-          <label className="user-registration__input__title">
-            Inschrijf datum
-          </label>
-          <input
-            type="date"
-            name="signUpDate"
-            value={signUpDate}
-            placeholder="dd/mm/yyyy"
-            onChange={handleChange}
-          />
-        </div>
         <CustomButton type="submit" name="Submit" />
       </form>
     </div>
