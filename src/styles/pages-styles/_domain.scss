@@ -19,6 +19,10 @@ main {
         font-size: $smallest;
         padding: 15px 10px;
         .subitem {
+          .question__header {
+            text-transform: uppercase;
+            margin-bottom: 8px;
+          }
           .answer {
             font-family: 'CeraPro-Regular';
             font-size: $small;
@@ -29,6 +33,20 @@ main {
               margin-bottom: 2%;
               display: flex;
               justify-content: space-evenly;
+              div label {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                span {
+                  margin-bottom: 8px;
+                }
+              }
+            }
+            @media screen and (max-width:1000px) {
+              &__matrix,
+              &__rating {
+                flex-direction: column;
+              }
             }
           }
         }

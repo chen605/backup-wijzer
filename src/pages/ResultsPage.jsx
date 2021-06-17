@@ -68,7 +68,7 @@ export default function ResultsPage() {
             variant="contained"
             onClick={() => history.push("/data")}
           >
-            {data ? "Bekijk uw antwoorden" : "Start eerste domein"}
+            {data ? "Vul uw antwoorden opnieuw in" : "Start eerste domein"}
           </StyledButton>
         </div>
 
@@ -85,7 +85,7 @@ export default function ResultsPage() {
             color="secondary"
             onClick={() => history.push("/crm")}
           >
-            {crm ? "Bekijk uw antwoorden" : "Start tweede domein"}
+            {crm ? "Vul uw antwoorden opnieuw in" : "Start tweede domein"}
           </StyledButton>
         </div>
 
@@ -102,7 +102,7 @@ export default function ResultsPage() {
             color="primary"
             onClick={() => history.push("/digitalproducts")}
           >
-            {digitalProducts ? "Bekijk uw antwoorden" : "Start derde domein"}
+            {digitalProducts ? "Vul uw antwoorden opnieuw in" : "Start derde domein"}
           </StyledButton>
         </div>
 
@@ -121,7 +121,7 @@ export default function ResultsPage() {
             variant="contained"
             onClick={() => history.push("/security")}
           >
-            {security ? "Bekijk uw antwoorden" : "Start vierde domein"}
+            {security ? "Vul uw antwoorden opnieuw in" : "Start vierde domein"}
           </StyledButton>
         </div>
 
@@ -138,7 +138,7 @@ export default function ResultsPage() {
             color="primary"
             onClick={() => history.push("/ai")}
           >
-            {ai ? "Bekijk uw antwoorden" : "Start vijfde domein"}
+            {ai ? "Vul uw antwoorden opnieuw in" : "Start vijfde domein"}
           </StyledButton>
         </div>
       </div>

@@ -65,7 +65,6 @@ const LoginAndRegister = () => {
         passwordRef.current.value
       )
       .then((userAuth) => {
-        console.log(userAuth.user.uid);
         const progress = axios.get('http://localhost:8080/userprogress', {
           headers: {
             'Content-Type': 'application/json',
@@ -76,9 +75,6 @@ const LoginAndRegister = () => {
       })
       .then((userprogress) => {
         const { user, company } = userprogress.data;
-
-        console.log(userprogress.data);
-
         if (user === false) {
           history.push('/');
         } else if (user === true && company === false) {
