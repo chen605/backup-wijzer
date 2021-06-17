@@ -64,8 +64,28 @@ const LoginAndRegister = () => {
         emailRef.current.value,
         passwordRef.current.value
       )
-      .then((authUser) => {
-        history.push('/');
+      .then((userAuth) => {
+        console.log(userAuth.user.uid);
+        const progress = axios.get('http://localhost:8080/userprogress', {
+          headers: {
+            'Content-Type': 'application/json',
+            userFirebaseId: userAuth.user.uid,
+          },
+        });
+        return progress;
+      })
+      .then((userprogress) => {
+        const { user, company } = userprogress.data;
+
+        console.log(userprogress.data);
+
+        if (user === false) {
+          history.push('/');
+        } else if (user === true && company === false) {
+          history.push('/company-registration');
+        } else {
+          history.push('/dashboard');
+        }
       })
       .catch((error) => {
         alert(error.message);
