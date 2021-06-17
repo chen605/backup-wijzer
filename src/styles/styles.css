@@ -818,6 +818,12 @@ main section form .subfield .subitem .answer__matrix div label span, main sectio
           justify-content: center;
 }
 
+@media screen and (max-width: 1000px) {
+  .player iframe {
+    width: 100%;
+  }
+}
+
 .customButton {
   background-color: #ffffff;
   color: #db944b;
