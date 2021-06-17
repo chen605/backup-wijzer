@@ -5,15 +5,17 @@ import Banner from './Banner/Banner';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../features/userSlice';
 import { useHistory } from 'react-router-dom';
+import moment from 'moment';
 
 const CompanyRegistration = () => {
   const { uid } = useSelector(selectUser);
+  const date = moment().format('YYYY-MM-DD');
   const history = useHistory();
 
   const [companyCredentials, setCompanyCredentials] = useState({
     address: '',
     postalCode: '',
-    registryDate: '2021-01-20',
+    registryDate: date,
     city: '',
     companyType: '',
     foundingYear: '',
