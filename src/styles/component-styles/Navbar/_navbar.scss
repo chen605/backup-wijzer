@@ -3,6 +3,11 @@
   width: 100%;
   height: 6rem;
   min-height: 5rem;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+
   @include flex(center, center, row);
   .navbar-container {
     @include flex(space-between, center, row);

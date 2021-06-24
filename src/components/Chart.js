@@ -4,7 +4,6 @@ import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../features/userSlice';
 
-
 const options = {
   animation: {
     animateRotate: true,
@@ -36,7 +35,7 @@ const Chart = () => {
       })
       .then((res) => {
         const data = res.data;
-        
+
         const resultsArray = [];
 
         let dataRating = data.dataRating;
@@ -52,30 +51,28 @@ const Chart = () => {
           securityRating,
           aiRating
         );
-        
 
         setConfig({
-          type: "polararea",
+          type: 'polararea',
           labels: [
-            "Data, dashboards & business intelligence",
-            "CRM & klantreis",
-            "Digitale producten, service & marketing",
-            "Cloud, kantoorautomatisering & veiligheid",
-            "AI & andere opkomende technologieën",
+            'Data, Dashboards & Business Intelligence',
+            'CRM & klantreis',
+            'Digitale producten, service & marketing',
+            'Cloud, kantoorautomatisering & veiligheid',
+            'AI & andere opkomende technologieën',
           ], //hardcoded it should be replaced with the labels variable
 
           datasets: [
             {
-              label: "results",
+              label: 'results',
               data: resultsArray, //hardcoded it should be replaced with the data variable
               backgroundColor: [
-                "#040FD9",
-                "#020873",
-                "#0554F2",
-                "#0597F2",
-                "#05AFF2",
+                '#ed5d4c',
+                '#ed5c4cd2',
+                '#ed5c4c93',
+                '#ed5c4c65',
+                '#ed5c4c3a',
               ],
-              
             },
           ],
         });
@@ -85,8 +82,6 @@ const Chart = () => {
   useEffect(() => {
     getChartData();
   }, []);
-
-  
 
   return (
     <>

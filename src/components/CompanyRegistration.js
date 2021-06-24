@@ -71,13 +71,15 @@ const CompanyRegistration = () => {
       <Banner />
       <form onSubmit={handleSubmit}>
         <div className="company-registration__input">
-          <label className="company-registration__input__title">Adres</label>
+          <label className="company-registration__input__title">
+            Bedrijfsadres
+          </label>
           <input
             type="text"
             name="address"
             value={address}
             onChange={handleChange}
-            placeholder="Your answer"
+            placeholder="Bedrijfsadres"
           />
         </div>
 
@@ -88,7 +90,7 @@ const CompanyRegistration = () => {
             name="postalCode"
             value={postalCode}
             onChange={handleChange}
-            placeholder="Your answer"
+            placeholder="Postcode"
           />
         </div>
 
@@ -99,7 +101,7 @@ const CompanyRegistration = () => {
             name="city"
             value={city}
             onChange={handleChange}
-            placeholder="Your answer"
+            placeholder="Plaats"
           />
         </div>
 
@@ -261,7 +263,7 @@ const CompanyRegistration = () => {
             type="text"
             name="foundingYear"
             value={foundingYear}
-            placeholder="Your answer"
+            placeholder="Oprichtingsjaar"
             onChange={handleChange}
           />
         </div>
@@ -274,7 +276,7 @@ const CompanyRegistration = () => {
             type="text"
             name="numberOfEmployeesInFte"
             value={numberOfEmployeesInFte}
-            placeholder="Your answer"
+            placeholder="Aantal medewerkers"
             onChange={handleChange}
           />
         </div>
@@ -287,7 +289,7 @@ const CompanyRegistration = () => {
             type="text"
             name="annualSales"
             value={annualSales}
-            placeholder="Your answer"
+            placeholder="Jaarlijkse omzet"
             onChange={handleChange}
           />
         </div>
@@ -560,7 +562,7 @@ const CompanyRegistration = () => {
             </ul>
           </div>
         </div>
-        <CustomButton type="submit" name="Submit" />
+        <CustomButton type="submit" name="Verder" />
       </form>
     </div>
   );

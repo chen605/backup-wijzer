@@ -25,7 +25,7 @@ main {
           }
           .answer {
             font-family: 'CeraPro-Regular';
-            font-size: $small;
+            font-size: $smaller;
             line-height: 1.5;
             &__matrix,
             &__rating {
@@ -42,7 +42,17 @@ main {
                 }
               }
             }
-            @media screen and (max-width:1000px) {
+            &__checkbox {
+              display: flex;
+              justify-content: flex-start;
+              align-items: flex-start;
+              flex-direction: column;
+              text-align: start;
+              input {
+                margin-left: 15px;
+              }
+            }
+            @media screen and (max-width: 1000px) {
               &__matrix,
               &__rating {
                 flex-direction: column;
@@ -58,8 +68,16 @@ main {
 //Vimeo player voor de 5 domeinen
 .player {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  @media screen and (max-width:1000px) {
+  align-items: center;
+  h1 {
+    font-size: $largest;
+  }
+  @media screen and (max-width: 1000px) {
+    h1 {
+      font-size: $smaller;
+    }
     iframe {
       width: 100%;
     }
