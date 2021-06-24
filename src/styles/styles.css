@@ -992,6 +992,12 @@ main section form .subfield .subitem .answer__checkbox input {
 }
 
 @media screen and (max-width: 600px) {
+  .results-page__circle {
+    width: 90%;
+  }
+  .results-page__circle button {
+    font-size: 12px;
+  }
   .chart-container {
     display: -webkit-box;
     display: -ms-flexbox;
