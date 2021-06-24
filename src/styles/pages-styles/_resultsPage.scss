@@ -67,6 +67,15 @@
 }
 
 @media screen and(max-width: 600px) {
+  .results-page {
+    &__circle {
+      width: 90%;
+
+      button {
+        font-size: 12px;
+      }
+    }
+  }
   .chart-container {
     display: flex;
     flex-direction: column;
