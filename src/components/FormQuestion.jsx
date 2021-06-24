@@ -3,7 +3,7 @@ import React from 'react';
 const FormQuestion = ({ question, handleChange }) => {
   return (
     <div className="subitem">
-      <h2 className={`question__${question.type}`}>{question.question}</h2>
+      <h3 className={`question__${question.type}`}>{question.question}</h3>
       {/* mapping object of the data domain */}
       {
         {

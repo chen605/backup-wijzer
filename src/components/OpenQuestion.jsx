@@ -29,7 +29,7 @@ const OpenQuestion = ({ items, handleChange }) => {
         invisible: state.invisible,
         visible: state.visible,
       };
-      
+
       return state;
     });
   };

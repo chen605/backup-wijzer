@@ -68,7 +68,7 @@ const UserRegistration = () => {
             name="firstName"
             value={firstName}
             onChange={handleChange}
-            placeholder="Your answer"
+            placeholder="Voornaam"
           />
         </div>
 
@@ -79,7 +79,8 @@ const UserRegistration = () => {
             name="lastName"
             value={lastName}
             onChange={handleChange}
-            placeholder="Your answer"
+            placeholder="Achternaam"
+            required
           />
         </div>
 
@@ -92,6 +93,7 @@ const UserRegistration = () => {
               value="Man"
               checked={gender === 'Man'}
               onChange={handleChange}
+              required
             />
             &nbsp;Man
           </label>
@@ -126,7 +128,7 @@ const UserRegistration = () => {
               checked={gender === 'Other'}
               onChange={handleChange}
             />
-            &nbsp;Other
+            &nbsp;Anders
             {/* <input type="text" /> */}
           </label>
         </div>
@@ -141,10 +143,11 @@ const UserRegistration = () => {
             value={birthDate}
             placeholder="dd/mm/yyyy"
             onChange={handleChange}
+            required
           />
         </div>
 
-        <CustomButton type="submit" name="Submit" />
+        <CustomButton type="submit" name="Verder" />
       </form>
     </div>
   );

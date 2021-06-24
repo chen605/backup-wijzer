@@ -52,7 +52,6 @@ const Domains = ({ domain }) => {
           userFirebaseId: uid,
         },
       });
-      alert('Registratie succesvol!');
 
       history.push(`/dashboard`);
     } catch (error) {
@@ -101,7 +100,7 @@ const Domains = ({ domain }) => {
             handleChange={handleChange}
           />
         ))}
-        <CustomButton type="submit" value="Submit" name="Submit" />
+        <CustomButton type="submit" value="Submit" name="Verder" />
       </form>
     </section>
   );

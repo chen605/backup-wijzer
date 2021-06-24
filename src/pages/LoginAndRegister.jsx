@@ -40,7 +40,7 @@ const LoginAndRegister = () => {
               userFirebaseId: userAuth.user.uid,
             },
           });
-          alert('Registratie succesvol!');
+
           history.push('/');
         } catch (error) {
           alert(error.message);
@@ -65,7 +65,8 @@ const LoginAndRegister = () => {
         passwordRef.current.value
       )
       .then((userAuth) => {
-        const progress = axios.get('http://localhost:8080/userprogress', {
+        const domainName = process.env.REACT_APP_DOMAIN_NAME;
+        const progress = axios.get(`${domainName}/userprogress`, {
           headers: {
             'Content-Type': 'application/json',
             userFirebaseId: userAuth.user.uid,
@@ -105,8 +106,10 @@ const LoginAndRegister = () => {
           <CustomButton type="submit" onClick={signIn} name="Log In" />
 
           <h4 onClick={() => dispatch(signupstate(!signup))}>
-            <span className="signupScreen__gray">Don't have an account? </span>
-            <span className="signupScreen__link">Register now</span>
+            <span className="signupScreen__gray">
+              Heb je nog geen account?{' '}
+            </span>
+            <span className="signupScreen__link">Meld je hier aan.</span>
           </h4>
         </form>
       ) : (
@@ -131,12 +134,8 @@ const LoginAndRegister = () => {
           <CustomButton type="submit" onClick={register} name="Registreer" />
 
           <h4 onClick={() => dispatch(signupstate(!signup))}>
-            <span className="signupScreen__gray">
-              Already have an account?{' '}
-            </span>
-            <span className="signupScreen__link">
-              Login to an existing account
-            </span>
+            <span className="signupScreen__gray">Heb je al een account? </span>
+            <span className="signupScreen__link">Log hier in.</span>
           </h4>
         </form>
       )}

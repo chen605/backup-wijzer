@@ -17,7 +17,7 @@ const LandingPage = () => {
       {/* video player */}
       <div className="landingPage__player-wrapper">
         <iframe
-          src="https://player.vimeo.com/video/558045780?autoplay=1&amp;muted=1&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+          src="https://player.vimeo.com/video/558045780?autoplay=1&amp;muted=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
           width="45%"
           allow="autoplay"
           height="100%"
@@ -40,7 +40,7 @@ const LandingPage = () => {
             onderdelen van digitalisering zijn toegang nodig hebben tot kennis
             en toepassingen.
           </p>
-          <button onClick={() => history.push('/login')}>GET STARTED</button>
+          <button onClick={() => history.push('/login')}>Aan de slag</button>
         </div>
       </div>
     </div>
