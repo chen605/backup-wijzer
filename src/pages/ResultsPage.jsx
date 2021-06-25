@@ -120,9 +120,9 @@ export default function ResultsPage() {
         <Chart />
         <ScoresInterpretation />
       </div>
-      <div className="image-dashboard-container">
+      {/* <div className="image-dashboard-container">
         <img src={dashboard} alt="" />
-      </div>
+      </div> */}
     </div>
   );
 }

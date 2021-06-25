@@ -43,14 +43,31 @@ const interpretationAiScoresArray = [
   '5.	Groeien: kent de ontwikkelingen en mogelijkheden van AI en andere nieuwe technologieën en heeft met name behoefte aan toegang tot kapitaal, talent en de laatste ontwikkelingen.',
 ];
 
+const interpretationStrategyScoresArray = [
+  '1. Beginnen: Zoals in elk bedrijf staat digitalisering op de agenda van het managementteam, maar bij de leiding van je bedrijf is het niet altijd duidelijk wat de kansen en risico’s zijn. Je wil meer kennis over algemene technische, juridische, commerciële en ethische aspecten.',
+  '2.	Verzamelen en beschrijven: De rest van je management team en jij hebben al voldoende basiskennis, maar er is vooral behoefte aan overzicht. Je kunt ondersteuning gebruiken bij het ontsluiten en prioriteren van ontwikkelingen',
+  '3.	Analyseren: Je neemt stappen op alle domeinen van digitalisering, maar kun je dit verder optimaliseren? Je hebt behoefte aan het visualiseren van indicatoren, zodat jullie meer inzicht krijgen en kunnen bijsturen.',
+  '4.	Voorspellen: Je managementteam analyseert digitalisering op alle domeinen systematisch. Je hebt vooral inzicht nodig in de toekomstige ontwikkelingen en mogelijke investeringsvraag, zoals digitalisering een vast onderdeel is van je business planning.',
+  '5.	Groeien: Je weet inmiddels wat er nodig is voor een toekomstbestendig bedrijf. Om dit te kunnen uitvoeren, heb je behoefte aan toegang tot kapitaal en talent.',
+];
+
+const interpretationSkillsScoresArray = [
+  '1.	Beginnen: Je medewerkers krijgen steeds meer te maken met digitalisering. Zij hebben behoefte aan training om te zorgen dat de basiskennis door het hele bedrijf voldoende is.',
+  '2.	Verzamelen en beschrijven: Medewerkers in je bedrijf hebben voldoende basiskennis over elk domein van digitalisering en als ze dat niet hebben, zijn er trainingen om snel bij te leren. Sommige medewerkers lopen voorop en gebruiken allerlei slimme digitale tools die hun productiviteit verbeteren, maar hoe maak je dit voor iedereen beschikbaar en onderdeel van je standaard bedrijfsprocessen?',
+  '3.	Analyseren: Er zijn duidelijk afgebakende digitale tools en processen - en de kennis die daarvoor nodig is - in je bedrijf die beschikbaar zijn voor elke medewerker. Je kunt ondersteuning gebruiken bij het beoordelen van de prestaties van elke medewerker.',
+  '4.	Voorspellen: In je bedrijf is het voor iedereen duidelijk dat de ontwikkelingen snel gaan en dat medewerkers zich daarom doorlopend moeten blijven ontwikkelen. Je kunt de prestaties van medewerkers ook volgen, maar hoe voorspel je de vaardigheden die nodig zijn in je bedrijf in de toekomst? Je hebt ondersteuning nodig bij het bepalen van welke vaardigheden je medewerkers nodig missen en welke nieuwe functies er in de toekomst nodig zijn in je bedrijf.',
+  '5.	Groeien: Je team is goed opgeleid en komen geregeld met eigen initiatieven om de productiviteit in je bedrijf te verbeteren. Het management ziet daar ook de kansen van en heeft dit in de business planning opgenomen. Nu is er vooral behoefte aan toegang tot kapitaal, talent en inzicht in de laatste ontwikkelingen om dit te realiseren.',
+];
+
 const ScoresInterpretation = () => {
   const { uid } = useSelector(selectUser);
   const [dataScore, setDataScore] = useState([]);
   const [crmScore, setCrmScore] = useState([]);
   const [digitalProductsScore, setDigitalProductsScore] = useState([]);
-
   const [cloudScore, setCloudScore] = useState([]);
   const [aiScore, setAiScore] = useState([]);
+  const [strategyScore, setStrategyScore] = useState([]);
+  const [skillsScore, setSkillsScore] = useState([]);
   const domainName = process.env.REACT_APP_DOMAIN_NAME;
 
   function getMeaningOfScore() {
@@ -70,13 +87,16 @@ const ScoresInterpretation = () => {
         let digitalProductsRating = data.digitalProductsRating;
         let securityRating = data.securityRating;
         let aiRating = data.aiRating;
-
+        let strategyRating = data.strategyRating;
+        let skillsRating = data.skillsRating;
         resultsArray.push(
           dataRating,
           crmRating,
           digitalProductsRating,
           securityRating,
-          aiRating
+          aiRating,
+          strategyRating,
+          skillsRating
         );
         setDataScore(resultsArray);
         setCrmScore(resultsArray);
@@ -88,6 +108,8 @@ const ScoresInterpretation = () => {
           let digitalProductsScore = Math.round(resultsArray[2]);
           let cloudScore = Math.round(resultsArray[3]);
           let aiScore = Math.round(resultsArray[4]);
+          let strategyScore = Math.round(resultsArray[5]);
+          let skillsScore = Math.round(resultsArray[6]);
 
           setDataScore(interpretationDataScoresArray[dataScore - 1]);
           setCrmScore(interpretationCrmScoresArray[crmScore - 1]);
@@ -96,8 +118,9 @@ const ScoresInterpretation = () => {
           );
           setCloudScore(interpretationCloudScoresArray[cloudScore - 1]);
           setAiScore(interpretationAiScoresArray[aiScore - 1]);
+          setStrategyScore(interpretationStrategyScoresArray[strategyScore - 1])
+          setSkillsScore(interpretationSkillsScoresArray[skillsScore - 1])
         };
-
         meaningScores();
       });
   }
@@ -132,6 +155,14 @@ const ScoresInterpretation = () => {
       <div className="ai-container">
         <h3>Artificial Intelligence &amp; en andere opkomende technologieën</h3>
         <section>{aiScore}</section>
+      </div>
+      <div className="data-container">
+        <h3>Digital Strategy & Leadership</h3>
+        <section>{strategyScore}</section>
+      </div>
+      <div className="crm-container">
+        <h3>Digital Skills</h3>
+        <section>{skillsScore}</section>
       </div>
     </div>
   );
