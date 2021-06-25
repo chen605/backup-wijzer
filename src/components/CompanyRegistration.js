@@ -59,7 +59,6 @@ const CompanyRegistration = () => {
           userFirebaseId: uid,
         },
       });
-      alert('Registratie succesvol!');
       history.push('/dashboard');
     } catch (error) {
       alert(error.message);

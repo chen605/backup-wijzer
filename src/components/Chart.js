@@ -43,23 +43,29 @@ const Chart = () => {
         let digitalProductsRating = data.digitalProductsRating;
         let securityRating = data.securityRating;
         let aiRating = data.aiRating;
+        let strategyRating = data.strategyRating;
+        let skillsRating = data.skillsRating;
 
         resultsArray.push(
           dataRating,
           crmRating,
           digitalProductsRating,
           securityRating,
-          aiRating
+          aiRating,
+          strategyRating,
+          skillsRating
         );
 
         setConfig({
           type: 'polararea',
           labels: [
             'Data, Dashboards & Business Intelligence',
-            'CRM & klantreis',
-            'Digitale producten, service & marketing',
-            'Cloud, kantoorautomatisering & veiligheid',
+            'CRM & Klantreis',
+            'Digitale producten, Service & Marketing',
+            'Cloud, Kantoorautomatisering & Veiligheid',
             'AI & andere opkomende technologieën',
+            'Digital Strategy',
+            'Digital Skills',
           ], //hardcoded it should be replaced with the labels variable
 
           datasets: [
@@ -72,6 +78,8 @@ const Chart = () => {
                 '#ed5c4c93',
                 '#ed5c4c65',
                 '#ed5c4c3a',
+                '#ed5d4c',
+                '#ed5c4cd2',
               ],
             },
           ],

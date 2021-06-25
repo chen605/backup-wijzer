@@ -50,7 +50,7 @@ const UserRegistration = () => {
           userFirebaseId: uid,
         },
       });
-      alert('Registratie succesvol!');
+     
       history.push('/company-registration');
     } catch (error) {
       alert(error.message);
