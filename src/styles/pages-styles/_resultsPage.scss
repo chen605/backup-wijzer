@@ -22,7 +22,7 @@
         text-transform: none;
       }
     }
-  }
+  } 
 }
 .dashboard-container {
   margin-bottom: 15px;
@@ -64,6 +64,14 @@
   .results-page__circle {
     border: 2px solid lightgray;
   }
+  .results-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .results-page__circle2 {
+    border: 2px solid lightgray;
+  }
 }
 
 @media screen and(max-width: 600px) {
@@ -74,6 +82,17 @@
       button {
         font-size: 12px;
       }
+     
+    }
+  }
+  .results-page {
+    &__circle2 {
+      width: 90%;
+
+      button {
+        font-size: 12px;
+      }
+     
     }
   }
   .chart-container {
